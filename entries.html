@@ -35,35 +35,9 @@
   {{/entries}}
 </div>
 
-    <br><br><br>
-
-    {{#pagination}}
-
-      {{#previous}}
-        <a class="menu" href="/page/{{previous}}">&larr;&nbsp;Newer posts</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      {{/previous}}
-
-      {{#next}}
-        <a class="menu" href="/page/{{next}}">Next page &rarr;</a>
-      {{/next}}
-
-      {{^previous}}
         <div class="more-writing">
           <a href="/archives">Read more words&nbsp;&rarr;</a>
         </div>
-      {{/previous}}
-
-      {{#previous}}
-        <hr class="full">
-
-        <div style="text-align: right;">
-          <small>Page {{current}} of {{total}}</small>
-        </div>
-      {{/previous}}
-
-    {{/pagination}}
-
-    <br>
 
     {{> footer}}
   </body>
