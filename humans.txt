@@ -1,0 +1,11 @@
+/* ME */                
+Name: Tom Scott                 
+Site: tomscott.name
+Bluesky: https://bsky.app/profile/tomscott.name                      
+Location: London, UK
+						
+/* LICENSE */						
+Creative Commons Attribution License
+
+/* SITE */                             
+Software: blot.im, iA Writer 
