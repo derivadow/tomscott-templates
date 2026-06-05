@@ -147,7 +147,8 @@ a:focus-visible {
   margin-top: 0.18rem;
   color: var(--text-colour);
   font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
   line-height: 1.55;
   text-align: right;
   letter-spacing: 0.01em;
@@ -192,7 +193,17 @@ a.menu:hover {
   margin: 3rem 0 1rem;
   font-size: 2rem;  
   color: var(--accent-colour);
-  
+}
+
+.page-title {
+  margin: 0 0 0.75em;
+  max-width: 10em;
+  color: var(--text-colour);
+  font-family: 'Tungsten', 'GothamOffice', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.005em;
 }
 
 /* Large display typography */
@@ -246,6 +257,30 @@ body > h1,
 .entry a:hover {
   color: var(--accent-colour);
   text-decoration-color: currentColor;
+}
+
+.entry > h1.page-title,
+.page-title {
+  margin: 0 0 0.75em;
+  max-width: 10em;
+  color: var(--text-colour);
+  font-family: 'Tungsten', 'GothamOffice', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+  text-transform: none;
+}
+
+.entry > h1:first-child {
+  /* Keep for Blot/structure, but make it behave like the page kicker */
+  color: var(--pale-text-colour);
+  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* Essay images */
