@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+
+  <body>
+    {{> header}}
+
+    <main>
+      <h1>Writing</h1>
+      
+      {{> /Pages/Writing.md}}
+      
+      <div class="archive-list">
+  {{#archives}}
+    {{#months}}
+      {{#entries}}
+<article class="archive-entry-wrap">
+  <div class="archive-entry-meta">
+    {{#date}}
+      <span class="archive-entry-date">{{date}}</span>
+    {{/date}}
+
+    {{#tags.length}}
+      <div class="archive-entry-tags" aria-label="Post tag">
+        {{#tags}}
+          <a class="section-label post-tag archive-entry-tag" href="/tagged/{{slug}}">{{name}}</a>
+        {{/tags}}
+      </div>
+    {{/tags.length}}
+  </div>
+
+  <a href="{{{url}}}" class="archive-entry-title">{{title}}</a>
+
+  {{#summary}}
+    <p class="archive-entry-summary">{{summary}}</p>
+  {{/summary}}
+</article>
+
+      {{/entries}}
+    {{/months}}
+  {{/archives}}
+</div>
+    </main>
+
+    {{> footer}}
+  </body>
+</html>
