@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+    {{> header}}
+
+    <p class="section-label">{{tag}}</p>
+
+    <div class="entries entries-tagged">
+      {{#entries}}
+        <article class="entry-row-wrap">
+          <a href="{{{url}}}" class="row">
+            <span class="row-main">
+              <span class="row-title">{{title}}</span>
+              {{#summary}}
+                <span class="row-summary">{{summary}}</span>
+              {{/summary}}
+            </span>
+            {{#date}}<span class="row-date">{{date}}</span>{{/date}}
+          </a>
+        </article>
+      {{/entries}}
+    </div>
+
+    {{> footer}}
+
+  </body>
+</html>
