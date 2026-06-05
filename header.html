@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a href="/" id="logo" class="site-logo">
+    {{#avatar}}
+    <img src="{{{avatar_url}}}" class="{{#roundAvatar}}rounded{{/roundAvatar}}" alt="{{title}}">
+    {{/avatar}}
+    <span>{{title}}</span>
+  </a>
+
+  <nav class="site-menu" aria-label="Main navigation">
+    {{#menu}}
+    <a href="{{{url}}}" title="{{label}}">{{label}}</a>
+    {{/menu}}
+  </nav>
+</header>
