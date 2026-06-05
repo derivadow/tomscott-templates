@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+    {{> header}}
+
+    {{#entry}}
+    <div class="entry">
+
+      {{#tags.length}}
+      <div class="post-tags post-tags-header" aria-label="Post tags">
+        {{#tags}}
+        <a class="section-label post-tag" href="/tagged/{{slug}}">{{name}}</a>
+        {{/tags}}
+      </div>
+      {{/tags.length}}
+
+      {{{html}}}
+
+      {{#date}}
+      <small>Posted on {{date}}</small>
+      {{/date}}
+
+      {{> pluginHTML}}
+
+      <br><br>
+    </div>
+
+    {{#adjacent}}
+    <br>
+    {{/adjacent}}
+
+    {{#next}}
+    <small><a href="{{{url}}}">&larr;&nbsp;Next post</a></small>
+    {{/next}}
+
+    {{#next}}{{#previous}}<small>&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</small>{{/previous}}{{/next}}
+
+    {{#previous}}
+    <small><a href="{{{url}}}">Previous post&nbsp;&rarr;</a></small>
+    {{/previous}}
+
+    <br>
+
+    {{/entry}}
+
+    {{> footer}}
+  </body>
+</html>
