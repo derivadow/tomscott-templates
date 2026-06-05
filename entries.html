@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+
+    {{> header}}
+
+    <div class="home-intro">
+      {{#pagination.previous}}
+        Page {{pagination.current}} of {{pagination.total}}
+      {{/pagination.previous}}
+
+      {{^pagination.previous}}
+      {{> /Pages/Home.md}}
+      {{/pagination.previous}}
+    </div>
+
+    {{^pagination.previous}}
+      <p class="section-label latest-label">Latest words</p>
+    {{/pagination.previous}}
+
+<div class="entries {{^pagination.previous}}entries-home{{/pagination.previous}}">
+  {{#entries}}
+    <article class="entry-row-wrap">
+      <a href="{{{url}}}" class="row">
+        <span class="row-main">
+          <span class="row-title">{{title}}</span>
+          {{#summary}}
+            <span class="row-summary">{{summary}}</span>
+          {{/summary}}
+        </span>
+        {{#date}}<span class="row-date">{{date}}</span>{{/date}}
+      </a>
+    </article>
+  {{/entries}}
+</div>
+
+    <br><br><br>
+
+    {{#pagination}}
+
+      {{#previous}}
+        <a class="menu" href="/page/{{previous}}">&larr;&nbsp;Newer posts</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {{/previous}}
+
+      {{#next}}
+        <a class="menu" href="/page/{{next}}">Next page &rarr;</a>
+      {{/next}}
+
+      {{^previous}}
+        <div class="more-writing">
+          <a href="/archives">Read more words&nbsp;&rarr;</a>
+        </div>
+      {{/previous}}
+
+      {{#previous}}
+        <hr class="full">
+
+        <div style="text-align: right;">
+          <small>Page {{current}} of {{total}}</small>
+        </div>
+      {{/previous}}
+
+    {{/pagination}}
+
+    <br>
+
+    {{> footer}}
+  </body>
+</html>
