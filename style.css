@@ -34,11 +34,21 @@ font-display: swap;
 
 @font-face {
 font-family: 'Tungsten';
+src: url('/fonts/Tungsten-SemiBold.woff2') format('woff2');
+font-weight: 600;
+font-style: normal;
+font-display: swap;
+}
+
+@font-face {
+font-family: 'Tungsten';
 src: url('/fonts/Tungsten-Bold.woff2') format('woff2');
 font-weight: 700;
 font-style: normal;
 font-display: swap;
 }
+
+
 /* Base */
 
 :root {
@@ -119,7 +129,7 @@ a:focus-visible {
 .site-logo, #logo {
 	font-size: clamp(2.7rem, 6.5vw, 4.15rem);
 	font-family: 'Tungsten', 'GothamOffice', Roboto, 'Helvetica Neue', sans-serif;
-	font-weight: 500;
+	font-weight: 600;
 	color: var(--masthead-text-colour);
 	letter-spacing: 0.008em;
 }
