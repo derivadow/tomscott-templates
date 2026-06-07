@@ -242,16 +242,12 @@ main > h1, body > h1, .entry > h1, .page-kicker {
 }
 
 .entry a {
-	color: var(--accent-dark-colour);
-	text-decoration-line: underline;
-	text-decoration-thickness: 0.06em;
-	text-underline-offset: 0.18em;
-	text-decoration-color: rgba(227, 106, 41, 0.45);
+  color: var(--accent-dark-colour);
+  text-decoration: none;
 }
 
 .entry a:hover {
-	color: var(--accent-colour);
-	text-decoration-color: currentColor;
+  color: var(--accent-colour);
 }
 
 .entry > h1.page-title, .page-title {
