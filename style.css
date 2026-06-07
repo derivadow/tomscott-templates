@@ -242,12 +242,12 @@ main > h1, body > h1, .entry > h1, .page-kicker {
 }
 
 .entry a {
-  color: var(--accent-dark-colour);
-  text-decoration: none;
+	color: var(--accent-dark-colour);
+	text-decoration: none;
 }
 
 .entry a:hover {
-  color: var(--accent-colour);
+	color: var(--accent-colour);
 }
 
 .entry > h1.page-title, .page-title {
@@ -649,6 +649,24 @@ a.row {
 	margin-top: 0.5em;
 	font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 	font-size: 0.85em;
+}
+
+/* Pagination */
+
+.pagination:empty {
+	display: none;
+}
+
+.pagination-tagged {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 1.75rem;
+}
+
+.pagination-tagged a {
+	font-weight: 700;
+	text-decoration: none;
 }
 
 /* Horizontal rules */
