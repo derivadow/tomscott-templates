@@ -1,13 +1,44 @@
-/* ME */                
-Name: Tom Scott                 
-Site: tomscott.name
-Bluesky: https://bsky.app/profile/tomscott.name                      
-Location: London, UK
-						
-/* LICENSE */						
-Creative Commons Attribution License
+/* HUMAN */
 
-/* SITE */                             
-Software: blot.im, iA Writer 
-IDE: Espresso
-Typography is set in Gotham Office, Tungsten and Nitti
+Tom Scott
+London, United Kingdom
+
+Chief Digital Officer at PLOS.
+Writer, technologist, product leader.
+
+This site is a place to think in public about
+technology, organisations, culture, publishing,
+memory, and the web.
+
+
+/* SITE */
+
+URL: https://tomscott.name
+Launched: 2024
+
+Writing: Tom Scott
+Design: Tom Scott
+Code: Tom Scott
+
+Built with:
+Blot
+iA Writer
+Espresso
+Markdown
+HTML
+CSS
+
+Typeface:
+Tungsten
+Gotham Office
+Nitti
+
+/* LICENSE */		
+				
+Words are licensed under Creative Commons Attribution License
+
+
+/ * THANKS * /
+
+David Merfield for Blot
+The open web
