@@ -811,15 +811,16 @@ input#search:focus {
 .menu-search {
   justify-self: end;
   width: max-content;
-  margin: 0.35rem 0 0;
+  margin: 0.1rem -0.5em -0.25em 0;
   padding: 0;
 }
 
 .menu-search input[name='q'] {
   display: inline-block;
-  width: 6.5rem;
+  box-sizing: border-box;
+  width: 5.7rem;
   margin: 0;
-  padding: 0;
+  padding: 0.25em 0.5em;
   color: inherit;
   background: transparent;
   border: 0;
@@ -829,8 +830,17 @@ input#search:focus {
   line-height: inherit;
   letter-spacing: inherit;
   text-align: right;
-  text-transform: none;
   appearance: none;
+  -webkit-appearance: none;
+  cursor: text;
+  transition: width 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.menu-search input[name='q']::-webkit-search-decoration,
+.menu-search input[name='q']::-webkit-search-cancel-button,
+.menu-search input[name='q']::-webkit-search-results-button,
+.menu-search input[name='q']::-webkit-search-results-decoration {
+  display: none;
 }
 
 .menu-search input[name='q']::placeholder {
@@ -838,21 +848,17 @@ input#search:focus {
   opacity: 1;
 }
 
+.menu-search input[name='q']:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
 .menu-search input[name='q']:hover::placeholder {
   color: var(--accent-colour);
 }
 
 .menu-search input[name='q']:focus {
-  outline: none;
-}
-
-.menu-search input[name='q'] {
-  width: 5rem;
-  transition: width 0.2s ease, color 0.2s ease;
-}
-
-.menu-search input[name='q']:focus {
   width: 8rem;
+  outline: none;
 }
 
 .menu-search input[name='q']:focus-visible {
@@ -864,6 +870,19 @@ input#search:focus {
   color: var(--pale-text-colour);
 }
 
+@media (max-width: 560px) {
+  .site-header {
+    align-items: center;
+  }
+
+  .site-menu {
+    margin-top: 0;
+  }
+
+  .menu-search input[name='q']:focus {
+    width: 6.5rem;
+  }
+}
 /* Footnotes */
 
 .entry a.footnote-ref {
