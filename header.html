@@ -1,28 +1,25 @@
-<header class="site-header">
-
-  <a href="/" id="logo" class="site-logo">
+<header class="site-header"><a href="/" id="logo" class="site-logo">
     {{#avatar}}
-    <img src="{{{avatar_url}}}" class="{{#roundAvatar}}rounded{{/roundAvatar}}" alt="{{title}}">
-    {{/avatar}}
-    <span>{{title}}</span>
-  </a>
-
-  <nav class="site-menu" aria-label="Main navigation">
-    {{#menu}}
-    <a href="{{{url}}}" title="{{label}}">{{label}}</a>
-    {{/menu}}
-
-    <form action="/search" method="get" class="menu-search" role="search">
-      <label for="site-menu-search" class="visually-hidden">Search this site</label>
-      <input
-        type="search"
-        id="site-menu-search"
-        name="q"
-        placeholder="SEARCH"
-        autocomplete="off"
-        enterkeyhint="search"
-      >
-    </form>
-  </nav>
-
+	<img src="{{{avatar_url}}}" class="{{#roundAvatar}}rounded{{/roundAvatar}}" alt="{{title}}">{{/avatar}}
+	    <span>{{title}}</span>
+	  </a>
+	
+	<nav class="site-menu" aria-label="Main navigation">{{#menu}}
+	    <a href="{{{url}}}" title="{{label}}">{{label}}</a>
+	    {{/menu}}
+		
+		<form action="/search" method="get" class="menu-search" role="search">
+			<label for="site-menu-search" class="visually-hidden">Search this site</label>
+			
+			<input
+			  type="search"
+			  id="site-menu-search"
+			  name="q"
+			  placeholder="SEARCH"
+			  value="{{#query}}{{query}}{{/query}}"
+			  autocomplete="off"
+			  enterkeyhint="search"
+			>
+		</form>
+	</nav>
 </header>
