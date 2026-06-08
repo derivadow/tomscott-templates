@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html>
   {{> head}}
+
   <body>
     {{> header}}
 
-    <form action='/search'>
-      <input name="q" type="text" placeholder="Enter a search term..." value="{{#query}}{{query}}{{/query}}" autofocus/>
-      <input type="submit" value="Search">
-    </form>
+    <main class="search-page">
+      <h1 class="page-kicker">Search results</h1>
 
-    <br>
+      <form action="/search" method="get" class="search-page-form" role="search">
+        <label for="search-page-input" class="visually-hidden">Search this site</label>
 
-    {{#query}}
-    {{^entries}}
-    <p>Sorry, nothing found for “{{query}}”</p>
-    {{/entries}}
-    {{/query}}
+        <input
+          id="search-page-input"
+          name="q"
+          type="search"
+          placeholder="Enter a search term…"
+          value="{{#query}}{{query}}{{/query}}"
+          autocomplete="off"
+          enterkeyhint="search"
+        >
 
-    {{#entries}}
-    <a href="{{{url}}}" class="row"><b>{{title}}</b> {{#date}}&nbsp;·&nbsp; <span style="white-space: nowrap;">{{date}}</span>{{/date}}</a>
-    {{/entries}}
+        <input type="submit" value="Search">
+      </form>
+
+      {{#query}}
+        {{^entries}}
+          <p class="search-empty">Sorry, nothing found for “{{query}}”.</p>
+        {{/entries}}
+      {{/query}}
+
+      <div class="search-results">
+        {{#entries}}
+          <a href="{{{url}}}" class="row search-result">
+            <span class="row-title">{{title}}</span>{{#date}}<span class="row-date">&nbsp;·&nbsp;{{date}}</span>{{/date}}
+          </a>
+        {{/entries}}
+      </div>
+    </main>
 
     {{> footer}}
-
   </body>
 </html>
