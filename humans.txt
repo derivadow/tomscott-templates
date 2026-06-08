@@ -9,3 +9,5 @@ Creative Commons Attribution License
 
 /* SITE */                             
 Software: blot.im, iA Writer 
+IDE: Espresso
+Typography is set in Gotham Office, Tungsten and Nitti
