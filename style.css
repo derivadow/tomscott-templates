@@ -935,6 +935,18 @@ input#search:focus {
   color: var(--pale-text-colour);
 }
 
+.menu-search input[name='q']:not(:placeholder-shown) {
+  width: 8rem;
+  
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .menu-search input[name='q']:not(:placeholder-shown) {
+    width: 6.5rem;
+  }
+}
+
 @media (max-width: 560px) {
   .site-header {
     align-items: center;
