@@ -682,6 +682,69 @@ hr.full {
 	margin: 2rem 0;
 }
 
+/* Error page */
+
+.error-page {
+  max-width: var(--text-width);
+}
+
+.error-page .page-title {
+  margin-bottom: 0.4em;
+}
+
+.error-search {
+  margin: 1.75rem 0 1.25rem;
+}
+
+.error-search label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--pale-text-colour);
+  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.error-search input[name='q'] {
+  width: min(100%, 26rem);
+  margin-right: 0.35rem;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1.5rem 0 1.75rem;
+}
+
+.error-actions a {
+  display: inline-block;
+  margin: 0;
+  padding: 0.35em 0.65em;
+  border-radius: 4px;
+  background: var(--accent-wash-colour);
+  color: var(--accent-dark-colour);
+  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 0.85em;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.error-actions a:hover {
+  background: var(--accent-wash-hover-colour);
+  color: var(--accent-colour);
+}
+
+.error-note {
+  color: var(--pale-text-colour);
+  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
 /* Forms */
 
 input[name='q'] {
