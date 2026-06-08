@@ -811,12 +811,13 @@ input#search:focus {
 .menu-search {
   justify-self: end;
   width: max-content;
-  margin: 0.1rem -0.5em -0.25em 0;
+  margin: -0.25em -0.5em -0.25em 0;
   padding: 0;
+  line-height: inherit;
 }
 
 .menu-search input[name='q'] {
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   width: 5.7rem;
   margin: 0;
