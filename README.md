@@ -44,7 +44,7 @@ To work on the design, edit the relevant template or CSS file, then upload or sy
 
 ## Notes
 
-This is a personal site rather than a general-purpose Blot theme. You are welcome to look around, borrow ideas, or adapt small pieces, but the files are primarily maintained for my own site.
+This is a personal site rather than a general-purpose Blot theme. You are welcome to look around, borrow ideas, or adapt small pieces. The code and template layer is shared under AGPL-3.0, while my own writing is generally available under CC BY unless otherwise stated.
 
 ## Licence
 
