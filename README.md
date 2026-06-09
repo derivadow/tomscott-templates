@@ -48,4 +48,11 @@ This is a personal site rather than a general-purpose Blot theme. You are welcom
 
 ## Licence
 
-Unless stated otherwise, the site design and template code are shared for reference. The writing, images, and other published content on [tomscott.name](https://tomscott.name) remain my own.
+This repository contains template, stylesheet, script, and configuration files for [tomscott.name](https://tomscott.name), a personal site published with Blot.
+
+Blot is licensed under the GNU Affero General Public License v3.0. The template, stylesheet, script, and configuration files in this repository are therefore licensed under the GNU Affero General Public License v3.0, to the extent that they are derived from or adapted from Blot’s templates or code.
+
+Unless otherwise stated, my own writing on [tomscott.name](https://tomscott.name) is licensed under the Creative Commons Attribution 4.0 International licence.
+
+Images, screenshots, photographs, embedded media, quotations, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
+
