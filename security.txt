@@ -2,4 +2,4 @@ Contact: mailto:security@tomscott.name
 Expires: 2027-06-09T00:00:00Z
 Canonical: https://tomscott.name/.well-known/security.txt
 Preferred-Languages: en
-Policy: https://tomscott.name/security
+Policy: https://tomscott.name/security-policy
