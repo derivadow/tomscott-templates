@@ -1,47 +1,38 @@
 <!DOCTYPE html>
 <html>
-  {{> head}}
-
-  <body>
-    {{> header}}
-
-    <main class="error-page">
-      <p class="page-kicker">{{error.title}}</p>
-
-      <h1 class="page-title">Uh oh, the page you're looking for can't be found!
-</h1>
-
-      <p>
-  Sorry, I can’t find the page you were looking for. It may have moved, been renamed, or quietly disappeared.      </p>
-
-      <p>
-        You could try searching the site, browsing the archive, or heading back
-        to the homepage.
-      </p>
-
-      <form action="/search" method="get" class="error-search">
-        <label for="error-search">Search this site</label>
-        <input
-          type="search"
-          id="error-search"
-          name="q"
-          placeholder="Search tomscott.name"
-        >
-        <input type="submit" value="Search">
-      </form>
-
-      <nav class="error-actions" aria-label="Useful links">
-        <a href="/tagged/essay">Essays</a>
-        <a href="/tagged/note">Notes</a>
-        <a href="/tagged/life">Personal writing</a>
-        <a href="/tagged/paper">Papers</a>
-      </nav>
-
-      <p class="error-note">
-        Technical note: {{error.message}}
-      </p>
-    </main>
+{{> head}}
+<body>{{> header}}
+	<main class="error-page">
+		<p class="page-kicker">{{error.title}}</p>
+		
+		<h1 class="page-title">Uh oh, the page you're looking for can't be found!</h1>
+		
+		<p>Sorry, I can’t find the page you were looking for. It may have moved, been renamed, or quietly disappeared.</p>
+		
+		<p>You could try searching the site, browsing the archive, or heading back
+	        to the homepage.</p>
+		
+		<form action="/search" method="get" class="error-search">
+			<label for="error-search">Search this site</label>
+			
+			<input
+	          type="search"
+	          id="error-search"
+	          name="q"
+	          placeholder="Search tomscott.name"
+	        >
+			
+			<input type="submit" value="Search">
+		</form>
+		
+		<nav class="error-actions" aria-label="Useful links"><a href="/tagged/essay">Essays</a>
+	        <a href="/tagged/note">Notes</a>
+	        <a href="/tagged/life">Personal writing</a>
+	        <a href="/tagged/paper">Papers</a></nav>
+		
+		<p class="error-note">Technical note: {{error.message}}</p>
+	</main>
 
     {{> footer}}
-  </body>
+</body>
 </html>

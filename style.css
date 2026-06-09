@@ -685,64 +685,64 @@ hr.full {
 /* Error page */
 
 .error-page {
-  max-width: var(--text-width);
+	max-width: var(--text-width);
 }
 
 .error-page .page-title {
-  margin-bottom: 0.4em;
+	margin-bottom: 0.4em;
 }
 
 .error-search {
-  margin: 1.75rem 0 1.25rem;
+	margin: 1.75rem 0 1.25rem;
 }
 
 .error-search label {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--pale-text-colour);
-  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.8rem;
-  line-height: 1.35;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+	display: block;
+	margin-bottom: 0.4rem;
+	color: var(--pale-text-colour);
+	font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	font-size: 0.8rem;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 }
 
 .error-search input[name='q'] {
-  width: min(100%, 26rem);
-  margin-right: 0.35rem;
+	width: min(100%, 26rem);
+	margin-right: 0.35rem;
 }
 
 .error-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 1.5rem 0 1.75rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	margin: 1.5rem 0 1.75rem;
 }
 
 .error-actions a {
-  display: inline-block;
-  margin: 0;
-  padding: 0.35em 0.65em;
-  border-radius: 4px;
-  background: var(--accent-wash-colour);
-  color: var(--accent-dark-colour);
-  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.85em;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  text-decoration: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0.35em 0.65em;
+	border-radius: 4px;
+	background: var(--accent-wash-colour);
+	color: var(--accent-dark-colour);
+	font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	font-size: 0.85em;
+	line-height: 1.25;
+	letter-spacing: 0.01em;
+	text-decoration: none;
 }
 
 .error-actions a:hover {
-  background: var(--accent-wash-hover-colour);
-  color: var(--accent-colour);
+	background: var(--accent-wash-hover-colour);
+	color: var(--accent-colour);
 }
 
 .error-note {
-  color: var(--pale-text-colour);
-  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.85rem;
-  line-height: 1.45;
+	color: var(--pale-text-colour);
+	font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	font-size: 0.85rem;
+	line-height: 1.45;
 }
 
 /* Forms */
@@ -797,168 +797,164 @@ input#search:focus {
 /* Search results page */
 
 .search-page {
-  max-width: var(--text-width);
+	max-width: var(--text-width);
 }
 
 .search-page-form {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin: 0 0 1.5rem;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	margin: 0 0 1.5rem;
 }
 
 .search-page-form input[name='q'] {
-  width: min(100%, 26rem);
-  color: var(--text-colour);
-  border-color: var(--border-colour);
-  box-shadow: none;
+	width: min(100%, 26rem);
+	color: var(--text-colour);
+	border-color: var(--border-colour);
+	box-shadow: none;
 }
 
 .search-page-form input[name='q']:focus {
-  outline: none;
-  border-color: var(--accent-colour);
-  box-shadow: 0 0 0 3px var(--accent-wash-colour);
+	outline: none;
+	border-color: var(--accent-colour);
+	box-shadow: 0 0 0 3px var(--accent-wash-colour);
 }
 
 .search-page-form input[type='submit'] {
-  margin: 0;
-  padding: 0.45em 0.65em;
-  border: 0;
-  border-radius: 4px;
-  background: var(--accent-wash-colour);
-  color: var(--accent-dark-colour);
-  font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.85rem;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  cursor: pointer;
+	margin: 0;
+	padding: 0.45em 0.65em;
+	border: 0;
+	border-radius: 4px;
+	background: var(--accent-wash-colour);
+	color: var(--accent-dark-colour);
+	font-family: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	font-size: 0.85rem;
+	line-height: 1.25;
+	letter-spacing: 0.01em;
+	cursor: pointer;
 }
 
 .search-page-form input[type='submit']:hover {
-  background: var(--accent-wash-hover-colour);
-  color: var(--accent-colour);
+	background: var(--accent-wash-hover-colour);
+	color: var(--accent-colour);
 }
 
 .search-page-form input[type='submit']:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--accent-wash-colour);
+	outline: none;
+	box-shadow: 0 0 0 3px var(--accent-wash-colour);
 }
 
 .search-results {
-  display: grid;
-  gap: 0.35rem;
+	display: grid;
+	gap: 0.35rem;
 }
 
 .search-result {
-  margin: 0.15em 0;
+	margin: 0.15em 0;
 }
 
 .search-empty {
-  margin: 1.5rem 0 0;
-  color: var(--muted-text-colour);
+	margin: 1.5rem 0 0;
+	color: var(--muted-text-colour);
 }
 
 /* Menu search */
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
 }
 
 .menu-search {
-  justify-self: end;
-  width: max-content;
-  margin: -0.25em -0.5em -0.25em 0;
-  padding: 0;
-  line-height: inherit;
+	justify-self: end;
+	width: max-content;
+	margin: -0.25em -0.5em -0.25em 0;
+	padding: 0;
+	line-height: inherit;
 }
 
 .menu-search input[name='q'] {
-  display: block;
-  box-sizing: border-box;
-  width: 5.7rem;
-  margin: 0;
-  padding: 0.25em 0.5em;
-  color: inherit;
-  background: transparent;
-  border: 0;
-  border-radius: 4px;
-  box-shadow: none;
-  font: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  text-align: right;
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: text;
-  transition: width 0.2s ease, color 0.2s ease, background 0.2s ease;
+	display: block;
+	box-sizing: border-box;
+	width: 5.7rem;
+	margin: 0;
+	padding: 0.25em 0.5em;
+	color: inherit;
+	background: transparent;
+	border: 0;
+	border-radius: 4px;
+	box-shadow: none;
+	font: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	text-align: right;
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: text;
+	transition: width 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
-.menu-search input[name='q']::-webkit-search-decoration,
-.menu-search input[name='q']::-webkit-search-cancel-button,
-.menu-search input[name='q']::-webkit-search-results-button,
-.menu-search input[name='q']::-webkit-search-results-decoration {
-  display: none;
+.menu-search input[name='q']::-webkit-search-decoration, .menu-search input[name='q']::-webkit-search-cancel-button, .menu-search input[name='q']::-webkit-search-results-button, .menu-search input[name='q']::-webkit-search-results-decoration {
+	display: none;
 }
 
 .menu-search input[name='q']::placeholder {
-  color: inherit;
-  opacity: 1;
+	color: inherit;
+	opacity: 1;
 }
 
 .menu-search input[name='q']:hover {
-  background: rgba(0, 0, 0, 0.02);
+	background: rgba(0, 0, 0, 0.02);
 }
 
 .menu-search input[name='q']:hover::placeholder {
-  color: var(--accent-colour);
+	color: var(--accent-colour);
 }
 
 .menu-search input[name='q']:focus {
-  width: 8rem;
-  outline: none;
+	width: 8rem;
+	outline: none;
 }
 
 .menu-search input[name='q']:focus-visible {
-  outline: 2px solid var(--accent-colour);
-  outline-offset: 3px;
+	outline: 2px solid var(--accent-colour);
+	outline-offset: 3px;
 }
 
 .menu-search input[name='q']:focus::placeholder {
-  color: var(--pale-text-colour);
+	color: var(--pale-text-colour);
 }
 
 .menu-search input[name='q']:not(:placeholder-shown) {
-  width: 8rem;
-  
-  text-transform: uppercase;
+	width: 8rem;
+	text-transform: uppercase;
 }
 
 @media (max-width: 560px) {
-  .menu-search input[name='q']:not(:placeholder-shown) {
-    width: 6.5rem;
-  }
+	.menu-search input[name='q']:not(:placeholder-shown) {
+		width: 6.5rem;
+	}
 }
 
 @media (max-width: 560px) {
-  .site-header {
-    align-items: center;
-  }
-
-  .site-menu {
-    margin-top: 0;
-  }
-
-  .menu-search input[name='q']:focus {
-    width: 6.5rem;
-  }
+	.site-header {
+		align-items: center;
+	}
+	
+	.site-menu {
+		margin-top: 0;
+	}
+	
+	.menu-search input[name='q']:focus {
+		width: 6.5rem;
+	}
 }
 /* Footnotes */
 

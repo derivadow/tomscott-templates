@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html>
-  {{> head}}
-  <body>
+{{> head}}
+<body>
 
     {{> header}}
-
-    <div class="home-intro">
-      {{#pagination.previous}}
-        Page {{pagination.current}} of {{pagination.total}}
-      {{/pagination.previous}}
-
-      {{^pagination.previous}}
-      {{> /Pages/Home.md}}
-      {{/pagination.previous}}
-    </div>
+	<div class="home-intro">{{#pagination.previous}}
+	        Page {{pagination.current}} of {{pagination.total}}
+	      {{/pagination.previous}}
+	
+	      {{^pagination.previous}}
+	      {{> /Pages/Home.md}}
+	      {{/pagination.previous}}</div>
 
     {{^pagination.previous}}
-      <p class="section-label latest-label">Latest words</p>
+	
+	<p class="section-label latest-label">Latest words</p>
     {{/pagination.previous}}
-
-<div class="entries {{^pagination.previous}}entries-home{{/pagination.previous}}">
-  {{#entries}}
-    <article class="entry-row-wrap">
-      <a href="{{{url}}}" class="row">
-        <span class="row-main">
-          <span class="row-title">{{title}}</span>
-          {{#summary}}
-            <span class="row-summary">{{summary}}</span>
-          {{/summary}}
-        </span>
-        {{#date}}<span class="row-date">{{date}}</span>{{/date}}
-      </a>
-    </article>
-  {{/entries}}
-</div>
-
-        <div class="more-writing">
-          <a href="/archives">Read more words&nbsp;&rarr;</a>
-        </div>
+	
+	<div class="entries {{^pagination.previous}}entries-home{{/pagination.previous}}">
+		  {{#entries}}
+		<article class="entry-row-wrap"><a href="{{{url}}}" class="row">
+		        <span class="row-main">
+		          <span class="row-title">{{title}}</span>
+		          {{#summary}}
+		            <span class="row-summary">{{summary}}</span>
+		          {{/summary}}
+		        </span>
+		        {{#date}}<span class="row-date">{{date}}</span>{{/date}}
+		      </a></article>
+		  {{/entries}}
+	</div>
+	
+	<div class="more-writing"><a href="/archives">Read more words&nbsp;&rarr;</a></div>
 
     {{> footer}}
-  </body>
+</body>
 </html>
