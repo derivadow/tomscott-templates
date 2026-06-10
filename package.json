@@ -1,63 +1,56 @@
 {
-	"name": "Index",
-	"locals": {
-		"page_size": "5",
-		  "tagged_page_size": "20",
-		  "date_display": "D MMM YYYY"
-	},
-	
-	"views": {
-		"search.html": {
-			"partials": {
-				"title": "Search - {{{title}}}",
-		        "description": "Search all the entries posted on {{{title}}}"
-			}
-		},
-		
-		"archives.html": {
-			"url": "/archives",
-		      "partials": {
-				"title": "Archives - {{{title}}}",
-		        "description": "All the entries posted on {{{title}}}"
-			}
-		},
-		
-		"AGENTS.md": {
-			"url": "/agents.md"
-		},
-		
-		"public.html": {
-			"partials": {
-				"title": "Index of {{{path}}}",
-		        "description": "All the files and folders inside {{{path}}}"
-			}
-		},
-		
-		"entry.html": {
-			"partials": {
-				"title": "{{{entry.title}}} - {{{title}}}",
-		        "description": "{{{entry.summary}}}"
-			}
-		},
-		
-		"entries.html": {
-			"partials": {
-				"title": "{{{title}}}",
-				"description": "Essays and notes on technology, publishing, organisations, design, and the web by Tom Scott, Chief Digital Officer at PLOS."			}
-		},
-		
-		"error.html": {
-			"partials": {
-				"title": "{{{error.title}}} - {{{title}}}",
-		        "description": "Error on {{{title}}}"
-			}
-		},
-		
-		"tagged.html": {
-			"partials": {
-				"title": "Entries tagged {{{tag}}} from {{{title}}}",
-		        "description": "All of the entries posted on {{{title}}} tagged {{{tag}}}"
-			}
-		}
-	}
+  "name": "Index",
+  "locals": {
+    "page_size": "5",
+    "tagged_page_size": "20",
+    "date_display": "D MMM YYYY"
+  },
+  "views": {
+    "search.html": {
+      "partials": {
+        "title": "Search - {{{title}}}",
+        "description": "Search all the entries posted on {{{title}}}"
+      }
+    },
+    "archives.html": {
+      "url": "/archives",
+      "partials": {
+        "title": "Archives - {{{title}}}",
+        "description": "All the entries posted on {{{title}}}"
+      }
+    },
+    "AGENTS.md": {
+      "url": "/agents.md"
+    },
+    "public.html": {
+      "partials": {
+        "title": "Index of {{{path}}}",
+        "description": "All the files and folders inside {{{path}}}"
+      }
+    },
+    "entry.html": {
+      "partials": {
+        "title": "{{{entry.title}}} - {{{title}}}",
+        "description": "{{{entry.summary}}}"
+      }
+    },
+    "entries.html": {
+      "partials": {
+        "title": "Tom Scott | Essays and notes on technology, publishing, design, and the web",
+        "description": "A personal blog for thoughts and observations about the web, work, culture, and life."
+      }
+    },
+    "error.html": {
+      "partials": {
+        "title": "{{{error.title}}} - {{{title}}}",
+        "description": "Error on {{{title}}}"
+      }
+    },
+    "tagged.html": {
+      "partials": {
+        "title": "Entries tagged {{{tag}}} from {{{title}}}",
+        "description": "All of the entries posted on {{{title}}} tagged {{{tag}}}"
+      }
+    }
+  }
 }
