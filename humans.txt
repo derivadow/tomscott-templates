@@ -42,7 +42,6 @@ Images, screenshots, photographs, quotations, embedded media, and other third-pa
 Templates, stylesheets, scripts, and configuration files are available on GitHub and are licensed under AGPL-3.0.
 
 
-
 / * THANKS * /
 
 David Merfield for Blot
