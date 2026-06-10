@@ -12,18 +12,20 @@
 		<p>You could try searching the site, browsing the archive, or heading back
 	        to the homepage.</p>
 		
-		<form action="/search" method="get" class="error-search">
-				<label for="error-search">Search this site</label>
-				
-				<input
-				  type="search"
-				  id="error-search"
-				  name="q"
-				  placeholder="Search tomscott.name"
-				>
-				
-				<input type="submit" value="Search">
-			</form>
+			 <form action="/search" method="get" class="search-page-form" role="search">
+			  <label for="error-search-input" class="visually-hidden">Search this site</label>
+			
+			  <input
+				id="error-search-input"
+				name="q"
+				type="search"
+				placeholder="Search this site"
+				autocomplete="off"
+				enterkeyhint="search"
+			  >
+			
+			  <input type="submit" value="Search">
+			 </form>
 		
 		<nav class="error-actions" aria-label="Useful links"><a href="/tagged/essay">Essays</a>
 	        <a href="/tagged/note">Notes</a>
