@@ -43,7 +43,7 @@
 		"entries.html": {
 			"partials": {
 				"title": "{{{title}}}",
-				"description": "Tom Scott is Chief Digital Officer at PLOS. He writes about technology, publishing, design, culture, and the web."			}
+				"description": "Essays and notes on technology, publishing, organisations, design, and the web by Tom Scott, Chief Digital Officer at PLOS."			}
 		},
 		
 		"error.html": {
