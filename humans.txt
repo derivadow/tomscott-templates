@@ -23,7 +23,7 @@ Code: Tom Scott
 Built with:
 Blot
 iA Writer
-Espresso
+Nova
 Markdown
 HTML
 CSS
