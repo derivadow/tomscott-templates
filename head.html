@@ -16,7 +16,8 @@
   <meta property="og:site_name" content="{{title}}">
 
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{title}}" href="{{{blogURL}}}{{{feedURL}}}">
-  <link rel="stylesheet" href="{{#cdn}}/style.css{{/cdn}}">
+  <link rel="preconnect" href="{{{cdn}}}">
+  <link rel="stylesheet" href="{{#cdn}}/style.css{{/cdn}}?v={{cacheID}}">  
   <link rel="author" href="https://tomscott.name/humans.txt">
 
   {{#avatar}}
