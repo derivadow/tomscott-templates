@@ -15,8 +15,8 @@
     "archives.html": {
       "url": "/archives",
       "partials": {
-        "title": "Writing - {{{title}}}",
-        "description": "All the articles posted on {{{title}}}"
+        "title": "Tom's words on {{{title}}}",
+        "description": "All the essays, papers and notes posted on {{{title}}}"
       }
     },
     "AGENTS.md": {
@@ -42,8 +42,8 @@
     },
     "error.html": {
       "partials": {
-        "title": "{{{error.title}}} - {{{title}}}",
-        "description": "Error on {{{title}}}"
+        "title": "Oh Bugger!",
+        "description": "{{{title}}} had an error!"
       }
     },
     "tagged.html": {
