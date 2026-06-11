@@ -351,14 +351,6 @@ main > h1, body > h1, .entry > h1, .page-kicker {
 	flex: 1;
 }
 
-.row-title {
-	display: block;
-}
-
-.row-title {
-	display: block;
-}
-
 .row-summary {
 	display: block;
 	margin-top: 0.35rem;
@@ -1834,25 +1826,6 @@ a.row {
 
 .row-date {
 	white-space: nowrap;
-	color: var(--pale-text-colour);
-}
-
-.entries-home > a.row:first-child {
-	line-height: 1.35;
-	margin-top: 0.25em;
-	margin-bottom: 1.25em;
-}
-
-.entries-home > a.row:first-child .row-title {
-	display: block;
-	font-size: 1.35em;
-	font-weight: 700;
-}
-
-.entries-home > a.row:first-child .row-date {
-	display: block;
-	margin-top: 0.15em;
-	font-size: 0.9em;
 	color: var(--pale-text-colour);
 }
 
