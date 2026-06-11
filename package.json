@@ -1,37 +1,34 @@
 {
   "name": "Index",
   "locals": {
-    "page_size": "5",
-    "tagged_page_size": "20",
+    "page_size": 5,
+    "tagged_page_size": 20,
     "date_display": "D MMM YYYY"
   },
   "views": {
     "search.html": {
       "partials": {
-        "title": "Search - {{{title}}}",
-        "description": "Search all the words on {{{title}}}"
+        "title": "Search - {{title}}",
+        "description": "Search all the words on {{title}}"
       }
     },
     "archives.html": {
       "url": "/archives",
       "partials": {
-        "title": "Tom's words on {{{title}}}",
-        "description": "All the essays, papers and notes posted on {{{title}}}"
+        "title": "Tom's words - {{title}}",
+        "description": "All the essays, papers and notes posted on {{title}}"
       }
-    },
-    "AGENTS.md": {
-      "url": "/agents.md"
     },
     "public.html": {
       "partials": {
-        "title": "Index of {{{path}}}",
-        "description": "All the files and folders inside {{{path}}}"
+        "title": "Index of {{path}}",
+        "description": "All the files and folders inside {{path}}"
       }
     },
     "entry.html": {
       "partials": {
-        "title": "{{{entry.title}}} - {{{title}}}",
-        "description": "{{{entry.summary}}}"
+        "title": "{{entry.title}} - {{title}}",
+        "description": "{{entry.summary}}"
       }
     },
     "entries.html": {
@@ -43,13 +40,13 @@
     "error.html": {
       "partials": {
         "title": "Oh Bugger!",
-        "description": "{{{title}}} had an error!"
+        "description": "{{title}} had an error!"
       }
     },
     "tagged.html": {
       "partials": {
-        "title": "A collection of {{{tag}}}s from {{{title}}}",
-        "description": "All the {{{tag}}}s published on {{{title}}} "
+        "title": "Writing tagged {{tag}} - {{title}}",
+        "description": "All writing tagged {{tag}} on {{title}}"
       }
     }
   }
