@@ -9,14 +9,14 @@
     "search.html": {
       "partials": {
         "title": "Search - {{{title}}}",
-        "description": "Search all the entries posted on {{{title}}}"
+        "description": "Search all the words on {{{title}}}"
       }
     },
     "archives.html": {
       "url": "/archives",
       "partials": {
-        "title": "Archives - {{{title}}}",
-        "description": "All the entries posted on {{{title}}}"
+        "title": "Writing - {{{title}}}",
+        "description": "All the articles posted on {{{title}}}"
       }
     },
     "AGENTS.md": {
@@ -48,8 +48,8 @@
     },
     "tagged.html": {
       "partials": {
-        "title": "Entries tagged {{{tag}}} from {{{title}}}",
-        "description": "All of the entries posted on {{{title}}} tagged {{{tag}}}"
+        "title": "A collection of {{{tag}}}s from {{{title}}}",
+        "description": "All the {{{tag}}}s published on {{{title}}} "
       }
     }
   }
