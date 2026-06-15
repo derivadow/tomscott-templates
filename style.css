@@ -400,6 +400,13 @@ a.row {
 	word-break: normal;
 }
 
+.entries-home .entry-row-wrap:first-of-type .row-title,
+.archive-entry-title,
+.talk h2,
+.entry:has(.post-tags) > h1 {
+	font-weight: 400;
+}
+
 .row-date {
 	white-space: nowrap;
 	color: var(--pale-text-colour);
