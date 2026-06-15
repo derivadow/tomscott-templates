@@ -9,14 +9,14 @@
     "search.html": {
       "partials": {
         "title": "Search - {{title}}",
-        "description": "Search all the words on {{title}}"
+        "description": "Search the words on {{title}}"
       }
     },
     "archives.html": {
       "url": "/archives",
       "partials": {
-        "title": "Tom's words - {{title}}",
-        "description": "All the essays, papers and notes posted on {{title}}"
+        "title": "Essays, papers and notes - {{title}}",
+        "description": "A collection of articles about technology, culture, publishing and the web."
       }
     },
     "public.html": {
