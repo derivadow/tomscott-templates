@@ -30,8 +30,7 @@
 :root {
 	--body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 	--display-font: 'League Gothic', Impact, 'Arial Narrow', sans-serif;
-	--mono-font: var(--mono-font);
-	--text-colour: #333;
+    --mono-font: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;	--text-colour: #333;
 	--masthead-text-colour: #332f2b;
 	--muted-text-colour: #777;
 	--pale-text-colour: #9e9e9e;
@@ -59,7 +58,7 @@ body {
 	max-width: var(--site-width);
 	color: var(--text-colour);
 	font: 1.125rem / 1.55 var(--body-font);
-	font-weight: 350;
+	font-weight: 400;
 	letter-spacing: -0.005em;
 	overflow-wrap: break-word;
 }
