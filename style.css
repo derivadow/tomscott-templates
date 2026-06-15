@@ -59,7 +59,7 @@ body {
 	max-width: var(--site-width);
 	color: var(--text-colour);
 	font: 1.125rem / 1.55 var(--body-font);
-	font-weight: 400;
+	font-weight: 350;
 	letter-spacing: -0.005em;
 	overflow-wrap: break-word;
 }
