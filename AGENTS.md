@@ -174,7 +174,7 @@ Known visual conventions include:
 - The site is intentionally restrained and typographic.
 - The masthead is styled as `TOMSCOTT.name`.
 - The masthead/logo links to the homepage, so the navigation does not need a separate Home item.
-- League Gothic is used for prominent headings and masthead treatments.
+- Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
 - Nitti is used for captions or technical/supporting text where already established.
 - Orange is used as the site accent colour.
