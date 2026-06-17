@@ -38,13 +38,9 @@ Nitti
 				
 Words are licensed under Creative Commons Attribution License.
 
-Images, screenshots, photographs, quotations, embedded media, and 
-other third-party material may be subject to different rights and 
-licences. Where possible, these are credited or licensed alongside 
-the relevant item.
+Images, screenshots, photographs, quotations, embedded media, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
 
-Templates, stylesheets, scripts, and configuration files are 
-available on GitHub and are licensed under AGPL-3.0.
+Templates, stylesheets, scripts, and configuration files are available on GitHub and are licensed under AGPL-3.0.
 
 Typefaces are used under license. 
 
