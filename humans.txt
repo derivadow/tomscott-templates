@@ -30,7 +30,7 @@ CSS
 
 Typeface:
 Tungsten
-Gotham Office
+Inter
 Nitti
 
 /* LICENSE */		
