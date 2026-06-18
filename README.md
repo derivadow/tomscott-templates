@@ -54,5 +54,6 @@ Blot is licensed under the GNU Affero General Public License v3.0. The template,
 
 Unless otherwise stated, my own writing on [tomscott.name](https://tomscott.name) is licensed under the Creative Commons Attribution 4.0 International licence.
 
-Images, screenshots, photographs, embedded media, quotations, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
+Typefaces are used under license. 
 
+Images, screenshots, photographs, embedded media, quotations, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
