@@ -48,6 +48,14 @@
 	font-display: swap;
 }
 
+@font-face {
+font-family: 'Tungsten';
+src: url('/fonts/Tungsten-SemiBold.woff2') format('woff2');
+font-weight: 600;
+font-style: normal;
+font-display: swap;
+}
+
 /* Base */
 
 :root {
@@ -86,7 +94,7 @@ body {
 	max-width: var(--site-width);
 	color: var(--text-colour);
 	font: 1.125rem / 1.55 var(--body-font);
-	font-weight: 400;
+	font-weight: 350;
 	letter-spacing: -0.005em;
 	overflow-wrap: break-word;
 }
