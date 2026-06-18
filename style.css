@@ -672,7 +672,6 @@ a.row {
 	max-width: 38rem;
 	font-size: 0.95rem;
 	line-height: 1.45;
-	color: var(--muted-text-colour);
 }
 
 .talk-links {
