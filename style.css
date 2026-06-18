@@ -104,6 +104,14 @@ main {
 	padding: 0 0 3rem;
 }
 
+h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	line-height: 0.95;
+	letter-spacing: 0.005em;
+}
+
 /* Links */
 
 a {
