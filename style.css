@@ -201,7 +201,6 @@ a.menu:hover {
 .entry p {
 	margin-top: 0;
 	margin-bottom: 1.25em;
-	max-width: 38rem
 }
 
 .entry h1 {
@@ -659,6 +658,14 @@ a.row {
 	font-family: var(--mono-font);
 	font-size: 0.85em;
 	line-height: 1.35;
+}
+
+.talk-description {
+	display: block
+	max-width: 38rem;
+	font-size: 0.95rem;
+	line-height: 1.45;
+	color: var(--muted-text-colour);
 }
 
 .talk-links {
