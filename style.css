@@ -360,7 +360,15 @@ body>h1,
 
 .post-meta {
 	margin-top: clamp(2.75rem, 7vw, 4.25rem);
-	padding-top: 0.9rem;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.post-meta::before {
+	content: "";
+	display: block;
+	width: 4rem;
+	margin: 0 0 0.9rem;
 	border-top: 1px solid var(--border-colour);
 }
 
