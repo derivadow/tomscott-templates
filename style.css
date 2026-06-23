@@ -215,6 +215,8 @@ a.menu:hover {
 	color: #111;
 }
 
+
+
 /* Display typography */
 
 .fleuron {
@@ -354,6 +356,21 @@ body>h1,
 .entry .post-tags-header+h1,
 .entry .post-tags-header+article h1 {
 	margin-top: 0;
+}
+
+.post-meta {
+	margin-top: clamp(2.75rem, 7vw, 4.25rem);
+	padding-top: 0.9rem;
+	border-top: 1px solid var(--border-colour);
+}
+
+.post-date {
+	margin: 0;
+	color: var(--pale-text-colour);
+	font-family: var(--mono-font);
+	font-size: 0.78rem;
+	line-height: 1.35;
+	letter-spacing: 0.02em;
 }
 
 /* Homepage */
