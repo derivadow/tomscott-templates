@@ -288,8 +288,23 @@ body>h1,
 	text-underline-offset: 0.18em;
 	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
+.entry a,
+.home-intro a {
+	color: var(--accent-dark-colour);
+	text-decoration: underline;
+	text-decoration-thickness: 0.08em;
+	text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+	text-underline-offset: 0.18em;
+	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
+}
 
 .entry a:hover {
+	color: var(--accent-colour);
+	text-decoration-color: currentColor;
+}
+
+.entry a:hover,
+.home-intro a:hover {
 	color: var(--accent-colour);
 	text-decoration-color: currentColor;
 }
@@ -299,6 +314,21 @@ body>h1,
 .entry a.post-tag,
 .entry a.footnote-ref {
 	text-decoration: none;
+}
+
+/* Inline links in listing-page intros (e.g. the archives lede) */
+main > p a {
+	color: var(--accent-dark-colour);
+	text-decoration: underline;
+	text-decoration-thickness: 0.08em;
+	text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+	text-underline-offset: 0.18em;
+	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+main > p a:hover {
+	color: var(--accent-colour);
+	text-decoration-color: currentColor;
 }
 
 .entry>h1.page-title,
