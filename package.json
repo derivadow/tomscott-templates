@@ -16,7 +16,7 @@
       "url": "/archives",
       "partials": {
         "title": "Essays, papers and notes - {{title}}",
-        "description": "A collection of articles about technology, culture, publishing and the web."
+        "description": "A collection of articles about the web, work, culture, and life."
       }
     },
     "public.html": {
