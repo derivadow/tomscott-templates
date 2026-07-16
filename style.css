@@ -76,10 +76,12 @@
 	--space-intro-to-content: clamp(2.25rem, 5vw, 3.75rem);
 	--site-width: 800px;
 	--text-width: 38em;
+	--page-bg-colour: #faf9f5;
 }
 
 html {
 	box-sizing: border-box;
+	background-color: var(--page-bg-colour);
 }
 
 *,
@@ -280,11 +282,23 @@ body>h1,
 
 .entry a {
 	color: var(--accent-dark-colour);
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-thickness: 0.08em;
+	text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+	text-underline-offset: 0.18em;
+	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .entry a:hover {
 	color: var(--accent-colour);
+	text-decoration-color: currentColor;
+}
+
+/* Chip- and label-style links, and footnote refs, stay undecorated */
+.entry a.section-label,
+.entry a.post-tag,
+.entry a.footnote-ref {
+	text-decoration: none;
 }
 
 .entry>h1.page-title,
