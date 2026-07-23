@@ -5,7 +5,43 @@
 	{{> header}}
 
 	<main>
-		<h1>{{tag}}</h1>
+<h1 class="tag-page-title">{{tag}}</h1>
+
+{{#entries}}
+	{{#first}}
+		<div class="tag-intro">
+			{{#tagged.essay}}
+				{{> /Pages/Tag descriptions/Essay.md}}
+			{{/tagged.essay}}
+
+			{{#tagged.note}}
+				{{> /Pages/Tag descriptions/Note.md}}
+			{{/tagged.note}}
+
+			{{#tagged.paper}}
+				{{> /Pages/Tag descriptions/Paper.md}}
+			{{/tagged.paper}}
+		</div>
+	{{/first}}
+{{/entries}}
+
+<div class="archive-list archive-list-tagged">
+	{{#entries}}
+	<article class="archive-entry-wrap">
+		<div class="archive-entry-meta">
+			{{#date}}
+			<span class="archive-entry-date">{{date}}</span>
+			{{/date}}
+		</div>
+
+		<a href="{{{url}}}" class="archive-entry-title">{{title}}</a>
+
+		{{#summary}}
+		<p class="archive-entry-summary">{{summary}}</p>
+		{{/summary}}
+	</article>
+	{{/entries}}
+</div>
 
 		<div class="archive-list archive-list-tagged">
 			{{#entries}}
