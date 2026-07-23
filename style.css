@@ -677,6 +677,19 @@ a.row {
 	color: var(--accent-colour);
 }
 
+.tag-intro {
+	max-width: var(--text-width);
+	margin: 0 0 var(--space-intro-to-content);
+}
+
+.tag-intro p {
+	margin-top: 0;
+}
+
+.tag-intro p:last-child {
+	margin-bottom: 0;
+}
+
 /* Labels, tags, and talks */
 
 .section-label {
