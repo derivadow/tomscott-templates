@@ -2,30 +2,44 @@
 <html>
 {{> head}}
 <body>
-    {{> header}}
-	<p class="section-label">{{tag}}</p>
-	
-	<div class="entries entries-tagged">
-	      {{#entries}}
-		<article class="entry-row-wrap"><a href="{{{url}}}" class="row">
-	          <span class="row-main">
-	            <span class="row-title">{{title}}</span>
-	
-	            {{#summary}}
-	            <span class="row-summary">{{summary}}</span>
-	            {{/summary}}
-	          </span>
-	
-	          {{#date}}<span class="row-date">{{date}}</span>{{/date}}
-	        </a></article>
-	      {{/entries}}
-	</div>
+	{{> header}}
 
-    {{#pagination}}
-	
-	<nav class="pagination pagination-tagged" aria-label="Pagination">{{#previous}}<a href="/tagged/{{slug}}/page/{{previous}}">&larr;&nbsp;Newer</a>{{/previous}}{{#next}}<a href="/tagged/{{slug}}/page/{{next}}">Older&nbsp;&rarr;</a>{{/next}}</nav>
-    {{/pagination}}
+	<main>
+		<h1>{{tag}}</h1>
 
-    {{> footer}}
+		<div class="archive-list archive-list-tagged">
+			{{#entries}}
+			<article class="archive-entry-wrap">
+				<div class="archive-entry-meta">
+					{{#date}}
+					<span class="archive-entry-date">{{date}}</span>
+					{{/date}}
+				</div>
+
+				<a href="{{{url}}}" class="archive-entry-title">{{title}}</a>
+
+				{{#summary}}
+				<p class="archive-entry-summary">{{summary}}</p>
+				{{/summary}}
+			</article>
+			{{/entries}}
+		</div>
+
+		{{#pagination}}
+		<nav class="pagination pagination-tagged" aria-label="Pagination">
+			{{#previous}}
+			<a href="/tagged/{{slug}}/page/{{previous}}">&larr;&nbsp;Newer</a>
+			{{/previous}}
+
+			{{#next}}
+			<a href="/tagged/{{slug}}/page/{{next}}">Older&nbsp;&rarr;</a>
+			{{/next}}
+		</nav>
+		{{/pagination}}
+
+		<div class="fleuron">❧</div>
+	</main>
+
+	{{> footer}}
 </body>
 </html>

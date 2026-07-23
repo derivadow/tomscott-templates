@@ -749,6 +749,10 @@ a.row {
 	font-size: 0.85em;
 }
 
+.archive-list-tagged {
+	margin-top: var(--space-intro-to-content);
+}
+
 /* Pagination */
 
 .pagination:empty {
