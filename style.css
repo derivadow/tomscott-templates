@@ -1550,11 +1550,15 @@ iframe {
 }
 
 @media screen and (max-width: 730px) {
-	body {
-		max-width: none;
-		padding: 1rem;
-		font-size: 1rem;
-	}
+body {
+	max-width: none;
+	padding: 1rem;
+	font-size: 1rem;
+}
+
+.entries-home .entry-row-wrap.tag-note:not(:first-of-type)::before {
+	left: -0.5rem;
+}
 
 	.entry:has(.post-tags)>h1 {
 		font-size: clamp(2.75rem, 14vw, 4rem);
