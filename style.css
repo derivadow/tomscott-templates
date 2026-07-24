@@ -389,8 +389,8 @@ main > p a:hover {
 	top: 0.18em;
 	bottom: 0.18em;
 	left: 0;
-	width: 2px;
-	background: rgba(0, 0, 0, 0.14);
+	width: 1.5px;
+	background: rgba(227,106,41,.35);
 }
 
 .entry .post-tags-header {
