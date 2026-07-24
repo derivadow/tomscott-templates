@@ -47,24 +47,6 @@
 	{{/entries}}
 </div>
 
-		<div class="archive-list archive-list-tagged">
-			{{#entries}}
-			<article class="archive-entry-wrap">
-				<div class="archive-entry-meta">
-					{{#date}}
-					<span class="archive-entry-date">{{date}}</span>
-					{{/date}}
-				</div>
-
-				<a href="{{{url}}}" class="archive-entry-title">{{title}}</a>
-
-				{{#summary}}
-				<p class="archive-entry-summary">{{summary}}</p>
-				{{/summary}}
-			</article>
-			{{/entries}}
-		</div>
-
 		{{#pagination}}
 		<nav class="pagination pagination-tagged" aria-label="Pagination">
 			{{#previous}}
