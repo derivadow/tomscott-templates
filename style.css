@@ -602,14 +602,22 @@ a.row {
 /* Notes in homepage list */
 
 .entries-home .entry-row-wrap.tag-note:not(:first-of-type) {
-	margin: 0.15rem 0 0.75rem;
+	position: relative;
+	margin: 0.65rem 0 1.2rem;
+}
+
+.entries-home .entry-row-wrap.tag-note:not(:first-of-type)::before {
+	content: "";
+	position: absolute;
+	top: 0.2rem;
+	bottom: 0.2rem;
+	left: -0.9rem;
+	width: 1.5px;
+	background: rgba(227, 106, 41, 0.35);
 }
 
 .entries-home .entry-row-wrap.tag-note:not(:first-of-type) .row {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) max-content;
-	gap: 1rem;
-	align-items: baseline;
+	display: block;
 	margin: 0;
 	padding: 0.2rem 0;
 }
@@ -619,19 +627,19 @@ a.row {
 }
 
 .entries-home .entry-row-wrap.tag-note:not(:first-of-type) .row-title {
-	font-family: var(--body-font);
-	font-size: 0.95rem;
+	display: block;
+	max-width: 16em;
+	font-family: var(--display-font);
+	font-size: clamp(1.65rem, 4vw, 2.25rem);
 	font-weight: 400;
-	line-height: 1.35;
+	line-height: 1;
+	letter-spacing: 0.005em;
 	color: var(--text-colour);
 }
 
 .entries-home .entry-row-wrap.tag-note:not(:first-of-type) .row-date {
-	margin: 0;
-	font-family: var(--mono-font);
-	font-size: 0.72rem;
-	line-height: 1.35;
-	color: var(--pale-text-colour);
+	display: block;
+	margin-top: 0.3rem;
 }
 
 /* Archive */
