@@ -18,17 +18,21 @@
     {{/pagination.previous}}
 	
 	<div class="entries {{^pagination.previous}}entries-home{{/pagination.previous}}">
-		  {{#entries}}
-		<article class="entry-row-wrap"><a href="{{{url}}}" class="row">
-		        <span class="row-main">
-		          <span class="row-title">{{title}}</span>
-		          {{#summary}}
-		            <span class="row-summary">{{summary}}</span>
-		          {{/summary}}
-		        </span>
-		        {{#date}}<span class="row-date">{{date}}</span>{{/date}}
-		      </a></article>
-		  {{/entries}}
+{{#entries}}
+		<article class="entry-row-wrap{{#tags}} tag-{{slug}}{{/tags}}">
+			<a href="{{{url}}}" class="row">
+				<span class="row-main">
+					<span class="row-title">{{title}}</span>
+					{{#summary}}
+						<span class="row-summary">{{summary}}</span>
+					{{/summary}}
+				</span>
+				{{#date}}
+					<span class="row-date">{{date}}</span>
+				{{/date}}
+			</a>
+		</article>
+	{{/entries}}
 	</div>
 	
 	<div class="more-writing"><a href="/archives">Read more words&nbsp;&rarr;</a></div>
