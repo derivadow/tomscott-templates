@@ -199,6 +199,34 @@ a.menu:hover {
 	color: var(--accent-colour);
 }
 
+.writing-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45em;
+	margin: -1.5rem 0 var(--space-intro-to-content);
+	color: var(--pale-text-colour);
+	font-family: var(--mono-font);
+	font-size: 0.8rem;
+	line-height: 1.35;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.writing-nav a {
+	margin: 0;
+	padding: 0;
+	color: var(--muted-text-colour);
+}
+
+.writing-nav a:hover {
+	background: none;
+	color: var(--accent-colour);
+}
+
+.writing-nav .current {
+	color: var(--text-colour);
+}
+
 /* Text and entries */
 
 .entry {
@@ -716,7 +744,12 @@ a.row {
 
 .tag-intro {
 	max-width: var(--text-width);
+	margin: 0 0 1rem;
+}
+
+.writing-nav {
 	margin: 0 0 var(--space-intro-to-content);
+	...
 }
 
 .tag-intro p {

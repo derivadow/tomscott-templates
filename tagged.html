@@ -29,6 +29,45 @@
 	{{/first}}
 {{/entries}}
 
+<nav class="writing-nav" aria-label="Writing categories">
+	<a href="/archives">All</a>
+	<span aria-hidden="true">·</span>
+
+	{{#tagged.essay}}
+		<span class="current" aria-current="page">Essays</span>
+	{{/tagged.essay}}
+	{{^tagged.essay}}
+		<a href="/tagged/essay">Essays</a>
+	{{/tagged.essay}}
+
+	<span aria-hidden="true">·</span>
+
+	{{#tagged.note}}
+		<span class="current" aria-current="page">Notes</span>
+	{{/tagged.note}}
+	{{^tagged.note}}
+		<a href="/tagged/note">Notes</a>
+	{{/tagged.note}}
+
+	<span aria-hidden="true">·</span>
+
+	{{#tagged.paper}}
+		<span class="current" aria-current="page">Papers</span>
+	{{/tagged.paper}}
+	{{^tagged.paper}}
+		<a href="/tagged/paper">Papers</a>
+	{{/tagged.paper}}
+
+	<span aria-hidden="true">·</span>
+
+	{{#tagged.life}}
+		<span class="current" aria-current="page">Personal</span>
+	{{/tagged.life}}
+	{{^tagged.life}}
+		<a href="/tagged/life">Personal</a>
+	{{/tagged.life}}
+</nav>
+
 <div class="archive-list archive-list-tagged">
 	{{#entries}}
 	<article class="archive-entry-wrap">
