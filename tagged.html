@@ -33,39 +33,39 @@
 	<a href="/archives">All</a>
 	<span aria-hidden="true">·</span>
 
-	{{#tagged.essay}}
+	{{#tagged.is.essay}}
 		<span class="current" aria-current="page">Essays</span>
-	{{/tagged.essay}}
-	{{^tagged.essay}}
+	{{/tagged.is.essay}}
+	{{^tagged.is.essay}}
 		<a href="/tagged/essay">Essays</a>
-	{{/tagged.essay}}
+	{{/tagged.is.essay}}
 
 	<span aria-hidden="true">·</span>
 
-	{{#tagged.note}}
+	{{#tagged.is.note}}
 		<span class="current" aria-current="page">Notes</span>
-	{{/tagged.note}}
-	{{^tagged.note}}
+	{{/tagged.is.note}}
+	{{^tagged.is.note}}
 		<a href="/tagged/note">Notes</a>
-	{{/tagged.note}}
+	{{/tagged.is.note}}
 
 	<span aria-hidden="true">·</span>
 
-	{{#tagged.paper}}
+	{{#tagged.is.paper}}
 		<span class="current" aria-current="page">Papers</span>
-	{{/tagged.paper}}
-	{{^tagged.paper}}
+	{{/tagged.is.paper}}
+	{{^tagged.is.paper}}
 		<a href="/tagged/paper">Papers</a>
-	{{/tagged.paper}}
+	{{/tagged.is.paper}}
 
 	<span aria-hidden="true">·</span>
 
-	{{#tagged.life}}
+	{{#tagged.is.life}}
 		<span class="current" aria-current="page">Personal</span>
-	{{/tagged.life}}
-	{{^tagged.life}}
+	{{/tagged.is.life}}
+	{{^tagged.is.life}}
 		<a href="/tagged/life">Personal</a>
-	{{/tagged.life}}
+	{{/tagged.is.life}}
 </nav>
 
 <div class="archive-list archive-list-tagged">

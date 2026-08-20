@@ -203,7 +203,7 @@ a.menu:hover {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.45em;
-	margin: -1.5rem 0 var(--space-intro-to-content);
+	margin: 0 0 var(--space-intro-to-content);
 	color: var(--pale-text-colour);
 	font-family: var(--mono-font);
 	font-size: 0.8rem;
@@ -221,10 +221,12 @@ a.menu:hover {
 .writing-nav a:hover {
 	background: none;
 	color: var(--accent-colour);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
 }
 
 .writing-nav .current {
-	color: var(--text-colour);
+	color: var(--accent-colour);
 }
 
 /* Text and entries */
@@ -737,19 +739,16 @@ a.row {
 	color: var(--muted-text-colour);
 }
 
-.archive-entry-title:hover {
+.writing-nav a:hover {
 	background: none;
 	color: var(--accent-colour);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
 }
 
 .tag-intro {
 	max-width: var(--text-width);
 	margin: 0 0 1rem;
-}
-
-.writing-nav {
-	margin: 0 0 var(--space-intro-to-content);
-	...
 }
 
 .tag-intro p {
