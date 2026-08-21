@@ -282,7 +282,7 @@ a.menu:hover {
 
 /* Individual notes */
 
-.entry:has(.post-tags-header a[href="/tagged/note"]) > h1 {
+.entry:has(.post-tags-header a[href="/tagged/note"])>h1 {
 	max-width: 11em;
 	font-size: clamp(2.75rem, 6vw, 4rem);
 }
@@ -315,6 +315,7 @@ body>h1,
 	text-underline-offset: 0.18em;
 	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
+
 .entry a,
 .home-intro a {
 	color: var(--accent-dark-colour);
@@ -344,7 +345,7 @@ body>h1,
 }
 
 /* Inline links in listing-page intros (e.g. the archives lede) */
-main > p a {
+main>p a {
 	color: var(--accent-dark-colour);
 	text-decoration: underline;
 	text-decoration-thickness: 0.08em;
@@ -353,7 +354,7 @@ main > p a {
 	transition: background 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-main > p a:hover {
+main>p a:hover {
 	color: var(--accent-colour);
 	text-decoration-color: currentColor;
 }
@@ -417,7 +418,7 @@ main > p a:hover {
 	bottom: 0.18em;
 	left: 0;
 	width: 1.5px;
-	background: rgba(227,106,41,.35);
+	background: rgba(227, 106, 41, .35);
 }
 
 .entry .post-tags-header {
