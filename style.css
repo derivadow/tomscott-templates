@@ -250,11 +250,15 @@ a.menu:hover {
 /* Display typography */
 
 .fleuron {
+	display: flex;
+	justify-content: center;
+	margin: 2.5rem 0 1rem;
+}
+
+.fleuron img {
 	display: block;
-	text-align: center;
-	margin: 3rem 0 1rem;
-	font-size: 2rem;
-	color: var(--accent-colour);
+	width: 2.25rem;
+	height: auto;
 }
 
 /* Large display typography */
