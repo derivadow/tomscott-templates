@@ -262,16 +262,17 @@ a.menu:hover {
 	display: none;
 }
 
-.mark {
+..mark {
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
 	margin: 2rem 0 2.5rem;
 }
 
 .mark img {
 	display: block;
-	width: 7rem;
-	max-width: 100%;
+	flex: 0 0 auto;
+	width: 8rem;
 	height: auto;
 }
 
@@ -1670,6 +1671,16 @@ iframe {
 		max-width: calc(var(--text-width) + 0.75em);
 		margin-bottom: 2.25em;
 		padding-left: 0.75em;
+	}
+}
+
+@media (max-width: 600px) {
+	.mark {
+		align-items: flex-start;
+	}
+
+	.mark img {
+		width: 6rem;
 	}
 }
 

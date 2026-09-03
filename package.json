@@ -19,6 +19,9 @@
         "description": "A collection of articles about the web, work, culture, and life."
       }
     },
+    "AGENTS.md": {
+      "url": "/agents.md"
+    },
     "public.html": {
       "partials": {
         "title": "Index of {{path}}",
