@@ -10,7 +10,7 @@ The repository includes the main Blot templates for the site, including the home
 
 It also includes the shared template partials for the document head, header, and footer, along with the site stylesheet and a small amount of JavaScript.
 
-Supporting files include `robots.txt`, `humans.txt`, `security.txt`, `sitemap.xml`, and `feed.rss`.
+Supporting files include `robots.txt`, `humans.txt`, `security.txt`, `sitemap.xml`, and `feed.rss`. The `images/site/` directory contains the favicon, icons, and octopus printer's-mark artwork used as site furniture.
 
 ## Design notes
 
@@ -48,7 +48,7 @@ This is a personal site rather than a general-purpose Blot theme. You are welcom
 
 ## Licence
 
-This repository contains template, stylesheet, script, and configuration files for [tomscott.name](https://tomscott.name), a personal site published with Blot.
+This repository contains template, stylesheet, script, configuration, and site-furniture image files for [tomscott.name](https://tomscott.name), a personal site published with Blot.
 
 Blot is licensed under the GNU Affero General Public License v3.0. The template, stylesheet, script, and configuration files in this repository are therefore licensed under the GNU Affero General Public License v3.0, to the extent that they are derived from or adapted from Blot’s templates or code.
 
@@ -56,4 +56,4 @@ Unless otherwise stated, my own writing on [tomscott.name](https://tomscott.name
 
 Typefaces are used under license. 
 
-Images, screenshots, photographs, embedded media, quotations, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
+The site-furniture images under `images/site/` remain copyright Tom Scott unless stated otherwise. Images, screenshots, photographs, embedded media, quotations, and other third-party material may be subject to different rights and licences. Where possible, these are credited or licensed alongside the relevant item.
