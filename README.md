@@ -1,4 +1,4 @@
-# tomscott.name
+# tomscott.name templates
 
 This repository contains the custom design files for [tomscott.name](https://tomscott.name), my personal site.
 
