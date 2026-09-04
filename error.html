@@ -3,15 +3,14 @@
 {{> head}}
 <body>{{> header}}
 	<main class="error-page">
-		<p class="page-kicker">{{error.title}}</p>
+		<p class="page-kicker">{{error.message}}</p>
 		
-		<h1 class="page-title">Opps!</h1>
+		<h1 class="page-title">{{error.title}}</h1>
 		
 		<p>My apologies. This is, almost certainly, not the page you were looking for. Perhaps it moved, was renamed, or quietly disappeared.</p>
 		
 		<p>You could try searching the site, browsing the archive, or heading back to the homepage.</p>
 		
-		<p class="error-note">Technical note: {{error.message}}</p>
 	</main>
 
     {{> footer}}

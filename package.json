@@ -36,13 +36,13 @@
     },
     "entries.html": {
       "partials": {
-        "title": "Tom Scott | Essays and notes on technology, publishing, design, and the web",
+        "title": "Tom Scott | My thoughts about the Web ",
         "description": "A personal blog for thoughts and observations about the web, work, culture, and life."
       }
     },
     "error.html": {
       "partials": {
-        "title": "Oh Bugger!",
+        "title": "Oh Dear!",
         "description": "{{title}} had an error!"
       }
     },
