@@ -4,6 +4,20 @@ This repository contains the custom design files for [tomscott.name](https://tom
 
 The site is published with [Blot](https://github.com/davidmerfield/blot). Blot provides the publishing system; this repository contains the templates, CSS, and supporting files I use to customise the design and behaviour of the site.
 
+## How this repository is maintained
+
+The working copy of the site is the folder that Blot synchronises through iCloud Drive. That complete folder—including posts, pages, templates, images and other assets—is versioned in a private GitHub repository.
+
+This public repository is a derived publication rather than a second editable copy. A GitHub Actions workflow copies `Templates/index/` from the private repository to this repository's root and copies `images/site/` to the corresponding public directory. It preserves this README, the licence and the documentation.
+
+```text
+iCloud Drive / Blot → private repository → this public repository
+          │
+          └──────────────────────────────→ live site
+```
+
+Changes are made only in the Blot folder. This keeps one source of truth while allowing the complete site to remain private and the reusable design layer to be published openly. The [workflow guide](docs/workflow.md) explains the setup, directory mapping, GitHub Action and access-token permissions.
+
 ## What is in this repo
 
 The repository includes the main Blot templates for the site, including the homepage, article pages, archive pages, tagged pages, search results, and error pages.
@@ -40,7 +54,9 @@ The key files are:
 
 This repository is not a standalone static site generator. It is designed to be used with Blot.
 
-To work on the design, edit the relevant template or CSS file, then upload or sync the change to Blot. The rendered site should then be checked directly at [tomscott.name](https://tomscott.name).
+To adapt the design for another Blot site, fork or clone this repository and move the template files into that site's local template folder. The rendered site should then be checked through Blot's preview or on the site itself.
+
+Changes for tomscott.name itself are made in its private canonical working copy and published here automatically; this repository is not edited independently.
 
 ## Notes
 
