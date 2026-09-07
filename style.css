@@ -155,6 +155,7 @@ a:focus-visible {
 	font-size: clamp(2.7rem, 6.5vw, 4.15rem);
 	font-family: var(--display-font);
 	font-weight: 600;
+	line-height: 0.9;
 	color: var(--masthead-text-colour);
 	letter-spacing: 0.008em;
 }
