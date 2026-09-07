@@ -6,6 +6,9 @@
     "date_display": "D MMM YYYY"
   },
   "views": {
+    "pretty-feed.xsl": {
+      "url": "/pretty-feed.xsl"
+    },
     "search.html": {
       "partials": {
         "title": "Search - {{title}}",

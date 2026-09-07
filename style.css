@@ -90,7 +90,7 @@ html {
 
 body {
 	margin: 0 auto;
-	padding: 2.5em clamp(1.25rem, 4vw, 2rem) 6em;
+	padding: 1.5em clamp(1.25rem, 4vw, 2rem) 6em;
 	max-width: var(--site-width);
 	color: var(--text-colour);
 	font: 1.125rem / 1.55 var(--body-font);
