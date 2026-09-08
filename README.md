@@ -8,7 +8,7 @@ The site is published with [Blot](https://github.com/davidmerfield/blot). Blot p
 
 The working copy of the site is the folder that Blot synchronises through iCloud Drive. That complete folder—including posts, pages, templates, images and other assets—is versioned in a private GitHub repository.
 
-This public repository is a derived publication rather than a second editable copy. A GitHub Actions workflow copies `Templates/index/` from the private repository to this repository's root and copies `images/site/` to the corresponding public directory. It preserves this README, the licence and the documentation.
+This public repository is a derived publication rather than a second editable copy. A GitHub Actions workflow copies `Templates/index/` from the private repository to this repository's root, copies `images/site/` to the corresponding public directory, and publishes the site's design principles in `docs/`. It preserves this README, the licence and other public documentation.
 
 ```text
 iCloud Drive / Blot → private repository → this public repository
@@ -16,7 +16,7 @@ iCloud Drive / Blot → private repository → this public repository
           └──────────────────────────────→ live site
 ```
 
-Changes are made only in the Blot folder. This keeps one source of truth while allowing the complete site to remain private and the reusable design layer to be published openly. The [workflow guide](docs/workflow.md) explains the setup, directory mapping, GitHub Action and access-token permissions.
+Changes are made only in the Blot folder. This keeps one source of truth while allowing the complete site to remain private and the reusable design layer to be published openly. The [design principles](docs/design-principles.md) describe the architectural, editorial and visual decisions behind the site; the [workflow guide](docs/workflow.md) explains the setup, directory mapping, GitHub Action and access-token permissions.
 
 ## What is in this repo
 
