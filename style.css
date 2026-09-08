@@ -441,22 +441,22 @@ main>p a:hover {
 	background: rgba(227, 106, 41, .35);
 }
 
-/* Essay openings */
+/* Essay and life-post openings */
 
-.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p,
-.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img)) {
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img))),
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img))) {
 	font-weight: 350;
 }
 
-.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p>strong:only-child,
-.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img))>strong:only-child {
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img)))>strong:only-child,
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img)))>strong:only-child {
 	font-weight: inherit;
 }
 
-.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p::first-letter,
-.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img))::first-letter {
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img)))::first-letter,
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(p:has(img)+p, .caption+p, h1+p:not(:has(img)))::first-letter {
 	float: left;
-	margin: 0.06em 0.1em 0 0;
+	margin: 0.06em 0.06em 0 0;
 	color: var(--masthead-text-colour);
 	font-family: var(--display-font);
 	font-size: 4rem;
