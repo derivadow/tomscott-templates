@@ -140,6 +140,8 @@ For asset issues, check the rendered CSS, font, and JavaScript URLs in the brows
 
 ## Workflow expectations
 
+Before making a substantive architectural, editorial or visual change, read the canonical design guide at `../../.github/design-principles.md`. In the public template repository, the same guide is published as `docs/design-principles.md`.
+
 Keep changes minimal, deliberate, and backwards-compatible.
 
 Prefer small patches over broad rewrites.
