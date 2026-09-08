@@ -441,6 +441,32 @@ main>p a:hover {
 	background: rgba(227, 106, 41, .35);
 }
 
+/* Essay openings */
+
+.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p,
+.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img)) {
+	font-weight: 350;
+}
+
+.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p>strong:only-child,
+.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img))>strong:only-child {
+	font-weight: inherit;
+}
+
+.entry:has(.post-tags-header a[href="/tagged/essay"])>.caption+p::first-letter,
+.entry:has(.post-tags-header a[href="/tagged/essay"])>h1+p:not(:has(img))::first-letter {
+	float: left;
+	margin: 0.06em 0.1em 0 0;
+	color: var(--masthead-text-colour);
+	font-family: var(--display-font);
+	font-size: 4rem;
+	font-weight: 600;
+	line-height: 0.78;
+	letter-spacing: 0;
+	-webkit-initial-letter: 2;
+	initial-letter: 2;
+}
+
 .entry .post-tags-header {
 	margin: 0 0 0.75rem;
 }
