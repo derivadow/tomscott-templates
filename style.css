@@ -422,12 +422,12 @@ main>p a:hover {
 	position: relative;
 	display: block;
 	width: calc(100% + 0.9em);
-	max-width: calc(var(--text-width) + 0.9em);
+	max-width: calc(var(--text-width) + 9.9em);
 	margin: 0 0 2.5em;
 	padding-left: 0.9em;
 	color: var(--pale-text-colour);
 	font-family: var(--mono-font);
-	font-size: 0.85em;
+	font-size: 0.75em;
 	line-height: 1.45;
 }
 
