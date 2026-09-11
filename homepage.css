@@ -13,6 +13,11 @@ html.home-cover {
   color-scheme: light;
 }
 
+/* Use the homepage ink for the rule; other pages keep the shared orange. */
+html.home-cover .site-header {
+  border-bottom-color: rgba(87, 80, 68, 0.25);
+}
+
 html.home-cover .home-narrative {
   --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
   --narrative-leading: 1.55;
@@ -141,7 +146,10 @@ html.home-cover .home-narrative .narrative-date {
   font-size: 0.85em;
   line-height: 1.5;
 }
-@media screen and (min-width: 60rem) {
+/* Preserve the full prose measure before moving references into the margin.
+   800px site width + 2 x (9.75rem note + 1.75rem gutter) = 1168px at 16px.
+   Keep this threshold in step with --site-width, --note-width and --note-gutter. */
+@media screen and (min-width: calc(800px + 23rem)) {
   html.home-cover .home-narrative .narrative-passage {
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--note-width);
