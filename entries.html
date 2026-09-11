@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB"{{^pagination.previous}} class="home-cover"{{/pagination.previous}}>
 {{> head}}
 <body>
 
     {{> header}}
-	<div class="home-intro">{{#pagination.previous}}
-	        Page {{pagination.current}} of {{pagination.total}}
-	      {{/pagination.previous}}
-	
-	      {{^pagination.previous}}
-	      {{> /Pages/Home.md}}
-	      {{/pagination.previous}}</div>
 
     {{^pagination.previous}}
-	
-	<p class="section-label latest-label">Latest words</p>
+    <main class="home-narrative" id="main-content" aria-labelledby="homepage-title">
+        <h1 class="visually-hidden" id="homepage-title">Essays, notes, and personal writing by Tom Scott</h1>
+        <div class="narrative-intro">{{> /Pages/Home.md}}</div>
+        <div class="narrative-prose">
+            {{#entries}}
+            <div class="narrative-passage">
+                <p>{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}</p>
+                <div class="narrative-notes" role="note">
+                    <cite class="narrative-reference"><a href="{{url}}">{{title}}</a></cite>
+                    {{#dateStamp}}
+                    <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
+                    {{/dateStamp}}
+                </div>
+            </div>
+            {{/entries}}
+        </div>
+    </main>
     {{/pagination.previous}}
-	
-	<div class="entries {{^pagination.previous}}entries-home{{/pagination.previous}}">
-{{#entries}}
-		<article class="entry-row-wrap{{#tags}} tag-{{slug}}{{/tags}}">
-			<a href="{{{url}}}" class="row">
-				<span class="row-main">
-					<span class="row-title">{{title}}</span>
-					{{#summary}}
-						<span class="row-summary">{{summary}}</span>
-					{{/summary}}
-				</span>
-				{{#date}}
-					<span class="row-date">{{date}}</span>
-				{{/date}}
-			</a>
-		</article>
-	{{/entries}}
-	</div>
-	
-	<div class="more-writing"><a href="/archives">Read more words&nbsp;&rarr;</a></div>
+
+    {{#pagination.previous}}
+    <div class="home-intro">Page {{pagination.current}} of {{pagination.total}}</div>
+    <div class="entries">
+        {{#entries}}
+        <article class="entry-row-wrap{{#tags}} tag-{{slug}}{{/tags}}">
+            <a href="{{{url}}}" class="row">
+                <span class="row-main">
+                    <span class="row-title">{{title}}</span>
+                    {{#summary}}
+                    <span class="row-summary">{{summary}}</span>
+                    {{/summary}}
+                </span>
+                {{#date}}
+                <span class="row-date">{{date}}</span>
+                {{/date}}
+            </a>
+        </article>
+        {{/entries}}
+    </div>
+    <div class="more-writing"><a href="/archives">Read more words&nbsp;&rarr;</a></div>
+    {{/pagination.previous}}
 
     {{> footer}}
 </body>

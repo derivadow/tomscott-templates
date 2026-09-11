@@ -1,0 +1,174 @@
+/* Narrative homepage. The cover class is emitted only by entries.html on
+   its first page. All rules are scoped; the rest of the site stays off-white.
+   No prototype controls, client-side logic, or per-post layout flags. */
+html.home-cover {
+  --page-bg-colour: #E5DA55;
+  --text-colour: #575044;
+  --masthead-text-colour: #51493d;
+  --accent-dark-colour: #8f3b1e;
+  --accent-colour: #97411f;
+  --accent-wash-colour: rgba(143, 59, 30, 0.08);
+  --muted-text-colour: #5b5346;
+  --pale-text-colour: #5b5346;
+  color-scheme: light;
+}
+
+html.home-cover .home-narrative {
+  --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
+  --narrative-leading: 1.55;
+  --narrative-weight: 400;
+  --narrative-gap: 1.4em;
+  --lead-size: clamp(1.375rem, 1.08rem + 1.25vw, 1.875rem);
+  --intro-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+  --closing-size: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
+  --reference-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+  --note-width: 9.75rem;
+  --note-gutter: 1.75rem;
+  --note-overhang: clamp(0rem, calc((100vw - var(--site-width)) / 2), 11.5rem);
+  padding-bottom: 0;
+}
+html.home-cover .home-narrative .narrative-intro {
+  max-width: 36rem;
+  margin: 0 0 clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--text-colour);
+  font-family: var(--body-font);
+  font-size: var(--intro-size);
+  font-weight: 350;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+/* Also supports a wrapper around Blot's /Pages/Home.md partial. */
+html.home-cover .home-narrative .narrative-intro > p { margin: 0; }
+html.home-cover .home-narrative .narrative-intro > p + p { margin-top: 1em; }
+html.home-cover .home-narrative .narrative-intro a {
+  margin: 0;
+  padding: 0;
+  color: var(--accent-dark-colour);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-decoration-color: rgba(143, 59, 30, 0.4);
+  text-underline-offset: 0.18em;
+}
+html.home-cover .home-narrative .narrative-prose {
+  font-family: var(--body-font);
+  font-size: var(--narrative-size);
+  font-weight: var(--narrative-weight);
+  line-height: var(--narrative-leading);
+  letter-spacing: -0.015em;
+}
+html.home-cover .home-narrative .narrative-passage {
+  margin: 0 0 var(--narrative-gap);
+}
+html.home-cover .home-narrative .narrative-passage:last-child { margin-bottom: 0; }
+html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
+  display: flow-root; /* Contain the floated initial, even for a short post. */
+  min-width: 0;
+  margin: 0;
+  color: var(--text-colour);
+  font: inherit;
+}
+/* The opening style always follows the first rendered entry. No per-post
+   lead class, hand-marked first sentence, or text-splitting script is needed. */
+html.home-cover .home-narrative .narrative-passage:first-child {
+  margin-bottom: calc(var(--lead-size) * 1.15);
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p {
+  font-size: var(--lead-size);
+  line-height: 1.43;
+  letter-spacing: -0.022em;
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p::first-letter {
+  float: left;
+  margin: 0.065em 0.11em 0 0;
+  color: var(--masthead-text-colour);
+  font-family: var(--display-font);
+  font-size: 3.1em;
+  font-weight: 600;
+  line-height: 0.84;
+  letter-spacing: 0;
+}
+/* A single return towards the introductory size at the end. Never fade text
+   or shrink progressively. A one-entry page keeps its opening treatment. */
+html.home-cover .home-narrative .narrative-prose .narrative-passage:last-child:not(:first-child) > p {
+  font-size: var(--closing-size);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+/* References remain optional detours after the thought, not headings. */
+html.home-cover .home-narrative .narrative-notes {
+  max-width: min(100%, 26rem);
+  margin: 0.65rem 0 0 auto;
+  color: var(--accent-dark-colour);
+  font-family: var(--mono-font);
+  font-size: var(--reference-size);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: right;
+}
+html.home-cover .home-narrative .narrative-reference {
+  display: block;
+  font: inherit;
+  white-space: normal;
+}
+html.home-cover .home-narrative .narrative-reference a {
+  margin: 0;
+  padding: 0.08em 0;
+  border-radius: 0;
+  color: var(--accent-dark-colour);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(143, 59, 30, 0.4);
+  text-underline-offset: 0.19em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+html.home-cover .home-narrative .narrative-reference a:hover,
+html.home-cover .home-narrative .narrative-reference a:focus-visible {
+  background: var(--accent-wash-colour);
+  text-decoration-color: currentColor;
+}
+html.home-cover .home-narrative .narrative-date {
+  display: block;
+  margin-top: 0.4em;
+  color: var(--muted-text-colour);
+  font: inherit;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+@media screen and (min-width: 60rem) {
+  html.home-cover .home-narrative .narrative-passage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--note-width);
+    column-gap: var(--note-gutter);
+    align-items: end;
+    width: calc(100% + var(--note-overhang));
+  }
+  html.home-cover .home-narrative .narrative-passage > p { grid-column: 1; }
+  html.home-cover .home-narrative .narrative-notes {
+    grid-column: 2;
+    min-width: 0;
+    max-width: none;
+    margin: 0 0 0.2em;
+    text-align: left;
+  }
+}
+@media (max-width: 400px) {
+  html.home-cover .home-narrative { --narrative-gap: 1.35em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.home-cover .home-narrative a { transition: none; }
+}
+
+html.home-cover .home-narrative > h1.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
