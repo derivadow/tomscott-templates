@@ -10,17 +10,19 @@
         <h1 class="visually-hidden" id="homepage-title">Essays, notes, and personal writing by Tom Scott</h1>
         <div class="narrative-intro">{{> /Pages/Home.md}}</div>
         <div class="narrative-prose">
-            {{#entries}}
-            <div class="narrative-passage">
-                <p>{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}</p>
-                <div class="narrative-notes" role="note">
-                    <cite class="narrative-reference"><a href="{{url}}">{{title}}</a></cite>
-                    {{#dateStamp}}
-                    <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
-                    {{/dateStamp}}
-                </div>
-            </div>
-            {{/entries}}
+            {{! Featured implies selection. Each group retains newest-first order. }}
+            {{#all_entries}}
+                {{#metadata.featured}}
+                    {{> homepage-passage}}
+                {{/metadata.featured}}
+            {{/all_entries}}
+            {{#all_entries}}
+                {{^metadata.featured}}
+                    {{#metadata.selected}}
+                        {{> homepage-passage}}
+                    {{/metadata.selected}}
+                {{/metadata.featured}}
+            {{/all_entries}}
         </div>
     </main>
     {{/pagination.previous}}
