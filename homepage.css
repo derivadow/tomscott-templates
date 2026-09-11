@@ -77,15 +77,19 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   line-height: 1.43;
   letter-spacing: -0.022em;
 }
+/* Match article openings: native initial-letter aligns the glyph to the
+   second baseline and releases the third line. Float sizing is a fallback. */
 html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p::first-letter {
   float: left;
-  margin: 0.065em 0.11em 0 0;
+  margin: 0.06em 0.06em 0 0;
   color: var(--masthead-text-colour);
   font-family: var(--display-font);
   font-size: 3.1em;
   font-weight: 600;
-  line-height: 0.84;
+  line-height: 0.78;
   letter-spacing: 0;
+  -webkit-initial-letter: 2;
+  initial-letter: 2;
 }
 /* A single return towards the introductory size at the end. Never fade text
    or shrink progressively. A one-entry page keeps its opening treatment. */
