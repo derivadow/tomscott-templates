@@ -463,8 +463,8 @@ main>p a:hover {
 	font-weight: 600;
 	line-height: 0.78;
 	letter-spacing: 0;
-	-webkit-initial-letter: 2;
-	initial-letter: 2;
+	-webkit-initial-letter: 3;
+	initial-letter: 3;
 }
 
 .entry .post-tags-header {
