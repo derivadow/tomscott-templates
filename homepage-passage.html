@@ -4,7 +4,7 @@
 {{^deleted}}
 {{^scheduled}}
 <div class="narrative-passage">
-    <p>{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}</p>
+    <p><a class="narrative-summary-link" href="{{url}}">{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}</a></p>
     <div class="narrative-notes" role="note">
         <cite class="narrative-reference"><a href="{{url}}">{{title}}</a></cite>
         {{#dateStamp}}

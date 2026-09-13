@@ -26,7 +26,7 @@ html.home-cover .home-narrative {
   --lead-size: clamp(1.375rem, 1.08rem + 1.25vw, 1.875rem);
   --intro-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
   --closing-size: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
-  --reference-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+  --reference-size: clamp(1.25rem, 1.15rem + 0.25vw, 1.45rem);
   --note-width: 9.75rem;
   --note-gutter: 1.75rem;
   --note-overhang: clamp(0rem, calc((100vw - var(--site-width)) / 2), 11.5rem);
@@ -72,6 +72,24 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
   color: var(--text-colour);
   font: inherit;
 }
+html.home-cover .home-narrative .narrative-summary-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  background: none;
+  text-decoration: none;
+}
+html.home-cover .home-narrative .narrative-summary-link:hover {
+  color: var(--accent-dark-colour);
+  background: none;
+}
+html.home-cover .home-narrative .narrative-summary-link:focus-visible {
+  color: var(--accent-dark-colour);
+  outline-color: var(--accent-dark-colour);
+  outline-offset: 0.22rem;
+}
 /* The opening style always follows the first rendered entry. No per-post
    lead class, hand-marked first sentence, or text-splitting script is needed. */
 html.home-cover .home-narrative .narrative-passage:first-child {
@@ -103,48 +121,48 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:last-child:n
   line-height: 1.6;
   letter-spacing: -0.005em;
 }
-/* References remain optional detours after the thought, not headings. */
+/* Article references remain secondary to the prose, but are clear destinations. */
 html.home-cover .home-narrative .narrative-notes {
   max-width: min(100%, 26rem);
   margin: 0.65rem 0 0 auto;
   color: var(--accent-dark-colour);
-  font-family: var(--mono-font);
-  font-size: var(--reference-size);
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: 0;
   text-align: right;
 }
 html.home-cover .home-narrative .narrative-reference {
   display: block;
-  font: inherit;
+  font-family: var(--display-font);
+  font-size: var(--reference-size);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   white-space: normal;
 }
 html.home-cover .home-narrative .narrative-reference a {
   margin: 0;
-  padding: 0.08em 0;
+  padding: 0;
   border-radius: 0;
   color: var(--accent-dark-colour);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-decoration-color: rgba(143, 59, 30, 0.4);
-  text-underline-offset: 0.19em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  background: none;
+  text-decoration: none;
 }
 html.home-cover .home-narrative .narrative-reference a:hover,
 html.home-cover .home-narrative .narrative-reference a:focus-visible {
-  background: var(--accent-wash-colour);
-  text-decoration-color: currentColor;
+  color: var(--masthead-text-colour);
+  background: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.12em;
 }
 html.home-cover .home-narrative .narrative-date {
   display: block;
-  margin-top: 0.4em;
+  margin-top: 0.45rem;
   color: var(--muted-text-colour);
-  font: inherit;
-  font-size: 0.85em;
-  line-height: 1.5;
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
 }
 /* Preserve the full prose measure before moving references into the margin.
    800px site width + 2 x (9.75rem note + 1.75rem gutter) = 1168px at 16px.
@@ -154,7 +172,7 @@ html.home-cover .home-narrative .narrative-date {
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--note-width);
     column-gap: var(--note-gutter);
-    align-items: end;
+    align-items: start;
     width: calc(100% + var(--note-overhang));
   }
   html.home-cover .home-narrative .narrative-passage > p { grid-column: 1; }
@@ -162,7 +180,7 @@ html.home-cover .home-narrative .narrative-date {
     grid-column: 2;
     min-width: 0;
     max-width: none;
-    margin: 0 0 0.2em;
+    margin: 0.15em 0 0;
     text-align: left;
   }
 }
@@ -171,6 +189,20 @@ html.home-cover .home-narrative .narrative-date {
 }
 @media (prefers-reduced-motion: reduce) {
   html.home-cover .home-narrative a { transition: none; }
+}
+
+/* Footer links use the same textual-link treatment as the rest of the site. */
+html.home-cover .site-footer a {
+  color: var(--accent-dark-colour);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 0.18em;
+}
+html.home-cover .site-footer a:hover,
+html.home-cover .site-footer a:focus-visible {
+  color: var(--accent-colour);
+  text-decoration-color: currentColor;
 }
 
 html.home-cover .home-narrative > h1.visually-hidden {
