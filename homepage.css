@@ -121,7 +121,7 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:last-child:n
 /* Article references sit beneath each passage and remain secondary to the prose. */
 html.home-cover .home-narrative .narrative-notes {
   max-width: min(100%, 26rem);
-  margin: 0.65rem 0 0 auto;
+  margin: 0.45rem 0 0 auto;
   color: var(--accent-dark-colour);
   text-align: right;
 }
@@ -152,7 +152,7 @@ html.home-cover .home-narrative .narrative-reference a:focus-visible {
 html.home-cover .home-narrative .narrative-date {
   display: block;
   margin-top: 0.45rem;
-  color: var(--muted-text-colour);
+  color: color-mix(in srgb, var(--text-colour) 92%, var(--page-bg-colour));
   font-family: var(--mono-font);
   font-size: 0.72rem;
   font-weight: 400;
