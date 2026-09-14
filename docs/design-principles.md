@@ -4,7 +4,7 @@ This document describes the architectural, editorial and visual principles behin
 
 The site should feel like a small, considered publication. The writing is the main event. Design gives it structure, rhythm and identity without turning the site into a product interface or a stream of interchangeable content.
 
-The current implementation is evidence, not automatically precedent. Where the templates are inconsistent, this guide should clarify the intended system rather than preserve an accident.
+The current implementation is evidence, not automatically precedent. Where the templates are inconsistent, this guide should clarify the intended system rather than preserve an accident. The homepage has its own more detailed guide at [`homepage.md`](homepage.md); where the two documents overlap, that guide records the current homepage-specific decisions.
 
 ## Architectural principles
 
@@ -41,9 +41,9 @@ A limitation in one layer is not, by itself, a reason to change the meaning of a
 
 ### Preserve one source of truth
 
-The iCloud Drive folder used by Blot is the canonical working copy. The private GitHub repository records the complete site. The public template repository is derived from selected parts of that private source.
+The private `derivadow/tomscott.name` repository is the canonical source for the complete site. The local Blot/iCloud folder is the deployment working copy used to sync that source to Blot, and the public template repository is a derived publication of selected files from the private repository.
 
-Do not maintain parallel editable versions of templates or assets. Changes should travel in one direction through the documented publication workflow.
+Do not maintain parallel editable versions of templates or assets. Make changes in the private repository, reconcile them into the existing Blot sync copy for deployment, and let the documented publication workflow derive the public template repository.
 
 ### Prefer the smallest coherent intervention
 
@@ -69,9 +69,17 @@ For feeds and other machine-readable resources, validate both the human presenta
 
 Essays should read as self-contained works with deliberate endings. Avoid generic recommendation modules or feed mechanics beneath them. Links that belong to the argument, sources and unobtrusive notes can strengthen a piece; generic prompts to consume more usually weaken its conclusion.
 
+### Treat the homepage as a cover, not a feed
+
+The homepage is a curated introduction to the writing. It should not simply expose the newest posts, repeat the archive, or behave like a dashboard of content cards.
+
+Its selected passages should let readers encounter ideas before metadata. Article titles remain clear destinations, but they follow the prose in the reading hierarchy. Selection should favour a coherent range of strong long-form pieces rather than optimise mechanically for recency or completeness. The archive, tagged views and feed remain the places for comprehensive and chronological discovery.
+
+The current homepage deliberately begins with the writing rather than an introductory biography. Do not restore explanatory copy, category labels, cards, or other interface merely to make the page explain itself more explicitly.
+
 ### Keep taxonomy in proportion
 
-Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep homepage listings focused on titles and summaries.
+Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep the homepage focused on the selected prose, article title and publication date.
 
 ### Earn every piece of interface
 
@@ -87,11 +95,11 @@ Use clear, direct British English. Avoid marketing language, generic calls to ac
 
 The design uses three type families with broadly distinct responsibilities:
 
-- Inter is the reading face for body copy and supporting prose.
-- Tungsten is the display face for the masthead, article titles, section headings and listing titles.
-- Nitti supplies most of the compact contextual furniture: navigation, page labels, tag treatments, captions, article and archive dates, and code.
+- Inter is the reading face for body copy and supporting prose, including the narrative passages on the homepage.
+- Tungsten is the display face for the masthead, article titles, section headings and the linked article titles that follow homepage passages.
+- Nitti supplies most of the compact contextual furniture: navigation, page labels, tag treatments, captions, article and archive dates, homepage dates, and code.
 
-These are roles rather than universal rules. For example, dates within homepage and search-result rows currently inherit Inter, while the larger error message is set in Tungsten.
+These are roles rather than universal rules. For example, search-result dates currently inherit Inter, while the larger error message is set in Tungsten.
 
 Do not choose a face only for novelty or contrast. Each use should reinforce an established role. Optical harmony with surrounding text takes precedence over matching a nominal numerical size.
 
@@ -101,23 +109,31 @@ Scale, weight, spacing and position should establish hierarchy before borders, b
 
 Whitespace should separate ideas and page regions. Avoid filling space merely to make a page feel designed.
 
+On the homepage, preserve the hierarchy in which the prose is primary, the Tungsten title is a clear but secondary destination, and the smaller Nitti date is metadata. The title and date sit beneath each passage in the same single-column composition at all viewport widths. Do not recreate the superseded marginal-reference or desktop title-column layouts without a new demonstrated need.
+
 ### Reuse patterns
 
 Use the existing treatments for inline links, navigation, tags, dates, captions, article listings and archive listings. A new page should look as though it belongs to the same publication, not as though it carries an embedded microsite.
 
 If a new visual role is genuinely needed, define it once, name it according to its purpose and check it alongside related patterns.
 
+The homepage is intentionally a special cover treatment, but it remains part of the same system. Its yellow background, warm charcoal text and rust links are scoped to `html.home-cover`; the rest of the site retains the shared off-white palette. Shared typography, masthead, navigation and page measure provide continuity without requiring identical colours on every page.
+
 ## Typographic roles
 
 HTML heading levels express document structure. Visual classes express appearance. Choose the correct semantic element first, then apply an established visual role where necessary. Do not select `h1`, `h2` or `h3` merely to obtain a particular size.
 
-Use one `h1` for the page's principal subject, then `h2` for its major divisions and `h3` for subdivisions within those sections. Do not skip levels merely to obtain a preferred appearance. Most current content pages follow this structure; the homepage template is an unresolved exception because it has no `h1`.
+Use one `h1` for the page's principal subject, then `h2` for its major divisions and `h3` for subdivisions within those sections. Do not skip levels merely to obtain a preferred appearance. The homepage has a visually hidden `h1` identifying the page while allowing the selected writing to remain the visible opening.
 
 The table below records the effective result of the current selectors and their actual template usage. It does not treat an unused declaration as an established design role.
 
 | Role | Markup and existing pattern | Visual treatment | Use |
 | --- | --- | --- | --- |
 | Site identity | A home-page link containing the site title; `.site-logo` | Tungsten semibold, very large and compact | The masthead only. It identifies the publication but is not the page's `h1`. |
+| Homepage semantic title | `h1.visually-hidden` inside `.home-narrative` | Visually hidden but available to assistive technology | Identifies the homepage without inserting a visible title ahead of the selected writing. |
+| Homepage narrative passage | `.narrative-passage > p` containing `.narrative-summary-link` | Inter at an enlarged reading scale; the first passage is larger and receives the Tungsten drop cap | The primary homepage content. The whole passage is an ordinary link to the article. |
+| Homepage article title | `.narrative-reference` containing a link | Tungsten regular at a compact display scale, rust-coloured | A clear article destination beneath its passage, secondary to the prose but stronger than the date. |
+| Homepage publication date | `.narrative-date` | Small Nitti in a restrained charcoal | Publication metadata beneath the homepage title. |
 | Article title | `.entry:has(.post-tags) > h1` | Tungsten regular, large display scale | The title of a tagged essay, note, paper or life entry. Notes use a slightly smaller maximum scale. |
 | Functional page title | A direct-child `h1` matched by `main > h1`, `body > h1` or `.entry > h1:first-child` | Nitti regular, small, uppercase and pale | Titles such as Writing, tagged views, Search results, About, Talking and Colophon. The small appearance does not reduce their semantic status. |
 | Error message title | `.error-page h1.page-title` | Tungsten regular, large display scale | The principal error message on the error page. This is the only current use of `.page-title`. |
@@ -126,25 +142,27 @@ The table below records the effective result of the current selectors and their 
 | Contextual kicker | `.page-kicker`; currently a `p` above the error title | Nitti regular, small, uppercase and pale | Supplementary context above a true title. The Search results `h1` reuses this class but remains the page's functional title. |
 | Section label | `.section-label`, for example `Latest words` and the labels above individual talks | Small Nitti with a restrained orange wash | Short context for a section or item. It is not itself a heading level and should not replace one where structure requires a heading. |
 | Taxonomy chip | `a.section-label.post-tag`; archive tags also use `.archive-entry-tag` | Small Nitti with a restrained orange wash; archive tags are smaller | Linked article types and tags. Do not use this treatment as a generic badge. |
-| Listing title | `.row-title` inside `a.row`, or an `a.archive-entry-title` | Tungsten regular at the medium display scale | Article titles in homepage, archive, tagged and search listings. The first homepage item uses a larger scale; ordinary note and essay titles share the standard scale. These titles are links rather than heading elements. |
+| Listing title | `.row-title` inside `a.row`, or an `a.archive-entry-title` | Tungsten regular at the medium display scale | Article titles in older paginated entry lists, archive, tagged and search listings. These titles are links rather than heading elements. |
 | Article or archive date | `.post-date` and `.archive-entry-date` | Small Nitti in a pale colour | Publication dates on individual entries and in archive or tagged listings. |
-| Homepage or search-result date | `.row-date` | Small inherited Inter in a pale colour | Compact dates attached to listing links. This is an intentional description of the current cascade, not a Nitti metadata role. |
+| Search-result or legacy list date | `.row-date` | Small inherited Inter in a pale colour | Compact dates attached to row-based listing links. This no longer describes the selected homepage, whose date has its own Nitti role. |
 | Caption | `.caption` | Small pale Nitti with a restrained orange rule | Supporting text associated with an image. |
 | Body and summary text | `body`, `.row-summary`, `.archive-entry-summary` and `.talk-description` | Inter, with summaries smaller and muted | Reading text and supporting descriptions. |
 
-The exact sizes, line heights, colours and responsive ranges live in `style.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
+The exact sizes, line heights, colours and responsive ranges live in `style.css` and, for the narrative homepage, `homepage.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
 
 The base `.page-title` rule declares Tungsten semibold, but every current use is inside `.error-page`, whose more specific rule changes the weight to regular. Semibold `.page-title` is therefore dormant CSS, not a current typographic role. The human-readable RSS view is also separate: `pretty-feed.xsl` embeds its own CSS and uses semibold Tungsten for its `h1` and `h2`; that does not establish a role for the site's HTML templates.
 
 ## Interaction and component guidance
 
-Links should normally look and behave like links. Broad global rules may provide a baseline, but specialised treatments such as the masthead, menu, tags and listing rows should remain visually coherent with their purpose.
+Links should normally look and behave like links. Broad global rules may provide a baseline, but specialised treatments such as the masthead, menu, tags, listings and homepage narrative should remain visually coherent with their purpose.
+
+On the homepage, both the passage and its title are real anchors to the same article. The passage responds through a colour change and visible keyboard focus rather than an underline or card treatment. The title uses its Tungsten form and rust colour to remain recognisable as a destination. Do not replace these anchors with JavaScript click handlers or make the entire passage container an interactive component.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
 Navigation should remain short and stable. The masthead already links home, so a separate Home item is unnecessary. Search should feel like part of the navigation rather than a separate application interface.
 
-Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; the printer's mark already provides a recurring closing motif.
+Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; the printer's mark already provides a recurring closing motif. The octopus does not need to be repeated in the masthead.
 
 ## Before changing the site
 
@@ -161,8 +179,10 @@ Ask the following questions before implementation:
 
 When these questions reveal a tension, preserve the architectural and editorial principles before optimising convenience or visual novelty.
 
+For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, article title second, date third. Treat the single-column treatment, lack of introductory biography and curated selection as settled decisions unless a new problem provides a reason to revisit them.
+
 ## Maintaining this guide
 
 Change this document when a principle is settled, a visual role is deliberately introduced, or repeated work reveals a genuine pattern. Do not expand it for every isolated exception.
 
-Unresolved questions should remain explicit. At present, the homepage has no `h1`; published content does not use `h3` and the site has no settled typographic treatment for it; the generic semibold `.page-title` declaration is unused after the error-page override; and the semantic structure of titles inside article listings deserves review before it is standardised further.
+Unresolved questions should remain explicit. At present, published content does not use `h3` and the site has no settled typographic treatment for it; the generic semibold `.page-title` declaration is unused after the error-page override; and the semantic structure of titles inside row-based article listings deserves review before it is standardised further.
