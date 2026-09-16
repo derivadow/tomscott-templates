@@ -4,13 +4,10 @@
 {{^deleted}}
 {{^scheduled}}
 <div class="narrative-passage">
-    <p><a class="narrative-summary-link" href="{{url}}">{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}</a></p>
-    <div class="narrative-notes" role="note">
-        <cite class="narrative-reference"><a href="{{url}}">{{title}}</a></cite>
-        {{#dateStamp}}
-        <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
-        {{/dateStamp}}
-    </div>
+    <p><a class="narrative-summary-link" href="{{url}}">{{#metadata.homepage}}{{.}}{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}{{summary}}{{/summary}}{{^summary}}{{title}}{{/summary}}{{/metadata.homepage}}<span class="narrative-link-title"> — {{title}}</span></a></p>
+    {{#dateStamp}}
+    <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
+    {{/dateStamp}}
 </div>
 {{/scheduled}}
 {{/deleted}}
