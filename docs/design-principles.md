@@ -73,13 +73,13 @@ Essays should read as self-contained works with deliberate endings. Avoid generi
 
 The homepage is a curated introduction to the writing. It should not simply expose the newest posts, repeat the archive, or behave like a dashboard of content cards.
 
-Its selected passages should let readers encounter ideas before metadata. Article titles remain clear destinations, but they follow the prose in the reading hierarchy. Selection should favour a coherent range of strong long-form pieces rather than optimise mechanically for recency or completeness. The archive, tagged views and feed remain the places for comprehensive and chronological discovery.
+Its selected passages should let readers encounter ideas before metadata. The passage itself is the visible article destination; article titles are retained within the link's accessible text rather than repeated visually. Selection should favour a coherent range of strong long-form pieces rather than optimise mechanically for recency or completeness. The archive, tagged views and feed remain the places for comprehensive and chronological discovery.
 
-The current homepage deliberately begins with the writing rather than an introductory biography. Do not restore explanatory copy, category labels, cards, or other interface merely to make the page explain itself more explicitly.
+The current homepage deliberately begins with the writing rather than an introductory biography. Do not restore explanatory copy, visible article titles, category labels, cards, or other interface merely to make the page explain itself more explicitly.
 
 ### Keep taxonomy in proportion
 
-Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep the homepage focused on the selected prose, article title and publication date.
+Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep the homepage focused on the selected prose and publication date, while preserving the article title accessibly in the link markup.
 
 ### Earn every piece of interface
 
@@ -96,7 +96,7 @@ Use clear, direct British English. Avoid marketing language, generic calls to ac
 The design uses three type families with broadly distinct responsibilities:
 
 - Inter is the reading face for body copy and supporting prose, including the narrative passages on the homepage.
-- Tungsten is the display face for the masthead, article titles, section headings and the linked article titles that follow homepage passages.
+- Tungsten is the display face for the masthead, article titles, and section headings.
 - Nitti supplies most of the compact contextual furniture: navigation, page labels, tag treatments, captions, article and archive dates, homepage dates, and code.
 
 These are roles rather than universal rules. For example, search-result dates currently inherit Inter, while the larger error message is set in Tungsten.
@@ -109,7 +109,7 @@ Scale, weight, spacing and position should establish hierarchy before borders, b
 
 Whitespace should separate ideas and page regions. Avoid filling space merely to make a page feel designed.
 
-On the homepage, preserve the hierarchy in which the prose is primary, the Tungsten title is a clear but secondary destination, and the smaller Nitti date is metadata. The title and date sit beneath each passage in the same single-column composition at all viewport widths. Do not recreate the superseded marginal-reference or desktop title-column layouts without a new demonstrated need.
+On the homepage, preserve the hierarchy in which the prose is the only visible article destination and the smaller Nitti date is metadata beneath it. The article title remains part of the link's accessible text but has no visual typographic role on the homepage. Do not recreate the superseded marginal-reference, desktop title-column, or visible-title treatments without a new demonstrated need.
 
 ### Reuse patterns
 
@@ -131,9 +131,9 @@ The table below records the effective result of the current selectors and their 
 | --- | --- | --- | --- |
 | Site identity | A home-page link containing the site title; `.site-logo` | Tungsten semibold, very large and compact | The masthead only. It identifies the publication but is not the page's `h1`. |
 | Homepage semantic title | `h1.visually-hidden` inside `.home-narrative` | Visually hidden but available to assistive technology | Identifies the homepage without inserting a visible title ahead of the selected writing. |
-| Homepage narrative passage | `.narrative-passage > p` containing `.narrative-summary-link` | Inter at an enlarged reading scale; the first passage is larger and receives the Tungsten drop cap | The primary homepage content. The whole passage is an ordinary link to the article. |
-| Homepage article title | `.narrative-reference` containing a link | Tungsten regular at a compact display scale, rust-coloured | A clear article destination beneath its passage, secondary to the prose but stronger than the date. |
-| Homepage publication date | `.narrative-date` | Small Nitti in a restrained charcoal | Publication metadata beneath the homepage title. |
+| Homepage narrative passage | `.narrative-passage > p` containing `.narrative-summary-link` | Inter at an enlarged reading scale; the first passage is larger and receives the Tungsten drop cap | The primary homepage content and the single visible article link. |
+| Homepage article title | `.narrative-link-title` inside `.narrative-summary-link` | Visually hidden | Preserves the article title in the passage link's accessible text without creating a second visible or focusable destination. |
+| Homepage publication date | `.narrative-date` | Small Nitti in a restrained charcoal | Right-aligned publication metadata beneath the homepage passage. |
 | Article title | `.entry:has(.post-tags) > h1` | Tungsten regular, large display scale | The title of a tagged essay, note, paper or life entry. Notes use a slightly smaller maximum scale. |
 | Functional page title | A direct-child `h1` matched by `main > h1`, `body > h1` or `.entry > h1:first-child` | Nitti regular, small, uppercase and pale | Titles such as Writing, tagged views, Search results, About, Talking and Colophon. The small appearance does not reduce their semantic status. |
 | Error message title | `.error-page h1.page-title` | Tungsten regular, large display scale | The principal error message on the error page. This is the only current use of `.page-title`. |
@@ -156,7 +156,7 @@ The base `.page-title` rule declares Tungsten semibold, but every current use is
 
 Links should normally look and behave like links. Broad global rules may provide a baseline, but specialised treatments such as the masthead, menu, tags, listings and homepage narrative should remain visually coherent with their purpose.
 
-On the homepage, both the passage and its title are real anchors to the same article. The passage responds through a colour change and visible keyboard focus rather than an underline or card treatment. The title uses its Tungsten form and rust colour to remain recognisable as a destination. Do not replace these anchors with JavaScript click handlers or make the entire passage container an interactive component.
+On the homepage, the passage is the single visible anchor to its article. It responds through a colour change and visible keyboard focus rather than an underline or card treatment. The article title is appended inside that same anchor as visually hidden text so it remains available in the link's accessible name. Do not reintroduce a second hidden or visible title link, replace the anchor with a JavaScript click handler, or make the entire passage container an interactive component.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
@@ -179,7 +179,7 @@ Ask the following questions before implementation:
 
 When these questions reveal a tension, preserve the architectural and editorial principles before optimising convenience or visual novelty.
 
-For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, article title second, date third. Treat the single-column treatment, lack of introductory biography and curated selection as settled decisions unless a new problem provides a reason to revisit them.
+For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, publication date second, with the article title retained accessibly rather than visually. Treat the single-column treatment, lack of introductory biography, absence of visible article titles, and curated selection as settled decisions unless a new problem provides a reason to revisit them.
 
 ## Maintaining this guide
 
