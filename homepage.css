@@ -123,6 +123,12 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   -webkit-initial-letter: 4;
   initial-letter: 4;
 }
+/* The drop cap has its own colour declaration, so explicitly carry the
+   passage link's interaction colour through to it. */
+html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrative-summary-link:hover)::first-letter,
+html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrative-summary-link:focus-visible)::first-letter {
+  color: var(--accent-dark-colour);
+}
 /* A single return towards the introductory size at the end. Never fade text
    or shrink progressively. A one-entry page keeps its opening treatment. */
 html.home-cover .home-narrative .narrative-prose .narrative-passage:last-child:not(:first-child) > p {
