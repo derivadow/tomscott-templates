@@ -2,8 +2,8 @@
    its first page. All rules are scoped; the rest of the site stays off-white.
    No prototype controls, client-side logic, or per-post layout flags. */
 html.home-cover {
-  --page-bg-colour: #E5DA55;
-  --text-colour: #575044;
+  --page-bg-colour: #D7DF28;
+  --text-colour: #14213D;
   --masthead-text-colour: #51493d;
   --accent-dark-colour: #8f3b1e;
   --accent-colour: #97411f;
