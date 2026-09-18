@@ -150,6 +150,12 @@ html.home-cover .home-narrative .narrative-date {
   letter-spacing: 0;
   text-align: right;
 }
+
+/* Close the cover with the original purple printer's mark. The shared
+   orange fleuron remains unchanged everywhere else on the site. */
+html.home-cover .home-narrative .homepage-fleuron {
+  margin: clamp(2.75rem, 6vw, 4rem) 0 0;
+}
 @media (max-width: 400px) {
   html.home-cover .home-narrative { --narrative-gap: 1.35em; }
 }
