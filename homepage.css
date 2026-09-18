@@ -24,6 +24,7 @@ html.home-cover .home-narrative {
   --narrative-weight: 400;
   --narrative-gap: 1.4em;
   --lead-size: clamp(1.375rem, 1.08rem + 1.25vw, 1.875rem);
+  --second-size: clamp(1.28125rem, 1.04rem + 1.025vw, 1.6875rem);
   --intro-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
   --closing-size: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
   padding-bottom: 0;
@@ -101,7 +102,7 @@ html.home-cover .home-narrative .narrative-link-title {
 }
 /* The opening style always follows the first rendered entry. No per-post
    lead class, hand-marked first sentence, or text-splitting script is needed. */
-html.home-cover .home-narrative .narrative-passage:first-child {
+html.home-cover .home-narrative .narrative-passage:first-child:not(:last-child) {
   margin-bottom: calc(var(--lead-size) * 1.15);
 }
 html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p {
@@ -129,12 +130,22 @@ html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrativ
 html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrative-summary-link:focus-visible)::first-letter {
   color: var(--accent-dark-colour);
 }
-/* A single return towards the introductory size at the end. Never fade text
-   or shrink progressively. A one-entry page keeps its opening treatment. */
-html.home-cover .home-narrative .narrative-prose .narrative-passage:last-child:not(:first-child) > p {
+/* Four quiet steps: opening, second, middle pair, then closing passages.
+   Additional selections keep the closing size; a lone entry stays enlarged. */
+html.home-cover .home-narrative .narrative-prose .narrative-passage:nth-child(2) > p {
+  font-size: var(--second-size);
+  line-height: 1.49;
+  letter-spacing: -0.018em;
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:nth-child(n + 5) > p {
   font-size: var(--closing-size);
   line-height: 1.6;
   letter-spacing: -0.005em;
+}
+/* Open the gaps before the smaller passages without changing date spacing
+   or adding trailing space after the final entry. */
+html.home-cover .home-narrative .narrative-passage:nth-child(n + 4):not(:last-child) {
+  margin-bottom: calc(var(--narrative-gap) + 0.35rem);
 }
 /* Publication dates are the only visible metadata beneath each passage. */
 html.home-cover .home-narrative .narrative-date {
