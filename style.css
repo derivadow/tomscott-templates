@@ -251,19 +251,18 @@ a.menu:hover {
 /* Display typography */
 
 .fleuron {
-	width: 2.25rem;
-	height: 2.25rem;
-	margin: 2.5rem auto 1rem;
-	background: var(--accent-colour);
-	-webkit-mask: url('/images/site/octopus-ink-64.png') center / contain no-repeat;
-	mask: url('/images/site/octopus-ink-64.png') center / contain no-repeat;
+	display: flex;
+	justify-content: center;
+	margin: 2.5rem 0 1rem;
 }
 
 .fleuron img {
-	display: none;
+	display: block;
+	width: 2.25rem;
+	height: auto;
 }
 
-..mark {
+.mark {
 	display: flex;
 	align-items: center;
 	gap: 1.5rem;
