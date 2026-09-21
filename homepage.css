@@ -2,20 +2,20 @@
    its first page. All rules are scoped; the rest of the site stays off-white.
    No prototype controls, client-side logic, or per-post layout flags. */
 html.home-cover {
-  --page-bg-colour: #FFE97E;
-  --text-colour: #14213D;
-  --masthead-text-colour: #51493d;
-  --accent-dark-colour: #8f3b1e;
-  --accent-colour: #97411f;
-  --accent-wash-colour: rgba(143, 59, 30, 0.08);
-  --muted-text-colour: #5b5346;
-  --pale-text-colour: #5b5346;
-  color-scheme: light;
+  --page-bg-colour: #5B5346;
+  --text-colour: #FFE97E;
+  --masthead-text-colour: rgba(255, 233, 126, 0.72);
+  --accent-dark-colour: #FFF7D6;
+  --accent-colour: #FFF7D6;
+  --accent-wash-colour: rgba(255, 247, 214, 0.08);
+  --muted-text-colour: rgba(255, 233, 126, 0.72);
+  --pale-text-colour: rgba(255, 233, 126, 0.72);
+  color-scheme: dark;
 }
 
 /* Use the homepage ink for the rule; other pages keep the shared orange. */
 html.home-cover .site-header {
-  border-bottom-color: rgba(87, 80, 68, 0.25);
+  border-bottom-color: rgba(255, 233, 126, 0.30);
 }
 
 html.home-cover .home-narrative {
@@ -48,7 +48,7 @@ html.home-cover .home-narrative .narrative-intro a {
   color: var(--accent-dark-colour);
   text-decoration: underline;
   text-decoration-thickness: 0.06em;
-  text-decoration-color: rgba(143, 59, 30, 0.4);
+  text-decoration-color: rgba(255, 247, 214, 0.45);
   text-underline-offset: 0.18em;
 }
 html.home-cover .home-narrative .narrative-prose {
@@ -162,10 +162,12 @@ html.home-cover .home-narrative .narrative-date {
   text-align: right;
 }
 
-/* Close the cover with the original purple printer's mark. The shared
-   orange fleuron remains unchanged everywhere else on the site. */
+/* Close the cover with a yellow printer's mark. The shared orange
+   fleuron remains unchanged everywhere else on the site. */
 html.home-cover .home-narrative .homepage-fleuron {
   margin: clamp(2.75rem, 6vw, 4rem) 0 0;
+  opacity: 0.85;
+  filter: brightness(0) saturate(100%) invert(91%) sepia(52%) saturate(597%) hue-rotate(347deg) brightness(105%) contrast(103%);
 }
 @media (max-width: 400px) {
   html.home-cover .home-narrative { --narrative-gap: 1.35em; }
@@ -196,4 +198,14 @@ html.home-cover .home-narrative > h1.visually-hidden {
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Keep masthead and footer quieter than the narrative, and use the same
+   restrained rule treatment at both edges of the cover. */
+html.home-cover .site-header,
+html.home-cover .site-footer {
+  color: var(--masthead-text-colour);
+}
+html.home-cover .site-footer {
+  border-top-color: rgba(255, 233, 126, 0.30);
 }
