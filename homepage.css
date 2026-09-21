@@ -153,7 +153,7 @@ html.home-cover .home-narrative .narrative-date {
   width: max-content;
   max-width: 100%;
   margin: 0.45rem 0 0 auto;
-  color: color-mix(in srgb, var(--text-colour) 92%, var(--page-bg-colour));
+  color: color-mix(in srgb, var(--text-colour) 72%, var(--page-bg-colour));
   font-family: var(--mono-font);
   font-size: 0.72rem;
   font-weight: 400;
