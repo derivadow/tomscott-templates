@@ -121,7 +121,7 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   font-weight: 600;
   line-height: 0.78;
   letter-spacing: 0;
-  -webkit-initial-letter: 4.1;
+  -webkit-initial-letter: 4;
   initial-letter: 4;
 }
 /* The drop cap has its own colour declaration, so explicitly carry the
