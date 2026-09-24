@@ -110,7 +110,9 @@ html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-t
   text-decoration-color: var(--narrative-underline-colour);
   background-size: 100% 0.1em;
 }
-@supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {
+/* Slice one continuous background across the wrapped text, rather than
+   restarting it on every line. Linear timing keeps the sweep moving evenly. */
+@supports (box-decoration-break: slice) or (-webkit-box-decoration-break: slice) {
   html.home-cover .home-narrative .narrative-link-text {
     text-decoration-line: none;
     padding-bottom: 0.12em;
@@ -118,9 +120,9 @@ html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-t
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 0% 0.1em;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    transition: background-size 0.2s ease;
+    -webkit-box-decoration-break: slice;
+    box-decoration-break: slice;
+    transition: background-size 0.45s linear;
   }
 }
 /* A tap gets immediate feedback, without depending on sticky touch hover. */
