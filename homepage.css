@@ -19,6 +19,7 @@ html.home-cover .site-header {
 }
 
 html.home-cover .home-narrative {
+  --narrative-underline-colour: #E9A178;
   --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
   --narrative-leading: 1.55;
   --narrative-weight: 400;
@@ -69,6 +70,8 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
   color: var(--text-colour);
   font: inherit;
 }
+/* Keep the full passage as one link and one rectangular focus target.
+   Only the inline text span is decorated, so each wrapped line ends at ink. */
 html.home-cover .home-narrative .narrative-summary-link {
   display: block;
   margin: 0;
@@ -77,15 +80,64 @@ html.home-cover .home-narrative .narrative-summary-link {
   color: inherit;
   background: none;
   text-decoration: none;
+  transition: none;
 }
-html.home-cover .home-narrative .narrative-summary-link:hover {
-  color: var(--accent-dark-colour);
+html.home-cover .home-narrative .narrative-summary-link:hover,
+html.home-cover .home-narrative .narrative-summary-link:focus-visible {
+  color: inherit;
   background: none;
 }
 html.home-cover .home-narrative .narrative-summary-link:focus-visible {
-  color: var(--accent-dark-colour);
   outline-color: var(--accent-dark-colour);
   outline-offset: 0.22rem;
+}
+/* Native underline fallback; the animated version below is an enhancement. */
+html.home-cover .home-narrative .narrative-link-text {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.18em;
+  text-decoration-skip-ink: auto;
+}
+@media (hover: hover) {
+  html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+    text-decoration-color: var(--narrative-underline-colour);
+    background-size: 100% 0.1em;
+  }
+}
+html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
+html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+  text-decoration-color: var(--narrative-underline-colour);
+  background-size: 100% 0.1em;
+}
+@supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {
+  html.home-cover .home-narrative .narrative-link-text {
+    text-decoration-line: none;
+    padding-bottom: 0.12em;
+    background-image: linear-gradient(var(--narrative-underline-colour), var(--narrative-underline-colour));
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 0.1em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-size 0.2s ease;
+  }
+}
+/* A tap gets immediate feedback, without depending on sticky touch hover. */
+html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+  transition: none;
+}
+/* Forced-colour modes can suppress backgrounds; retain a native underline. */
+@media (forced-colors: active) {
+  html.home-cover .home-narrative .narrative-link-text {
+    background-image: none;
+  }
+  html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text,
+  html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
+  html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+    text-decoration-line: underline;
+    text-decoration-color: LinkText;
+  }
 }
 /* Keep the article title in the link's accessible name without adding a
    second visible or focusable destination. */
@@ -110,8 +162,8 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   line-height: 1.43;
   letter-spacing: -0.022em;
 }
-/* Match article openings: native initial-letter aligns the glyph to the
-   second baseline and releases the third line. Float sizing is a fallback. */
+/* Preserve the opening initial and its quiet colour in every interaction
+   state. Native initial-letter is preferred; float sizing is a fallback. */
 html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p::first-letter {
   float: left;
   margin: 0.06em 0.06em 0 0;
@@ -123,12 +175,6 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   letter-spacing: 0;
   -webkit-initial-letter: 4.1;
   initial-letter: 4.1;
-}
-/* The drop cap has its own colour declaration, so explicitly carry the
-   passage link's interaction colour through to it. */
-html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrative-summary-link:hover)::first-letter,
-html.home-cover .home-narrative .narrative-passage:first-child > p:has(.narrative-summary-link:focus-visible)::first-letter {
-  color: var(--accent-dark-colour);
 }
 /* Four quiet steps: opening, second, middle pair, then closing passages.
    Additional selections keep the closing size; a lone entry stays enlarged. */
@@ -173,7 +219,8 @@ html.home-cover .home-narrative .homepage-fleuron {
   html.home-cover .home-narrative { --narrative-gap: 1.35em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.home-cover .home-narrative a { transition: none; }
+  html.home-cover .home-narrative a,
+  html.home-cover .home-narrative .narrative-link-text { transition: none; }
 }
 
 /* Footer links echo the restrained masthead navigation treatment. */
