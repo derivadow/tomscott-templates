@@ -19,7 +19,6 @@ html.home-cover .site-header {
 }
 
 html.home-cover .home-narrative {
-  --narrative-underline-colour: #E9A178;
   --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
   --narrative-leading: 1.55;
   --narrative-weight: 400;
@@ -71,7 +70,7 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
   font: inherit;
 }
 /* Keep the full passage as one link and one rectangular focus target.
-   Only the inline text span is decorated, so each wrapped line ends at ink. */
+   The visible text carries the reveal; dates and hidden titles do not. */
 html.home-cover .home-narrative .narrative-summary-link {
   display: block;
   margin: 0;
@@ -91,54 +90,80 @@ html.home-cover .home-narrative .narrative-summary-link:focus-visible {
   outline-color: var(--accent-dark-colour);
   outline-offset: 0.22rem;
 }
-/* Native underline fallback; the animated version below is an enhancement. */
-html.home-cover .home-narrative .narrative-link-text {
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 0.1em;
-  text-underline-offset: 0.18em;
-  text-decoration-skip-ink: auto;
+/* Text-fill reveal inspired by CodeFronts' CSS Text Color Reveal demo.
+   https://codefronts.com/motion/css-text-hover-effects/css-text-color-reveal-background-clip/
+   Reuse the cover's yellow and cream; do not translate or reflow the prose. */
+@property --tom-home-reveal-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 100deg;
 }
+html.home-cover .home-narrative .narrative-link-text {
+  color: var(--text-colour);
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+/* Solid cream is the fallback where clipped text is not supported. */
 @media (hover: hover) {
   html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
-    text-decoration-color: var(--narrative-underline-colour);
-    background-size: 100% 0.1em;
+    color: var(--accent-dark-colour);
   }
 }
 html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
 html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
-  text-decoration-color: var(--narrative-underline-colour);
-  background-size: 100% 0.1em;
+  color: var(--accent-dark-colour);
 }
-/* Slice one continuous background across the wrapped text, rather than
-   restarting it on every line. Linear timing keeps the sweep moving evenly. */
-@supports (box-decoration-break: slice) or (-webkit-box-decoration-break: slice) {
+@supports (background-clip: text) or (-webkit-background-clip: text) {
   html.home-cover .home-narrative .narrative-link-text {
-    text-decoration-line: none;
-    padding-bottom: 0.12em;
-    background-image: linear-gradient(var(--narrative-underline-colour), var(--narrative-underline-colour));
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: 0% 0.1em;
-    -webkit-box-decoration-break: slice;
-    box-decoration-break: slice;
-    transition: background-size 0.45s linear;
+    --tom-home-reveal-angle: 100deg;
+    background-color: var(--text-colour);
+    background-image: linear-gradient(var(--tom-home-reveal-angle), var(--text-colour), var(--accent-dark-colour));
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: tom-home-reveal-turn 6s ease-in-out 0.5s infinite alternate paused;
+  }
+  /* Keep the gradient painted at rest. Only the solid ink crossfades.
+     Pause on exit so its angle does not snap back during the return fade. */
+  @media (hover: hover) {
+    html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+      color: transparent;
+      animation-play-state: running;
+    }
+  }
+  html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text {
+    color: transparent;
+    animation-play-state: running;
+  }
+  html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+    color: transparent;
   }
 }
-/* A tap gets immediate feedback, without depending on sticky touch hover. */
+@keyframes tom-home-reveal-turn {
+  from { --tom-home-reveal-angle: 100deg; }
+  to { --tom-home-reveal-angle: 220deg; }
+}
+/* A tap receives immediate feedback without depending on touch hover. */
 html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
   transition: none;
 }
-/* Forced-colour modes can suppress backgrounds; retain a native underline. */
-@media (forced-colors: active) {
-  html.home-cover .home-narrative .narrative-link-text {
-    background-image: none;
+/* Selection must remain legible while the normal glyph fill is transparent. */
+html.home-cover .home-narrative .narrative-link-text::selection {
+  color: var(--page-bg-colour);
+  background-color: var(--text-colour);
+}
+/* Restore solid text when backgrounds are suppressed or the page is printed. */
+@media (forced-colors: active), print {
+  html.home-cover .home-narrative .narrative-link-text,
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    color: LinkText;
+    background: none;
+    animation: none;
+    transition: none;
   }
-  html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text,
-  html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
-  html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
-    text-decoration-line: underline;
-    text-decoration-color: LinkText;
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.18em;
   }
 }
 /* Keep the article title in the link's accessible name without adding a
@@ -222,7 +247,10 @@ html.home-cover .home-narrative .homepage-fleuron {
 }
 @media (prefers-reduced-motion: reduce) {
   html.home-cover .home-narrative a,
-  html.home-cover .home-narrative .narrative-link-text { transition: none; }
+  html.home-cover .home-narrative .narrative-link-text { transition: none; animation: none; }
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    animation: none;
+  }
 }
 
 /* Footer links echo the restrained masthead navigation treatment. */
