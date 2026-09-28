@@ -29,7 +29,9 @@ Important files commonly include:
   - `locals` defines template-wide variables exposed to views.
   - `views` defines routing for template files through `url`.
   - per-view `partials` may define string partials for titles, descriptions, or other view-specific template fragments.
-- `entries.html` — homepage or entry-list view.
+- `entries.html` — narrative homepage on the first page; the older entry-list view on subsequent pages.
+- `homepage-passage.html` — shared markup for each selected or featured homepage passage, its accessible article title, and publication date.
+- `homepage.css` — homepage-only styles, loaded after `style.css` and scoped to `html.home-cover`.
 - `entry.html` — individual article/post view.
 - `archives.html` — archive listing view, commonly routed to `/archives`.
 - `tagged.html` — tag listing view, commonly used for `/tagged/:tag` routes.
@@ -95,7 +97,7 @@ Rendered site files can also be embedded. For example:
 {{> /Pages/Writing.md}}
 ```
 
-This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string.
+This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string. The `/Pages/Home.md` embed remains in the homepage template, but the file has deliberately been removed. Do not recreate an introductory paragraph merely to satisfy that retained hook.
 
 ## Blot-specific constraints
 
@@ -140,7 +142,9 @@ For asset issues, check the rendered CSS, font, and JavaScript URLs in the brows
 
 ## Workflow expectations
 
-Before making a substantive architectural, editorial or visual change, read the canonical design guide at `../../.github/design-principles.md`. In the public template repository, the same guide is published as `docs/design-principles.md`.
+Before making a substantive architectural, editorial or visual change, read the canonical design guide at `../../.github/design-principles.md`. In the public template repository, the same guide is published as `docs/design-principles.md`. For homepage work in the canonical repository, also read `../../.github/homepage.md`. That detailed guide is not currently mirrored publicly; the essential constraints are recorded below and in the public design guide.
+
+The private `derivadow/tomscott.name` repository is the canonical source. The public templates are derived, while the existing Blot/iCloud working folder remains the deployment path. Preserve and reconcile local edits rather than treating these as parallel editable sources.
 
 Keep changes minimal, deliberate, and backwards-compatible.
 
@@ -185,6 +189,18 @@ Known visual conventions include:
 - Search should feel integrated with the navigation and site typography.
 
 Do not add decorative complexity unless it clearly improves the design.
+
+## Narrative homepage
+
+The homepage is a curated, prose-led introduction to the writing, not a recent-post list. Aim for five or six complementary long-form pieces as an editorial target, not a template limit. Notes are currently omitted by selection, not by a tag-based filter. Each piece has one independent passage followed by its original publication date. Article titles are deliberately not displayed; each title remains inside the passage anchor as visually hidden text so it contributes to the link's accessible name. The writing begins directly, without a biography or introductory paragraph.
+
+Preserve the single-column layout at every viewport width. Passages use the available site measure; dates sit beneath their own passages, right-aligned and inside that measure. Inter carries the prose, Tungsten the opening drop cap, and Nitti the smaller dates. The former marginal notes, title column, and visible-title treatments are superseded, not responsive modes to restore. Keep the yellow cover and all homepage-specific styles scoped to `html.home-cover`.
+
+The passage is the single visible article link. Keep it readable as prose at rest, with a colour-only hover response and visible keyboard focus. Do not add a second hidden or visible title anchor; the title belongs as visually hidden text within the passage link. Homepage footer links follow the quieter, colour-only masthead treatment. Preserve one article focus target per passage. Do not add nested anchors, card click handlers, or a new client-side navigation dependency.
+
+`Homepage:` is escaped plain-text copy, not an inclusion flag. `Selected:` includes a post; `Featured:` implies inclusion and moves it into the leading group. Each group retains newest-first order from `all_entries`. Remove a flag to switch it off; non-empty values such as `no` or `false` are still truthy in the existing plain-text convention. Keep summary and title fallbacks, avoid duplicates, and preserve the exclusion of pages, drafts, deleted entries, and scheduled entries.
+
+The visually hidden homepage `h1` already provides the semantic page title. Keep it and its connection to `main`. Test the passage links, keyboard focus, accessible link text including article titles, opening drop-cap alignment, dates, single-post and empty-selection states, and unaffected non-homepage views when changing templates or CSS. A documentation review alone is not a rendered accessibility or visual regression test.
 
 ## HTML and accessibility
 

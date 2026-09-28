@@ -3,7 +3,7 @@
 @font-face {
 	font-family: 'Inter';
 	src: url('/fonts/InterVariable.woff2') format('woff2');
-	font-weight: 100 350 400 600 700;
+	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
 }
@@ -251,19 +251,18 @@ a.menu:hover {
 /* Display typography */
 
 .fleuron {
-	width: 2.25rem;
-	height: 2.25rem;
-	margin: 2.5rem auto 1rem;
-	background: var(--accent-colour);
-	-webkit-mask: url('/images/site/octopus-ink-64.png') center / contain no-repeat;
-	mask: url('/images/site/octopus-ink-64.png') center / contain no-repeat;
+	display: flex;
+	justify-content: center;
+	margin: 2.5rem 0 1rem;
 }
 
 .fleuron img {
-	display: none;
+	display: block;
+	width: 2.25rem;
+	height: auto;
 }
 
-..mark {
+.mark {
 	display: flex;
 	align-items: center;
 	gap: 1.5rem;
@@ -422,12 +421,12 @@ main>p a:hover {
 	position: relative;
 	display: block;
 	width: calc(100% + 0.9em);
-	max-width: calc(var(--text-width) + 0.9em);
+	max-width: calc(var(--text-width) + 9.9em);
 	margin: 0 0 2.5em;
 	padding-left: 0.9em;
 	color: var(--pale-text-colour);
 	font-family: var(--mono-font);
-	font-size: 0.85em;
+	font-size: 0.75em;
 	line-height: 1.45;
 }
 
@@ -439,6 +438,32 @@ main>p a:hover {
 	left: 0;
 	width: 1.5px;
 	background: rgba(227, 106, 41, .35);
+}
+
+/* Essay and life-post openings */
+
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))),
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))) {
+	font-weight: 350;
+}
+
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img)))>strong:only-child,
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img)))>strong:only-child {
+	font-weight: inherit;
+}
+
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img)))::first-letter,
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img)))::first-letter {
+	float: left;
+	margin: 0.06em 0.06em 0 0;
+	color: var(--masthead-text-colour);
+	font-family: var(--display-font);
+	font-size: 4rem;
+	font-weight: 600;
+	line-height: 0.78;
+	letter-spacing: 0;
+	-webkit-initial-letter: 3.1;
+	initial-letter: 3.1;
 }
 
 .entry .post-tags-header {

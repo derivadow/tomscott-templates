@@ -1,0 +1,288 @@
+/* Narrative homepage. The cover class is emitted only by entries.html on
+   its first page. All rules are scoped; the rest of the site stays off-white.
+   No prototype controls, client-side logic, or per-post layout flags. */
+html.home-cover {
+  --page-bg-colour: #5B5346;
+  --text-colour: #FFE97E;
+  --masthead-text-colour: rgba(255, 233, 126, 0.72);
+  --accent-dark-colour: #FFF7D6;
+  --accent-colour: #FFF7D6;
+  --accent-wash-colour: rgba(255, 247, 214, 0.08);
+  --muted-text-colour: rgba(255, 233, 126, 0.72);
+  --pale-text-colour: rgba(255, 233, 126, 0.72);
+  color-scheme: dark;
+}
+
+/* Use the homepage ink for the rule; other pages keep the shared orange. */
+html.home-cover .site-header {
+  border-bottom-color: rgba(255, 233, 126, 0.30);
+}
+
+html.home-cover .home-narrative {
+  --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
+  --narrative-leading: 1.55;
+  --narrative-weight: 400;
+  --narrative-gap: 1.4em;
+  --lead-size: clamp(1.375rem, 1.08rem + 1.25vw, 1.875rem);
+  --second-size: clamp(1.28125rem, 1.04rem + 1.025vw, 1.6875rem);
+  --intro-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+  --closing-size: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
+  padding-bottom: 0;
+}
+html.home-cover .home-narrative .narrative-intro {
+  max-width: 36rem;
+  margin: 0 0 clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--text-colour);
+  font-family: var(--body-font);
+  font-size: var(--intro-size);
+  font-weight: 350;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+/* Also supports a wrapper around Blot's /Pages/Home.md partial. */
+html.home-cover .home-narrative .narrative-intro > p { margin: 0; }
+html.home-cover .home-narrative .narrative-intro > p + p { margin-top: 1em; }
+html.home-cover .home-narrative .narrative-intro a {
+  margin: 0;
+  padding: 0;
+  color: var(--accent-dark-colour);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-decoration-color: rgba(255, 247, 214, 0.45);
+  text-underline-offset: 0.18em;
+}
+html.home-cover .home-narrative .narrative-prose {
+  font-family: var(--body-font);
+  font-size: var(--narrative-size);
+  font-weight: var(--narrative-weight);
+  line-height: var(--narrative-leading);
+  letter-spacing: -0.015em;
+}
+html.home-cover .home-narrative .narrative-passage {
+  margin: 0 0 var(--narrative-gap);
+}
+html.home-cover .home-narrative .narrative-passage:last-child { margin-bottom: 0; }
+html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
+  display: flow-root; /* Contain the floated initial, even for a short post. */
+  min-width: 0;
+  margin: 0;
+  color: var(--text-colour);
+  font: inherit;
+}
+/* Keep the full passage as one link and one rectangular focus target.
+   The visible text carries the reveal; dates and hidden titles do not. */
+html.home-cover .home-narrative .narrative-summary-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  background: none;
+  text-decoration: none;
+  transition: none;
+}
+html.home-cover .home-narrative .narrative-summary-link:hover,
+html.home-cover .home-narrative .narrative-summary-link:focus-visible {
+  color: inherit;
+  background: none;
+}
+html.home-cover .home-narrative .narrative-summary-link:focus-visible {
+  outline-color: var(--accent-dark-colour);
+  outline-offset: 0.22rem;
+}
+/* Text-fill reveal inspired by CodeFronts' CSS Text Color Reveal demo.
+   https://codefronts.com/motion/css-text-hover-effects/css-text-color-reveal-background-clip/
+   Reuse the cover's yellow and cream; do not translate or reflow the prose. */
+@property --tom-home-reveal-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 100deg;
+}
+html.home-cover .home-narrative .narrative-link-text {
+  color: var(--text-colour);
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+/* Solid cream is the fallback where clipped text is not supported. */
+@media (hover: hover) {
+  html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+    color: var(--accent-dark-colour);
+  }
+}
+html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
+html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+  color: var(--accent-dark-colour);
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  html.home-cover .home-narrative .narrative-link-text {
+    --tom-home-reveal-angle: 100deg;
+    background-color: var(--text-colour);
+    background-image: linear-gradient(var(--tom-home-reveal-angle), var(--text-colour), var(--accent-dark-colour));
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: tom-home-reveal-turn 6s ease-in-out 0.5s infinite alternate paused;
+  }
+  /* Keep the gradient painted at rest. Only the solid ink crossfades.
+     Pause on exit so its angle does not snap back during the return fade. */
+  @media (hover: hover) {
+    html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+      color: transparent;
+      animation-play-state: running;
+    }
+  }
+  html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text {
+    color: transparent;
+    animation-play-state: running;
+  }
+  html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+    color: transparent;
+  }
+}
+@keyframes tom-home-reveal-turn {
+  from { --tom-home-reveal-angle: 100deg; }
+  to { --tom-home-reveal-angle: 220deg; }
+}
+/* A tap receives immediate feedback without depending on touch hover. */
+html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+  transition: none;
+}
+/* Selection must remain legible while the normal glyph fill is transparent. */
+html.home-cover .home-narrative .narrative-link-text::selection {
+  color: var(--page-bg-colour);
+  background-color: var(--text-colour);
+}
+/* Restore solid text when backgrounds are suppressed or the page is printed. */
+@media (forced-colors: active), print {
+  html.home-cover .home-narrative .narrative-link-text,
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    color: LinkText;
+    background: none;
+    animation: none;
+    transition: none;
+  }
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.18em;
+  }
+}
+/* Keep the article title in the link's accessible name without adding a
+   second visible or focusable destination. */
+html.home-cover .home-narrative .narrative-link-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* The opening style always follows the first rendered entry. No per-post
+   lead class, hand-marked first sentence, or text-splitting script is needed. */
+html.home-cover .home-narrative .narrative-passage:first-child:not(:last-child) {
+  margin-bottom: calc(var(--lead-size) * 1.15);
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p {
+  font-size: var(--lead-size);
+  line-height: 1.43;
+  letter-spacing: -0.022em;
+}
+/* Preserve the opening initial and its quiet colour in every interaction
+   state. Native initial-letter is preferred; float sizing is a fallback. */
+html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p::first-letter {
+  float: left;
+  margin: 0.06em 0.06em 0 0;
+  color: var(--masthead-text-colour);
+  font-family: var(--display-font);
+  font-size: 3.1em;
+  font-weight: 600;
+  line-height: 0.78;
+  letter-spacing: 0;
+  -webkit-initial-letter: 4.1;
+  initial-letter: 4.1;
+}
+/* Four quiet steps: opening, second, middle pair, then closing passages.
+   Additional selections keep the closing size; a lone entry stays enlarged. */
+html.home-cover .home-narrative .narrative-prose .narrative-passage:nth-child(2) > p {
+  font-size: var(--second-size);
+  line-height: 1.49;
+  letter-spacing: -0.018em;
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:nth-child(n + 5) > p {
+  font-size: var(--closing-size);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+/* Open the gaps before the smaller passages without changing date spacing
+   or adding trailing space after the final entry. */
+html.home-cover .home-narrative .narrative-passage:nth-child(n + 4):not(:last-child) {
+  margin-bottom: calc(var(--narrative-gap) + 0.35rem);
+}
+/* Publication dates are the only visible metadata beneath each passage. */
+html.home-cover .home-narrative .narrative-date {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 0.45rem 0 0 auto;
+  color: color-mix(in srgb, var(--text-colour) 72%, var(--page-bg-colour));
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+/* Close the cover with a yellow printer's mark. The shared orange
+   fleuron remains unchanged everywhere else on the site. */
+html.home-cover .home-narrative .homepage-fleuron {
+  margin: clamp(2.75rem, 6vw, 4rem) 0 0;
+  opacity: 0.85;
+  filter: brightness(0) saturate(100%) invert(91%) sepia(52%) saturate(597%) hue-rotate(347deg) brightness(105%) contrast(103%);
+}
+@media (max-width: 400px) {
+  html.home-cover .home-narrative { --narrative-gap: 1.35em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.home-cover .home-narrative a,
+  html.home-cover .home-narrative .narrative-link-text { transition: none; animation: none; }
+  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+    animation: none;
+  }
+}
+
+/* Footer links echo the restrained masthead navigation treatment. */
+html.home-cover .site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+html.home-cover .site-footer a:hover,
+html.home-cover .site-footer a:focus-visible {
+  color: var(--accent-colour);
+  background: none;
+  text-decoration: none;
+}
+
+html.home-cover .home-narrative > h1.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keep masthead and footer quieter than the narrative, and use the same
+   restrained rule treatment at both edges of the cover. */
+html.home-cover .site-header,
+html.home-cover .site-footer {
+  color: var(--masthead-text-colour);
+}
+html.home-cover .site-footer {
+  border-top-color: rgba(255, 233, 126, 0.30);
+}

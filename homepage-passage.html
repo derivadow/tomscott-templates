@@ -1,0 +1,15 @@
+{{! Render only published posts, even if a non-post carries selection flags. }}
+{{^page}}
+{{^draft}}
+{{^deleted}}
+{{^scheduled}}
+<div class="narrative-passage">
+    <p><a class="narrative-summary-link" href="{{url}}">{{#metadata.homepage}}<span class="narrative-link-text">{{.}}</span><span class="narrative-link-title"> — {{title}}</span>{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}<span class="narrative-link-text">{{summary}}</span><span class="narrative-link-title"> — {{title}}</span>{{/summary}}{{^summary}}<span class="narrative-link-text">{{title}}</span>{{/summary}}{{/metadata.homepage}}</a></p>
+    {{#dateStamp}}
+    <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
+    {{/dateStamp}}
+</div>
+{{/scheduled}}
+{{/deleted}}
+{{/draft}}
+{{/page}}
