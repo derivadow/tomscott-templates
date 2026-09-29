@@ -426,8 +426,9 @@ main>p a:hover {
 	padding-left: 0.9em;
 	color: var(--pale-text-colour);
 	font-family: var(--mono-font);
-	font-size: 0.75em;
+	font-size: 0.85em;
 	line-height: 1.45;
+	font-variant-caps: all-petite-caps
 }
 
 .caption::before {
