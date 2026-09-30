@@ -1,5 +1,5 @@
 /* A short, self-contained opening quotation stays in the reading face.
-   entry-opening.html identifies it after Blot has rendered the Markdown.
+   entry-opening-script.html identifies it after Blot has rendered the Markdown.
    Keep these positions aligned with the drop-cap rules in style.css. */
 .entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))).opening-quote::first-letter,
 .entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"]))>article>:is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))).opening-quote::first-letter {
