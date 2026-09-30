@@ -1,0 +1,37 @@
+<script>
+(function () {
+  'use strict';
+
+  // This partial runs immediately after the rendered Markdown, inside .entry.
+  // Reading and navigation never depend on this optional typography enhancement.
+  var entry = document.currentScript && document.currentScript.closest('.entry');
+  if (!entry || !entry.querySelector('.post-tags-header a[href="/tagged/essay"], .post-tags-header a[href="/tagged/life"]')) return;
+  if (!window.CSS || !CSS.supports('selector(:has(*))')) return;
+
+  // Match the existing drop-cap positions, skipping image captions.
+  var positions = ':is(h1 + p:has(img) + p:not(.caption), h1 + p:has(img) + .caption + p, h1 + p:not(:has(img)))';
+  var opening = entry.querySelector(':scope > ' + positions + ', :scope > article > ' + positions);
+  if (!opening) return;
+
+  var text = opening.textContent.trim();
+  // A conservative, viewport-independent limit leaves long dialogue openings alone.
+  if (text.length < 3 || text.length > 200) return;
+
+  var pairs = { '\u201c': '\u201d', '"': '"', '\u2018': '\u2019', "'": "'", '\u00ab': '\u00bb', '\u2039': '\u203a' };
+  var closing = pairs[text.charAt(0)];
+  if (!closing || text.charAt(text.length - 1) !== closing) return;
+
+  // Reject quoted speech followed by narration, even when another quote ends it.
+  // Apostrophes inside words are not closing quotation marks.
+  var single = closing === "'" || closing === '\u2019';
+  var wordCharacter = /[\p{L}\p{N}]/u;
+  for (var i = 1; i < text.length - 1; i += 1) {
+    if (text.charAt(i) !== closing) continue;
+    if (single && wordCharacter.test(text.charAt(i - 1)) && wordCharacter.test(text.charAt(i + 1))) continue;
+    return;
+  }
+
+  // Keep the Markdown, inline markup, quotation marks and accessible text intact.
+  opening.classList.add('opening-quote');
+}());
+</script>
