@@ -1720,3 +1720,43 @@ iframe {
 		gap: 0.4rem 0.85rem;
 	}
 }
+
+
+/* Paragraph citations
+   Source links authored at the end of a paragraph are progressively moved
+   into the right reading margin by script.js when a genuine margin exists. */
+
+@media screen and (min-width: 66rem) {
+	.entry > p.has-marginal-citation {
+		position: relative;
+	}
+
+	.marginal-citation {
+		position: absolute;
+		top: 0.12em;
+		left: calc(100% + 2.25rem);
+		width: 9rem;
+		color: var(--muted-text-colour);
+		font-family: var(--mono-font);
+		font-size: 0.72rem;
+		font-weight: 400;
+		line-height: 1.4;
+		letter-spacing: 0;
+	}
+
+	.entry .marginal-citation a {
+		margin: 0;
+		padding: 0;
+		color: inherit;
+		background: none;
+		text-decoration: none;
+	}
+
+	.entry .marginal-citation a:hover,
+	.entry .marginal-citation a:focus-visible {
+		color: var(--accent-dark-colour);
+		text-decoration: underline;
+		text-decoration-thickness: 0.08em;
+		text-underline-offset: 0.18em;
+	}
+}
