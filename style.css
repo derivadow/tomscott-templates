@@ -1744,6 +1744,21 @@ iframe {
 		letter-spacing: 0;
 	}
 
+	.marginal-citation-source,
+	.marginal-citation-title {
+		display: block;
+	}
+
+	.marginal-citation-source {
+		color: var(--muted-text-colour);
+	}
+
+	.marginal-citation-title {
+		margin-top: 0.22em;
+		color: var(--pale-text-colour);
+		line-height: 1.35;
+	}
+
 	.entry .marginal-citation a {
 		margin: 0;
 		padding: 0;

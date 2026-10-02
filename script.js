@@ -36,7 +36,15 @@
 
 		var link = citation.querySelector("a");
 		var marker = paragraph.querySelector(":scope > .citation-marker");
-		if (link && marker) marker.replaceWith(link);
+		if (link && marker) {
+			var prefix = marker.dataset.prefix || "";
+			var suffix = marker.dataset.suffix || "";
+			var fragment = document.createDocumentFragment();
+			if (prefix) fragment.appendChild(document.createTextNode(prefix));
+			fragment.appendChild(link);
+			if (suffix) fragment.appendChild(document.createTextNode(suffix));
+			marker.replaceWith(fragment);
+		}
 		citation.remove();
 		paragraph.classList.remove("has-marginal-citation");
 	}
@@ -46,15 +54,46 @@
 		var link = terminalCitation(paragraph);
 		if (!link) return;
 
+		var previous = link.previousSibling;
+		var next = link.nextSibling;
+		var prefix = "";
+		var suffix = "";
+
+		// Parentheses are useful inline but become visual debris when the
+		// citation moves to the margin. Preserve them on the hidden marker
+		// so the authored form can be restored exactly at narrower widths.
+		if (previous && previous.nodeType === Node.TEXT_NODE && /\($/.test(previous.textContent)) {
+			previous.textContent = previous.textContent.slice(0, -1);
+			prefix = "(";
+		}
+		if (next && next.nodeType === Node.TEXT_NODE && /^\)/.test(next.textContent)) {
+			next.textContent = next.textContent.slice(1);
+			suffix = ")";
+		}
+
 		var marker = document.createElement("span");
 		marker.className = "citation-marker";
 		marker.hidden = true;
+		marker.dataset.prefix = prefix;
+		marker.dataset.suffix = suffix;
 		link.replaceWith(marker);
 
 		var citation = document.createElement("span");
 		citation.className = "marginal-citation";
 		citation.setAttribute("role", "note");
-		citation.appendChild(link);
+
+		var source = document.createElement("span");
+		source.className = "marginal-citation-source";
+		source.appendChild(link);
+		citation.appendChild(source);
+
+		var title = link.getAttribute("title");
+		if (title) {
+			var detail = document.createElement("span");
+			detail.className = "marginal-citation-title";
+			detail.textContent = title;
+			citation.appendChild(detail);
+		}
 
 		paragraph.appendChild(citation);
 		paragraph.classList.add("has-marginal-citation");
