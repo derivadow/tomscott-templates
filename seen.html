@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+{{> head}}
+<link rel="stylesheet" href="{{#cdn}}/seen.css{{/cdn}}?v={{cacheID}}">
+<body class="seen-page">
+	{{> header}}
+
+	<main class="seen-main">
+		<header class="seen-intro">
+			<h1>Seen</h1>
+			<p>Things I stopped to look at.</p>
+		</header>
+
+		<div class="seen-gallery" data-seen-gallery>
+			{{#all_entries}}
+				{{#tagged.Seen}}
+					{{#thumbnail.large}}
+					<figure class="seen-item"
+						data-width="{{width}}"
+						data-height="{{height}}">
+						<img src="{{{url}}}"
+							width="{{width}}"
+							height="{{height}}"
+							alt="{{title}}"
+							loading="lazy"
+							decoding="async">
+						<figcaption>{{title}}</figcaption>
+					</figure>
+					{{/thumbnail.large}}
+				{{/tagged.Seen}}
+			{{/all_entries}}
+		</div>
+
+		<div class="fleuron">
+			<img src="/images/site/octopus-ink-64.png" alt="">
+		</div>
+	</main>
+
+	{{> footer}}
+	<script src="{{#cdn}}/seen.js{{/cdn}}?v={{cacheID}}" type="text/javascript"></script>
+</body>
+</html>
