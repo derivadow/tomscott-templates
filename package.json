@@ -54,13 +54,6 @@
         "title": "Writing tagged {{tag}} - {{title}}",
         "description": "All writing tagged {{tag}} on {{title}}"
       }
-    },
-    "seen.html": {
-      "url": "/seen",
-      "partials": {
-        "title": "Seen - {{title}}",
-        "description": "Things I stopped to look at."
-      }
     }
   }
 }
