@@ -11,6 +11,7 @@
 			  {{#archives}}
 			    {{#months}}
 			      {{#entries}}
+			      {{^tagged.Seen}}
 			<article class="archive-entry-wrap">
 				<div class="archive-entry-meta">{{#date}}
 				      <span class="archive-entry-date">{{date}}</span>
@@ -31,6 +32,7 @@
 				<p class="archive-entry-summary">{{summary}}</p>
 				  {{/summary}}
 			</article>
+			      {{/tagged.Seen}}
 			
 			      {{/entries}}
 			    {{/months}}

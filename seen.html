@@ -12,13 +12,16 @@
 		</header>
 
 		<div class="seen-gallery" data-seen-gallery>
-			{{#all_entries}}
+			{{#allEntries}}
 				{{#tagged.Seen}}
 					{{#thumbnail.large}}
 					<figure class="seen-item"
 						data-width="{{width}}"
 						data-height="{{height}}">
-						<img src="{{{url}}}"
+						<img
+							src="{{{url}}}"
+							srcset="{{{thumbnail.small.url}}} {{thumbnail.small.width}}w, {{{thumbnail.medium.url}}} {{thumbnail.medium.width}}w, {{{url}}} {{width}}w"
+							sizes="(max-width: 600px) 100vw, 50vw"
 							width="{{width}}"
 							height="{{height}}"
 							alt="{{title}}"
@@ -28,7 +31,7 @@
 					</figure>
 					{{/thumbnail.large}}
 				{{/tagged.Seen}}
-			{{/all_entries}}
+			{{/allEntries}}
 		</div>
 
 		<div class="fleuron">
