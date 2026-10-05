@@ -2,9 +2,9 @@
    its first page. All rules are scoped; the rest of the site stays off-white.
    No prototype controls, client-side logic, or per-post layout flags. */
 html.home-cover {
-  --page-bg-colour: #5B5346;
-  --text-colour: #FFE97E;
-  --masthead-text-colour: rgba(255, 233, 126, 0.72);
+  --page-bg-colour: #3d4340;
+  --text-colour: #F7F7F8;
+  --masthead-text-colour: #F7F7F8;
   --accent-dark-colour: #FFF7D6;
   --accent-colour: #FFF7D6;
   --accent-wash-colour: rgba(255, 247, 214, 0.08);
@@ -235,12 +235,123 @@ html.home-cover .home-narrative .narrative-date {
   text-align: right;
 }
 
-/* Close the cover with a yellow printer's mark. The shared orange
-   fleuron remains unchanged everywhere else on the site. */
+/* Notes are a chronological postscript, independent of essay selection.
+   Keep all links in the server-rendered HTML; CSS limits the visible list
+   to three without JavaScript or new per-post publishing metadata. */
+html.home-cover .home-narrative .homepage-notes {
+  margin: clamp(3.25rem, 7vw, 4.5rem) 0 0;
+  color: var(--text-colour);
+}
+html.home-cover .home-narrative .homepage-notes:not(:has(.homepage-note)) {
+  display: none;
+}
+html.home-cover .home-narrative .homepage-notes::before {
+  content: "";
+  display: block;
+  width: 4rem;
+  margin: 0 0 1.125rem;
+  border-top: 1px solid currentColor;
+  opacity: 0.3;
+}
+html.home-cover .home-narrative .homepage-notes > h2 {
+  margin: 0 0 1rem;
+  font-family: var(--mono-font);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+html.home-cover .home-narrative .homepage-notes-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html.home-cover .home-narrative .homepage-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 0.25rem 1.5rem;
+  align-items: baseline;
+  margin: 0 0 0.6rem;
+}
+html.home-cover .home-narrative .homepage-note:nth-child(n + 4) {
+  display: none;
+}
+html.home-cover .home-narrative .homepage-notes a {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  background: none;
+  text-decoration: none;
+  transition: none;
+}
+html.home-cover .home-narrative .homepage-note-title {
+  min-width: 0;
+  font-family: var(--display-font);
+  font-size: clamp(1.375rem, 1.2rem + 0.5vw, 1.625rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: 0.005em;
+  overflow-wrap: anywhere;
+}
+html.home-cover .home-narrative .homepage-note-date {
+  color: var(--text-colour);
+  color: color-mix(in srgb, var(--text-colour) 82%, var(--page-bg-colour));
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+html.home-cover .home-narrative .homepage-notes .homepage-notes-all {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--mono-font);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+html.home-cover .home-narrative .homepage-notes a:hover,
+html.home-cover .home-narrative .homepage-notes a:focus-visible {
+  color: inherit;
+  background: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+html.home-cover .home-narrative .homepage-notes a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.22rem;
+}
+@media (max-width: 34rem) {
+  html.home-cover .home-narrative .homepage-note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html.home-cover .home-narrative .homepage-note-date {
+    display: block;
+  }
+}
+
+/* The existing image keeps its transparency and follows the homepage ink.
+   Other pages retain their existing printer's mark and image loading. */
 html.home-cover .home-narrative .homepage-fleuron {
   margin: clamp(2.75rem, 6vw, 4rem) 0 0;
+  color: var(--text-colour);
   opacity: 0.85;
-  filter: brightness(0) saturate(100%) invert(91%) sepia(52%) saturate(597%) hue-rotate(347deg) brightness(105%) contrast(103%);
+  filter: none;
+}
+html.home-cover .home-narrative .homepage-ink-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+@media (forced-colors: active), print {
+  html.home-cover .home-narrative .homepage-fleuron {
+    color: CanvasText;
+    opacity: 1;
+  }
 }
 @media (max-width: 400px) {
   html.home-cover .home-narrative { --narrative-gap: 1.35em; }
