@@ -92,7 +92,8 @@ html.home-cover .home-narrative .narrative-summary-link:focus-visible {
 }
 /* Text-fill reveal inspired by CodeFronts' CSS Text Color Reveal demo.
    https://codefronts.com/motion/css-text-hover-effects/css-text-color-reveal-background-clip/
-   Reuse the cover's yellow and cream; do not translate or reflow the prose. */
+   Essay passages and note links share this reveal; dates stay unchanged.
+   Use the cover's ink and accent without translating or reflowing text. */
 @property --tom-home-reveal-angle {
   syntax: '<angle>';
   inherits: false;
@@ -105,12 +106,12 @@ html.home-cover .home-narrative .narrative-link-text {
 }
 /* Solid cream is the fallback where clipped text is not supported. */
 @media (hover: hover) {
-  html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):hover .narrative-link-text {
     color: var(--accent-dark-colour);
   }
 }
-html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text,
-html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):focus-visible .narrative-link-text,
+html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):active .narrative-link-text {
   color: var(--accent-dark-colour);
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -125,16 +126,16 @@ html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-t
   /* Keep the gradient painted at rest. Only the solid ink crossfades.
      Pause on exit so its angle does not snap back during the return fade. */
   @media (hover: hover) {
-    html.home-cover .home-narrative .narrative-summary-link:hover .narrative-link-text {
+    html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):hover .narrative-link-text {
       color: transparent;
       animation-play-state: running;
     }
   }
-  html.home-cover .home-narrative .narrative-summary-link:focus-visible .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):focus-visible .narrative-link-text {
     color: transparent;
     animation-play-state: running;
   }
-  html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):active .narrative-link-text {
     color: transparent;
   }
 }
@@ -143,7 +144,7 @@ html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-t
   to { --tom-home-reveal-angle: 220deg; }
 }
 /* A tap receives immediate feedback without depending on touch hover. */
-html.home-cover .home-narrative .narrative-summary-link:active .narrative-link-text {
+html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):active .narrative-link-text {
   transition: none;
 }
 /* Selection must remain legible while the normal glyph fill is transparent. */
@@ -154,13 +155,13 @@ html.home-cover .home-narrative .narrative-link-text::selection {
 /* Restore solid text when backgrounds are suppressed or the page is printed. */
 @media (forced-colors: active), print {
   html.home-cover .home-narrative .narrative-link-text,
-  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):is(:hover, :focus-visible, :active) .narrative-link-text {
     color: LinkText;
     background: none;
     animation: none;
     transition: none;
   }
-  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):is(:hover, :focus-visible, :active) .narrative-link-text {
     text-decoration: underline;
     text-decoration-thickness: 0.06em;
     text-underline-offset: 0.18em;
@@ -271,7 +272,7 @@ html.home-cover .home-narrative .homepage-note {
   display: grid;
   grid-template-columns: 6rem minmax(0, 1fr);
   gap: 0.25rem 1rem;
-  align-items: baseline;
+  align-items: start;
   margin: 0 0 0.6rem;
 }
 html.home-cover .home-narrative .homepage-note:nth-child(n + 4) {
@@ -297,6 +298,7 @@ html.home-cover .home-narrative .homepage-note-title {
   overflow-wrap: anywhere;
 }
 html.home-cover .home-narrative .homepage-note-date {
+  padding-top: 0.15rem; /* Match the archive metadata's optical top alignment. */
   color: var(--text-colour);
   color: color-mix(in srgb, var(--text-colour) 82%, var(--page-bg-colour));
   font-family: var(--mono-font);
@@ -307,23 +309,8 @@ html.home-cover .home-narrative .homepage-note-date {
   white-space: nowrap;
   text-align: right;
 }
-html.home-cover .home-narrative .homepage-notes .homepage-notes-all {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-family: var(--mono-font);
-  font-size: 0.78rem;
-  line-height: 1.5;
-}
-html.home-cover .home-narrative .homepage-notes a:hover,
 html.home-cover .home-narrative .homepage-notes a:focus-visible {
-  color: inherit;
-  background: none;
-  text-decoration: underline;
-  text-decoration-thickness: 0.06em;
-  text-underline-offset: 0.18em;
-}
-html.home-cover .home-narrative .homepage-notes a:focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--accent-dark-colour);
   outline-offset: 0.22rem;
 }
 @media (max-width: 34rem) {
@@ -334,6 +321,7 @@ html.home-cover .home-narrative .homepage-notes a:focus-visible {
     grid-column: 1;
   }
   html.home-cover .home-narrative .homepage-note-date {
+    padding-top: 0;
     display: block;
     text-align: left;
   }
@@ -365,7 +353,7 @@ html.home-cover .home-narrative .homepage-ink-filter {
 @media (prefers-reduced-motion: reduce) {
   html.home-cover .home-narrative a,
   html.home-cover .home-narrative .narrative-link-text { transition: none; animation: none; }
-  html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-text {
+  html.home-cover .home-narrative :is(.narrative-summary-link, .homepage-notes a):is(:hover, :focus-visible, :active) .narrative-link-text {
     animation: none;
   }
 }
@@ -394,12 +382,12 @@ html.home-cover .home-narrative > h1.visually-hidden {
   border: 0;
 }
 
-/* Keep masthead and footer quieter than the narrative, and use the same
-   restrained rule treatment at both edges of the cover. */
+/* Keep masthead and footer quieter than the narrative. The footer rule
+   uses the same neutral ink and opacity as the short Notes rule. */
 html.home-cover .site-header,
 html.home-cover .site-footer {
   color: var(--masthead-text-colour);
 }
 html.home-cover .site-footer {
-  border-top-color: rgba(255, 233, 126, 0.30);
+  border-top-color: color-mix(in srgb, var(--text-colour) 30%, transparent);
 }

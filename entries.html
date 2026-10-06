@@ -25,7 +25,7 @@
             {{/all_entries}}
         </div>
         <aside class="homepage-notes" aria-labelledby="homepage-notes-title">
-            <h2 id="homepage-notes-title">Notes</h2>
+            <h2 id="homepage-notes-title"><a href="/tagged/note"><span class="narrative-link-text">Notes</span></a></h2>
             <ul class="homepage-notes-list" role="list">
                 {{! Filter the complete newest-first collection, not the latest five posts.
                     CSS shows the first three notes. No selection metadata is required. }}
@@ -34,13 +34,12 @@
                         {{#tagged.note}}
                         <li class="homepage-note">
                             {{#date}}<span class="homepage-note-date">{{date}}</span>{{/date}}
-                            <a class="homepage-note-title" href="{{{url}}}">{{title}}</a>
+                            <a class="homepage-note-title" href="{{{url}}}"><span class="narrative-link-text">{{title}}</span></a>
                         </li>
                         {{/tagged.note}}
                     {{/scheduled}}{{/deleted}}{{/draft}}{{/page}}
                 {{/all_entries}}
             </ul>
-            <a class="homepage-notes-all" href="/tagged/note">All notes <span aria-hidden="true">&rarr;</span></a>
         </aside>
         <div class="fleuron homepage-fleuron" aria-hidden="true">
             {{! Recolour the existing image with the homepage ink. Keep the filter
