@@ -18,8 +18,8 @@
     "archives.html": {
       "url": "/archives",
       "partials": {
-        "title": "Essays, papers and notes - {{title}}",
-        "description": "A collection of articles about the web, work, culture, and life."
+        "title": "Tom Scott's writings - {{title}}",
+        "description": "A collection of imperfect notes, essays, and ideas growing slowly over time."
       }
     },
     "AGENTS.md": {
@@ -39,8 +39,8 @@
     },
     "entries.html": {
       "partials": {
-        "title": "Tom Scott | My thoughts about the Web ",
-        "description": "A personal blog for thoughts and observations about the web, work, culture, and life."
+        "title": "Tom Scott",
+        "description": "Essays about culture, design, and technology."
       }
     },
     "error.html": {
