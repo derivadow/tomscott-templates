@@ -44,15 +44,8 @@
         <div class="fleuron homepage-fleuron" aria-hidden="true">
             {{! Recolour the existing image with the homepage ink. Keep the filter
                 reference inline so it resolves against this page, not the CSS CDN. }}
-            <svg class="homepage-ink-filter" xmlns="http://www.w3.org/2000/svg" width="0" height="0" focusable="false">
-                <defs>
-                    <filter id="homepage-printers-ink" color-interpolation-filters="sRGB">
-                        <feFlood flood-color="currentColor" result="ink"/>
-                        <feComposite in="ink" in2="SourceAlpha" operator="in"/>
-                    </filter>
-                </defs>
-            </svg>
-            <img src="/images/site/octopus-ink-purple-64.png" alt="" style="filter: url('#homepage-printers-ink');">
+            {{> cover-ink-filter}}
+            <img src="/images/site/octopus-ink-purple-64.png" alt="" style="filter: url('#cover-printers-ink');">
         </div>
     </main>
     {{/pagination.previous}}

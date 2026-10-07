@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html{{#entry.metadata.colophon}} class="colophon-cover"{{/entry.metadata.colophon}}>
 {{> head}}
 <body>
     {{> header}}
+
+    {{#entry.metadata.colophon}}{{> cover-ink-filter}}{{/entry.metadata.colophon}}
 
     {{#entry}}
 	<div class="entry">

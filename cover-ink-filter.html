@@ -1,0 +1,10 @@
+{{! Keep the filter in the document so inline image references resolve
+    against this page rather than the stylesheet CDN. Include once per cover. }}
+<svg class="cover-ink-filter" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+        <filter id="cover-printers-ink" color-interpolation-filters="sRGB">
+            <feFlood flood-color="currentColor" result="ink"/>
+            <feComposite in="ink" in2="SourceAlpha" operator="in"/>
+        </filter>
+    </defs>
+</svg>
