@@ -64,10 +64,10 @@
 	--mono-font: 'Nitti', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 	--text-colour: #333;
 	--masthead-text-colour: #332f2b;
-	--muted-text-colour: #777;
-	--pale-text-colour: #9e9e9e;
-	--accent-colour: #e36a29;
-	--accent-dark-colour: #b94f1f;
+	--muted-text-colour: #666666;
+	--pale-text-colour: #6f6f6f;
+	--accent-colour: #a7471b;
+	--accent-dark-colour: #9c4016;
 	--accent-wash-colour: rgba(227, 106, 41, 0.10);
 	--accent-wash-hover-colour: rgba(227, 106, 41, 0.16);
 	--border-colour: rgba(0, 0, 0, 0.18);
@@ -129,7 +129,7 @@ a:hover {
 	color: var(--accent-colour);
 }
 
-a:active {
+html:is(.home-cover, .colophon-cover) a:active {
 	opacity: 0.9;
 }
 
@@ -1060,6 +1060,11 @@ input#search:focus {
 	color: var(--text-colour);
 	border-color: var(--border-colour);
 	box-shadow: none;
+}
+
+.search-page-form input[name='q']::placeholder {
+	color: var(--pale-text-colour);
+	opacity: 1;
 }
 
 .search-page-form input[name='q']:focus {

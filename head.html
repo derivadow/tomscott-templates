@@ -76,14 +76,14 @@
 	<script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
-	  "@type": "{{#page}}{{#metadata.schema}}{{metadata.schema}}{{/metadata.schema}}{{^metadata.schema}}WebPage{{/metadata.schema}}{{/page}}{{^page}}BlogPosting{{/page}}",
-	  "@id": "{{#encode_json}}{{absoluteURL}}#page{{/encode_json}}",
-	  "url": "{{#encode_json}}{{absoluteURL}}{{/encode_json}}",
-	  "name": "{{#encode_json}}{{title}}{{/encode_json}}",
-	  {{^page}}"headline": "{{#encode_json}}{{title}}{{/encode_json}}",
+	  "@type": "{{#page}}{{#metadata.schema}}{{#encode_json}}{{{metadata.schema}}}{{/encode_json}}{{/metadata.schema}}{{^metadata.schema}}WebPage{{/metadata.schema}}{{/page}}{{^page}}BlogPosting{{/page}}",
+	  "@id": "{{#encode_json}}{{{absoluteURL}}}#page{{/encode_json}}",
+	  "url": "{{#encode_json}}{{{absoluteURL}}}{{/encode_json}}",
+	  "name": "{{#encode_json}}{{{title}}}{{/encode_json}}",
+	  {{^page}}"headline": "{{#encode_json}}{{{title}}}{{/encode_json}}",
 	  "datePublished": "{{#formatDate}}YYYY-MM-DDTHH:mm:ssZ{{/formatDate}}",
 	  "dateModified": "{{#formatUpdated}}YYYY-MM-DDTHH:mm:ssZ{{/formatUpdated}}",{{/page}}
-	  {{#summary}}"description": "{{#encode_json}}{{summary}}{{/encode_json}}",{{/summary}}
+	  {{#summary}}"description": "{{#encode_json}}{{{summary}}}{{/encode_json}}",{{/summary}}
 	  "author": {
 		"@type": "Person",
 		"@id": "https://tomscott.name/about#tom-scott",
@@ -102,7 +102,7 @@
 		"name": "TOMSCOTT.name",
 		"url": "https://tomscott.name/"
 	  }{{#thumbnail.large}},
-	  "image": "{{#encode_json}}{{url}}{{/encode_json}}"{{/thumbnail.large}}
+	  "image": "{{#encode_json}}{{{url}}}{{/encode_json}}"{{/thumbnail.large}}
 	}
 	</script>
   {{/entry}}

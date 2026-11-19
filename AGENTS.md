@@ -72,6 +72,12 @@ Examples:
 
 Do not replace Mustache syntax with Liquid, Handlebars, JSX, Nunjucks, or another templating language.
 
+### JSON-LD encoding
+
+Inside JSON-LD strings, pass the original value to Blot's `encode_json` helper with triple braces, for example `"{{#encode_json}}{{{title}}}{{/encode_json}}"`. The helper supplies JSON string escaping; keep the surrounding quotes. Double braces inside the helper would HTML-escape the value first and leave literal entities in the parsed data. Ordinary HTML attributes should continue to use normal HTML escaping.
+
+Blot's helper uses `JSON.stringify` and does not escape HTML script delimiters. The current authored metadata has no such delimiters. Check titles, summaries and schema values for literal `</script`, `<script` and `<!--` sequences before publication. If those sequences are needed in metadata, an HTML-safe JSON encoder is required; triple braces plus `encode_json` alone do not support them. Do not describe this template pattern as an arbitrary HTML-safe serializer.
+
 ## Partials
 
 Blot templates can use file partials, per-view string partials, and rendered site-file embeds.
@@ -226,6 +232,24 @@ Use sentence case for headings.
 Use British English for personal-site content unless the surrounding page clearly uses American English or the user asks otherwise.
 
 Preserve the author’s voice. The site should sound like Tom Scott, not like a product landing page.
+
+### Marginal citations
+
+Use a titled source link after the prose at the end of a paragraph. Both existing forms are supported:
+
+```markdown
+A complete sentence. ([Publication][source])
+
+[source]: https://example.org/article "Title of the source"
+```
+
+```markdown
+A complete sentence. [Publication](https://example.org/article "Title of the source")
+```
+
+The citation script recognises the source title plus paired parentheses or preceding sentence-ending punctuation. It only moves the last direct-child HTTP(S) link when nothing but closing punctuation follows it. Links within a sentence, links without a source title, link-only paragraphs, image paragraphs and explicit download actions stay inline. A cited paper may itself be a PDF; do not select or reject citations by file extension.
+
+Keep the source link inline in the authored document. The script moves qualifying citations to the margin at wider widths and restores their original position and parentheses at narrower widths. Check both directions of a viewport change, repeated resizing and the unenhanced document when changing this behaviour.
 
 ## Common debugging patterns
 

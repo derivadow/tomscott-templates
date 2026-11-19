@@ -14,15 +14,27 @@
 		if (!links.length) return null;
 
 		var link = links[links.length - 1];
+		// A source title is part of the site's citation authoring convention.
+		// Ordinary prose links and download actions must stay in the sentence.
+		if (!(link.getAttribute("title") || "").trim() || link.hasAttribute("download")) return null;
+
+		var before = "";
+		for (var sibling = paragraph.firstChild; sibling && sibling !== link; sibling = sibling.nextSibling) {
+			before += sibling.textContent;
+		}
+
 		var after = "";
 		for (var node = link.nextSibling; node; node = node.nextSibling) {
 			if (node.nodeType === Node.TEXT_NODE) after += node.textContent;
 			else if (node.nodeType === Node.ELEMENT_NODE) return null;
 		}
 
-		// A citation is a direct-child link at the end of the paragraph,
-		// optionally followed by closing punctuation/parentheses.
+		// A titled source must follow complete prose, either in parentheses
+		// or after sentence-ending punctuation. A terminal link alone is not enough.
 		if (!/^[\s\)\]\.,;:!?]*$/.test(after)) return null;
+		var parenthetical = /\($/.test(before) && /^\)/.test(after);
+		var afterSentence = /[.!?\u2026]\s*$/.test(before);
+		if (!before.replace(/\($/, "").trim() || (!parenthetical && !afterSentence)) return null;
 
 		var href = link.getAttribute("href") || "";
 		if (!/^https?:\/\//i.test(href)) return null;
