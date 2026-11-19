@@ -1765,9 +1765,10 @@ iframe {
 
 /* Paragraph citations
    Source links authored at the end of a paragraph are progressively moved
-   into the right reading margin by script.js when a genuine margin exists. */
+   into the right reading margin by script.js when a genuine margin exists.
+   Keep this breakpoint in sync with script.js so the wider notes fit. */
 
-@media screen and (min-width: 66rem) {
+@media screen and (min-width: 76rem) {
 	.entry > p.has-marginal-citation {
 		position: relative;
 	}
@@ -1776,7 +1777,7 @@ iframe {
 		position: absolute;
 		top: 0.12em;
 		left: calc(100% + 2.25rem);
-		width: 9rem;
+		width: 14rem;
 		color: var(--muted-text-colour);
 		font-family: var(--mono-font);
 		font-size: 0.72rem;

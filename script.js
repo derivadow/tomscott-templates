@@ -5,7 +5,8 @@
 // Move paragraph-level source links into the reading margin when space permits.
 // The authored link remains inline by default and is restored there at narrower widths.
 (function () {
-	var query = window.matchMedia("(min-width: 66rem)");
+	// Match the paragraph-citation breakpoint in style.css.
+	var query = window.matchMedia("(min-width: 76rem)");
 
 	function terminalCitation(paragraph) {
 		if (!paragraph || paragraph.matches(":has(img)")) return null;
