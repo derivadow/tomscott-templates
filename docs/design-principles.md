@@ -103,6 +103,14 @@ These are roles rather than universal rules. For example, search-result dates cu
 
 Do not choose a face only for novelty or contrast. Each use should reinforce an established role. Optical harmony with surrounding text takes precedence over matching a nominal numerical size.
 
+### Share a stable page frame
+
+At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. The cover palette can change without changing that geometry.
+
+The frame contains the article reading column, the gap and the marginal references: 944 pixels at the default text size, with a 684-pixel reading column. Large landscape images can span that frame. Smaller originals retain their intrinsic size, and an 800-pixel maximum image height keeps portraits proportionate without cropping. Captions retain their established reading measure. This wider arrangement starts at the same 76rem breakpoint as marginal references; narrower layouts retain their existing measures.
+
+Content does not have to fill the frame. The homepage composition stays centred at its existing 736-pixel measure, including its supporting titles, dates, Notes and closing mark. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
+
 ### Use hierarchy without noise
 
 Scale, weight, spacing and position should establish hierarchy before borders, boxes or colour are introduced. Orange is an accent, not a general decoration. Pale and muted text should indicate genuinely secondary information without compromising legibility.

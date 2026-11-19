@@ -74,6 +74,9 @@
 	--space-intro-to-content: clamp(2.25rem, 5vw, 3.75rem);
 	--site-width: 800px;
 	--text-width: 38em;
+	--citation-gap: 2.25rem;
+	--citation-width: 14rem;
+	--page-frame-width: calc(var(--text-width) + var(--citation-gap) + var(--citation-width));
 	--page-bg-colour: #faf9f5;
 }
 
@@ -1763,12 +1766,43 @@ iframe {
 }
 
 
-/* Paragraph citations
+/* Shared desktop frame and paragraph citations
    Source links authored at the end of a paragraph are progressively moved
    into the right reading margin by script.js when a genuine margin exists.
-   Keep this breakpoint in sync with script.js so the wider notes fit. */
+   The masthead, footer and larger images share the text-plus-notes width.
+   Keep this breakpoint in sync with script.js. */
 
 @media screen and (min-width: 76rem) {
+	html {
+		/* Keep the frame in place when navigating between long and short pages. */
+		scrollbar-gutter: stable;
+	}
+
+	body {
+		/* 944px of content plus the existing 32px padding on each side. */
+		max-width: calc(var(--page-frame-width) + 4rem);
+	}
+
+	body > main,
+	body > .entries,
+	body > .home-intro {
+		/* Preserve the existing listing measure inside the wider frame.
+		   Search and error pages retain their more specific reading-width caps. */
+		max-width: calc(var(--site-width) - 4rem);
+	}
+
+	.entry > p:has(img) {
+		width: var(--page-frame-width);
+	}
+
+	.entry > p:has(img) img {
+		/* Keep smaller originals at their intrinsic size. The height limit
+		   also keeps portraits proportionate without cropping or new script. */
+		width: auto;
+		max-width: 100%;
+		max-height: 50rem;
+	}
+
 	.entry > p.has-marginal-citation {
 		position: relative;
 	}
@@ -1776,8 +1810,8 @@ iframe {
 	.marginal-citation {
 		position: absolute;
 		top: 0.12em;
-		left: calc(100% + 2.25rem);
-		width: 14rem;
+		left: calc(100% + var(--citation-gap));
+		width: var(--citation-width);
 		color: var(--muted-text-colour);
 		font-family: var(--mono-font);
 		font-size: 0.72rem;
