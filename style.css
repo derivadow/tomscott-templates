@@ -1783,6 +1783,27 @@ iframe {
 		max-width: calc(var(--page-frame-width) + 4rem);
 	}
 
+	.site-header {
+		/* Give navigation the same column and gutter as article references. */
+		grid-template-columns: minmax(0, var(--text-width)) var(--citation-width);
+		column-gap: var(--citation-gap);
+	}
+
+	.site-menu {
+		justify-items: start;
+		text-align: left;
+	}
+
+	.menu-search {
+		justify-self: start;
+		/* Offset the input padding so its text lines up with the menu links. */
+		margin: -0.25em 0 -0.25em -0.5em;
+	}
+
+	.menu-search input[name='q'] {
+		text-align: left;
+	}
+
 	body > main,
 	body > .entries,
 	body > .home-intro {

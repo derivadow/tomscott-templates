@@ -13,12 +13,12 @@ html.home-cover .home-narrative {
   padding-bottom: 0;
 }
 @media screen and (min-width: 76rem) {
-  /* Keep the cover composition centred at its existing 736px measure,
-     inside the same wider masthead and footer frame used on every page. */
+  /* Keep the cover's 736px measure and align its content with the masthead
+     and the main reading column used on other pages. */
   html.home-cover .home-narrative,
   html.home-cover .site-footer > p {
     max-width: calc(var(--site-width) - 4rem);
-    margin-inline: auto;
+    margin-inline: 0;
   }
 }
 html.home-cover .home-narrative .narrative-intro {

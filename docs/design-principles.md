@@ -105,11 +105,11 @@ Do not choose a face only for novelty or contrast. Each use should reinforce an 
 
 ### Share a stable page frame
 
-At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. The cover palette can change without changing that geometry.
+At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. Within the masthead, navigation and search start at the left edge of the reference column, with their text left-aligned. The same gutter separates navigation from the reading column as separates article text from its references. The cover palette can change without changing that geometry.
 
 The frame contains the article reading column, the gap and the marginal references: 944 pixels at the default text size, with a 684-pixel reading column. Large landscape images can span that frame. Smaller originals retain their intrinsic size, and an 800-pixel maximum image height keeps portraits proportionate without cropping. Captions retain their established reading measure. This wider arrangement starts at the same 76rem breakpoint as marginal references; narrower layouts retain their existing measures.
 
-Content does not have to fill the frame. The homepage composition stays centred at its existing 736-pixel measure, including its supporting titles, dates, Notes and closing mark. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
+Content does not have to fill the frame. The homepage keeps its existing 736-pixel measure, aligned to the frame's left edge with the masthead and other pages' main content. The introduction, passages, Notes and footer copy share that edge. Supporting titles and dates remain right-aligned beneath their passages, and the closing mark stays centred within the homepage's own measure. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
 
 ### Use hierarchy without noise
 
