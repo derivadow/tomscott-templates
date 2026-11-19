@@ -14,6 +14,19 @@
   if (!opening) return;
 
   var text = opening.textContent.trim();
+
+  // Blot wraps opening quotation marks for optical alignment. Keep that real
+  // punctuation intact; CSS can hang it beside the first letter of the prose.
+  var leading = opening.firstChild;
+  while (leading && (leading.nodeType === 8 || (leading.nodeType === 3 && !leading.textContent.trim()))) {
+    leading = leading.nextSibling;
+  }
+  if (leading && leading.nodeType === 1 &&
+      leading.matches('span.pull-double, span.pull-single') &&
+      /^[\u201c"\u2018'\u00ab\u2039]$/.test(leading.textContent)) {
+    opening.classList.add('opening-punctuation');
+  }
+
   // A conservative, viewport-independent limit leaves long dialogue openings alone.
   if (text.length < 3 || text.length > 200) return;
 

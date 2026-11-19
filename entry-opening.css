@@ -16,3 +16,18 @@
 .entry .opening-quote {
   hanging-punctuation: first;
 }
+
+/* Hang Blot's real opening mark beside a prose drop cap, at reading size.
+   Out-of-flow punctuation lets ::first-letter select the following letter.
+   Short, self-contained quotations keep their normal treatment above. */
+.entry .opening-punctuation:not(.opening-quote) {
+  position: relative;
+}
+
+.entry .opening-punctuation:not(.opening-quote) > :is(.pull-double, .pull-single):first-child {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin: 0;
+  font: inherit;
+}
