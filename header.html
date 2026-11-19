@@ -3,6 +3,9 @@
 	<img src="{{{avatar_url}}}" class="{{#roundAvatar}}rounded{{/roundAvatar}}" alt="{{title}}">{{/avatar}}
 	    <span>{{title}}</span>
 	  </a>
+	{{#site_tagline}}
+	<p class="site-description">{{site_tagline}}</p>
+	{{/site_tagline}}
 	
 	<nav class="site-menu" aria-label="Main navigation">{{#menu}}
 	    <a href="{{{url}}}" title="{{label}}"><span class="narrative-link-text">{{label}}</span></a>

@@ -97,7 +97,7 @@ Rendered site files can also be embedded. For example:
 {{> /Pages/Writing.md}}
 ```
 
-This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string. The `/Pages/Home.md` embed remains in the homepage template, but the file has deliberately been removed. Do not recreate an introductory paragraph merely to satisfy that retained hook.
+This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string. The `/Pages/Home.md` embed supplies the short conversational introduction requested for the 19 November 2026 orientation trial. Keep that copy in the page file rather than hard-coding it into the template.
 
 ## Blot-specific constraints
 
@@ -179,6 +179,7 @@ Known visual conventions include:
 
 - The site is intentionally restrained and typographic.
 - The masthead is styled as `TOMSCOTT.name`.
+- The shared masthead description is “Essays about culture, design, and technology”. It describes the whole site, appears beneath the name on all pages, and is supplied through the template configuration.
 - The masthead/logo links to the homepage, so the navigation does not need a separate Home item.
 - Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
@@ -192,11 +193,11 @@ Do not add decorative complexity unless it clearly improves the design.
 
 ## Narrative homepage
 
-The homepage is a curated, prose-led introduction to the writing, not a recent-post list. Aim for five or six complementary long-form pieces as an editorial target, not a template limit. Notes are currently omitted by selection, not by a tag-based filter. Each piece has one independent passage followed by its original publication date. Article titles are deliberately not displayed; each title remains inside the passage anchor as visually hidden text so it contributes to the link's accessible name. The writing begins directly, without a biography or introductory paragraph.
+The homepage is a curated, prose-led introduction to the writing, not a recent-post list. Aim for five or six complementary long-form pieces as an editorial target, not a template limit. Notes are currently omitted by selection, not by a tag-based filter. Each piece has one independent passage followed by its article title and original publication date. The 19 November 2026 orientation trial adds the short introduction “A few things I’ve been thinking about” and makes the titles visible. This deliberately revisits the earlier no-introduction and hidden-title decisions; it does not restore a biography.
 
-Preserve the single-column layout at every viewport width. Passages use the available site measure; dates sit beneath their own passages, right-aligned and inside that measure. Inter carries the prose, Tungsten the opening drop cap, and Nitti the smaller dates. The former marginal notes, title column, and visible-title treatments are superseded, not responsive modes to restore. Keep the yellow cover and all homepage-specific styles scoped to `html.home-cover`.
+Preserve the single-column layout at every viewport width. Passages use the available site measure; small titles and dates sit beneath their own passages, right-aligned and inside that measure. Inter carries the prose, Tungsten the opening drop cap, and Nitti the supporting titles and dates. Marginal notes and the former title column remain rejected, not responsive modes to restore. Keep the yellow cover and all homepage-specific styles scoped to `html.home-cover`.
 
-The passage is the single visible article link. Keep it readable as prose at rest, with a colour-only hover response and visible keyboard focus. Do not add a second hidden or visible title anchor; the title belongs as visually hidden text within the passage link. Homepage footer links follow the quieter, colour-only masthead treatment. Preserve one article focus target per passage. Do not add nested anchors, card click handlers, or a new client-side navigation dependency.
+The passage and its visible title share a single article link. Keep the passage readable as prose at rest, with a colour-only hover response and visible keyboard focus. Do not add a second hidden or visible title anchor; the title stays within the passage link and contributes to its accessible name. Homepage footer links follow the quieter, colour-only masthead treatment. Preserve one article focus target per passage. Do not add nested anchors, card click handlers, or a new client-side navigation dependency.
 
 `Homepage:` is escaped plain-text copy, not an inclusion flag. `Selected:` includes a post; `Featured:` implies inclusion and moves it into the leading group. Each group retains newest-first order from `all_entries`. Remove a flag to switch it off; non-empty values such as `no` or `false` are still truthy in the existing plain-text convention. Keep summary and title fallbacks, avoid duplicates, and preserve the exclusion of pages, drafts, deleted entries, and scheduled entries.
 

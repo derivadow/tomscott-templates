@@ -1,6 +1,7 @@
 {
   "name": "Index",
   "locals": {
+    "site_tagline": "Essays about culture, design, and technology",
     "page_size": 5,
     "tagged_page_size": 20,
     "date_display": "D MMM YYYY"
