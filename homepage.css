@@ -14,12 +14,12 @@ html.home-cover .home-narrative {
 }
 html.home-cover .home-narrative .narrative-intro {
   max-width: 36rem;
-  margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+  margin: 0 0 clamp(0.875rem, 1.5vw, 1.125rem);
   color: var(--text-colour);
   font-family: var(--body-font);
   font-size: var(--intro-size);
-  font-weight: 350;
-  line-height: 1.6;
+  font-weight: 450;
+  line-height: 1.4;
   letter-spacing: -0.005em;
 }
 /* Also supports a wrapper around Blot's /Pages/Home.md partial. */
