@@ -105,7 +105,7 @@ Do not choose a face only for novelty or contrast. Each use should reinforce an 
 
 ### Share a stable page frame
 
-At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. Within the masthead, navigation and search start at the left edge of the reference column, with their text left-aligned. The same gutter separates navigation from the reading column as separates article text from its references. The cover palette can change without changing that geometry.
+At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. The masthead contains the site name and description; global navigation and search sit in the shared footer Index. The cover palette can change without changing that geometry.
 
 The frame contains the article reading column, the gap and the marginal references: 944 pixels at the default text size, with a 684-pixel reading column. Large landscape images can span that frame. Smaller originals retain their intrinsic size, and an 800-pixel maximum image height keeps portraits proportionate without cropping. Captions retain their established reading measure. This wider arrangement starts at the same 76rem breakpoint as marginal references; narrower layouts retain their existing measures.
 
@@ -170,7 +170,7 @@ On the homepage, the passage and its title share a single anchor to the article.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
-Navigation should remain short and stable. The masthead already links home, so a separate Home item is unnecessary. Search should feel like part of the navigation rather than a separate application interface.
+Navigation should remain short and stable. The 20 November 2026 trial moves the full global navigation and search from the masthead into a compact footer headed Index. Writing, Talking and About come from the existing menu; Colophon, RSS and Bluesky form a supporting group. Keep the search form visible and integrated with the navigation. Arrange these elements in compact rows or columns that adapt to the available width, without adding recommendations or promotional sections. The masthead retains only the site name and description, with the name linking home, so a separate Home item is unnecessary. This trial has no top Index jump link; review the footer arrangement before deciding whether one is needed.
 
 Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; the printer's mark already provides a recurring closing motif. The octopus does not need to be repeated in the masthead.
 

@@ -1,11 +1,36 @@
 <script src="{{#cdn}}/script.js{{/cdn}}" type="text/javascript"></script>
 
 <footer class="site-footer">
-	<p><a href="/colophon"><span class="narrative-link-text">Colophon</span></a>
-	    <span aria-hidden="true">·</span>
-	    <a href="/feed.rss"><span class="narrative-link-text">RSS</span></a>
-	    <span aria-hidden="true">·</span>
-	    <a href="https://bsky.app/profile/tomscott.name"><span class="narrative-link-text">Bluesky</span></a></p>
+	<h2 class="footer-heading" id="site-index-title">Index</h2>
+	<div class="footer-index">
+		<nav class="footer-navigation" aria-labelledby="site-index-title">
+			<ul class="site-menu" role="list">
+				{{#menu}}
+				<li><a href="{{{url}}}" title="{{label}}"><span class="narrative-link-text">{{label}}</span></a></li>
+				{{/menu}}
+			</ul>
+			<ul class="site-menu footer-links" role="list">
+				<li><a href="/colophon"><span class="narrative-link-text">Colophon</span></a></li>
+				<li><a href="/feed.rss"><span class="narrative-link-text">RSS</span></a></li>
+				<li><a href="https://bsky.app/profile/tomscott.name"><span class="narrative-link-text">Bluesky</span></a></li>
+			</ul>
+		</nav>
+		<form action="/search" method="get" class="footer-search" role="search" aria-label="Site search">
+			<label for="site-footer-search">Search this site</label>
+			<div class="footer-search-fields">
+				<input
+				  type="search"
+				  id="site-footer-search"
+				  name="q"
+				  placeholder="Type words here…"
+				  value="{{#query}}{{query}}{{/query}}"
+				  autocomplete="off"
+				  enterkeyhint="search"
+				>
+				<button type="submit">Search</button>
+			</div>
+		</form>
+	</div>
 	
 	<p class="footer-note">Written and maintained by <a href="/about"><span class="narrative-link-text">Tom Scott</span></a>.</p>
 </footer>

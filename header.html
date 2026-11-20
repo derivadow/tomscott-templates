@@ -6,23 +6,4 @@
 	{{#site_tagline}}
 	<p class="site-description">{{site_tagline}}</p>
 	{{/site_tagline}}
-	
-	<nav class="site-menu" aria-label="Main navigation">{{#menu}}
-	    <a href="{{{url}}}" title="{{label}}"><span class="narrative-link-text">{{label}}</span></a>
-	    {{/menu}}
-		
-		<form action="/search" method="get" class="menu-search" role="search">
-			<label for="site-menu-search" class="visually-hidden">Search this site</label>
-			
-			<input
-			  type="search"
-			  id="site-menu-search"
-			  name="q"
-			  placeholder="SEARCH"
-			  value="{{#query}}{{query}}{{/query}}"
-			  autocomplete="off"
-			  enterkeyhint="search"
-			>
-		</form>
-	</nav>
 </header>
