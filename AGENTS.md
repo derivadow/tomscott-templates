@@ -188,14 +188,14 @@ Known visual conventions include:
 - The shared masthead description is “Essays about culture, design, and technology”. It describes the whole site, appears beneath the name on all pages, and is supplied through the template configuration.
 - The masthead/logo links home; global navigation and search live in the footer, without a top jump link.
 - Footer groups are Writing, Talking and Search; About, Colophon and RSS. Bluesky is available on informational pages, not in global navigation. Navigation uses capitals; the credit stays in sentence case.
-- The full-width footer uses deeper charcoal on the homepage and Colophon and warm off-white on interior pages, with contents aligned to the page frame. The sole decorative octopus printer's mark is beside the footer credit, not in page bodies.
+- The full-width footer uses deeper charcoal on the homepage and Colophon and warm off-white on interior pages, with contents aligned to the page frame. The decorative octopus printer's mark sits beside the footer credit. The Colophon also includes a larger illustration within the section explaining the mark.
 - Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
 - Nitti is used for captions or technical/supporting text where already established.
 - Orange is used as the site accent colour.
 - Tags and pill links should feel like part of the site’s visual system.
 - Tag/pill links should not gain unrelated underline treatments.
-- Search should feel integrated with the navigation and site typography. The footer uses the quiet, borderless search field with SEARCH as its placeholder, a visually hidden accessible label and native GET submission through Enter. It has no visible label or submit button.
+- Search should feel integrated with the navigation and site typography. The footer uses the quiet, borderless search field with SEARCH as its placeholder, a visually hidden accessible label and native GET submission through Enter. It has no visible label or submit button. The retained query is displayed in capitals to make it feel like personal navigation. Preserve that behaviour.
 
 Do not add decorative complexity unless it clearly improves the design.
 

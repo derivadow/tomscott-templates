@@ -277,6 +277,21 @@ a.menu:hover {
 	color: #111;
 }
 
+/* The larger mark illustrates the Colophon's explanation. */
+html.colophon-cover .entry .mark {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin: 2rem 0 2.5rem;
+}
+
+html.colophon-cover .entry .mark img {
+	display: block;
+	flex: 0 0 auto;
+	width: 8rem;
+	height: auto;
+}
+
 
 
 /* Display typography */
@@ -1589,7 +1604,7 @@ iframe {
 }
 
 .footer-search input[name='q']:focus::placeholder {
-	color: var(--pale-text-colour);
+	color: var(--muted-text-colour);
 }
 
 .footer-search input[name='q']:not(:placeholder-shown) {
@@ -1784,11 +1799,11 @@ iframe {
 }
 
 @media (max-width: 600px) {
-	.mark {
+	html.colophon-cover .entry .mark {
 		align-items: flex-start;
 	}
 
-	.mark img {
+	html.colophon-cover .entry .mark img {
 		width: 6rem;
 	}
 }

@@ -170,11 +170,11 @@ On the homepage, the passage and its title share a single anchor to the article.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
-Navigation should remain short and stable. The footer has two groups: Writing, Talking and Search for exploring content; About, Colophon and RSS for information about the site. Navigation links are capitalised, the author credit stays in sentence case and Search remains a quiet, borderless field with an accessible hidden label and native Enter submission. Bluesky is linked from the About and Colophon pages rather than global navigation. There is no top jump link.
+Navigation should remain short and stable. The footer has two groups: Writing, Talking and Search for exploring content; About, Colophon and RSS for information about the site. Navigation links are capitalised, the author credit stays in sentence case and Search remains a quiet, borderless field with an accessible hidden label and native Enter submission. The footer retains the query and displays it in capitals so that the search term feels like personal navigation. Bluesky is linked from the About and Colophon pages rather than global navigation. There is no top jump link.
 
 The footer acts as a gently contrasting endpaper: deeper charcoal on the homepage and Colophon, warm-grey off-white on interior pages. Its background spans the viewport, while its contents retain the same shared frame. The decorative octopus appears once in the shared footer, beside the author credit, rather than after individual pages and lists.
 
-Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; The octopus is the shared footer's recurring closing mark, not a motif repeated in the masthead or page bodies.
+Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare. The octopus is the shared footer's recurring closing mark. A larger illustration accompanies the Colophon's explanation of the mark; it is part of that page's content.
 
 ## Before changing the site
 
