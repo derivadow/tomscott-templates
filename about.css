@@ -16,7 +16,7 @@
 	height: auto;
 }
 
-.about-page .about-portrait .caption {
+.about-page .about-portrait > figcaption {
 	width: 100%;
 	max-width: 100%;
 	margin: 0.75rem 0 0;

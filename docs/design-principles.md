@@ -155,7 +155,7 @@ The table below records the effective result of the current selectors and their 
 | Listing title | `.row-title` inside `a.row`, or an `a.archive-entry-title` | Tungsten regular at the medium display scale | Article titles in older paginated entry lists, archive, tagged and search listings. These titles are links rather than heading elements. |
 | Article or archive date | `.post-date` and `.archive-entry-date` | Small Nitti in a pale colour | Publication dates on individual entries and in archive or tagged listings. |
 | Search-result or legacy list date | `.row-date` | Small inherited Inter in a pale colour | Compact dates attached to row-based listing links. This no longer describes the selected homepage, whose date has its own Nitti role. |
-| Caption | `.caption` | Small pale Nitti with a restrained orange rule | Supporting text associated with an image. |
+| Caption | `.caption`; `.about-portrait > figcaption` for the authored portrait caption | Small pale Nitti with a restrained orange rule | Supporting text associated with an image. |
 | Body and summary text | `body`, `.row-summary`, `.archive-entry-summary` and `.talk-description` | Inter, with summaries smaller and muted | Reading text and supporting descriptions. |
 
 The exact sizes, line heights, colours and responsive ranges live in `style.css` and, for the narrative homepage, `homepage.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
@@ -175,6 +175,10 @@ Navigation should remain short and stable. The footer has two groups: Writing, T
 The footer acts as a gently contrasting endpaper: deeper charcoal on the homepage and Colophon, warm-grey off-white on interior pages. Its background spans the viewport, while its contents retain the same shared frame. The decorative octopus appears once in the shared footer, beside the author credit, rather than after individual pages and lists.
 
 Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare. The octopus is the shared footer's recurring closing mark. A larger illustration accompanies the Colophon's explanation of the mark; it is part of that page's content.
+
+Informative images need concise descriptions in alt text, with captions and credits kept separate. Native Markdown uses `![Description](image.jpg "Caption and credit")`. Keep caption titles as plain text, without Markdown italics. Decorative images retain empty alt text.
+
+The About portrait's manually authored `figcaption` deliberately has no `caption` class, allowing Blot to preserve it without adding another caption. Scoped CSS applies the established caption treatment.
 
 ## Before changing the site
 

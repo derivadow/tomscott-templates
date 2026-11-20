@@ -223,6 +223,12 @@ The article template keeps its existing `.entry` div with `role="main"`, and old
 
 Use accessible patterns for navigation, search, forms, headings, links, and error pages.
 
+Give informative images concise alt text based on the image and its role in the writing. Keep the visible caption and credit separate, using `![Description](image.jpg "Caption and credit")` for native Markdown images. Blot uses the title for the caption and preserves the alt attribute. Keep caption titles as plain text; Markdown italics inside them remain literal. Preserve existing caption wording and image paths when adding descriptions.
+
+Keep `alt=""` for purely decorative images, including the printer's mark in the shared footer. The larger Colophon illustration is informative; if its alt text changes, preserve its existing caption in a title attribute.
+
+The About portrait keeps its authored `figcaption` without the `caption` class. Blot skips automatic generation when it encounters that nonempty sibling text, but ignores `.caption` siblings and would add a duplicate. The caption is styled through `.about-portrait > figcaption`. Preserve this distinction when changing the markup.
+
 Keep client-side JavaScript optional. The site should remain usable when JavaScript is disabled.
 
 Do not rely on JavaScript for core navigation, reading, search form submission, or access to article content unless explicitly requested.
