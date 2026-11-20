@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 {{> head}}
 <body>
+    {{> skip-link}}
     <style>
       body {
 	margin: 2em;
@@ -11,6 +12,7 @@ td, tr {
 	border: none;
 }
     </style>
+    <main class="public-content" id="main-content" tabindex="-1">
     <h1>{{#breadcrumbs}}
 	      <a href="{{path}}">{{name}}</a> /
 	      {{/breadcrumbs}}
@@ -23,5 +25,6 @@ td, tr {
 		</tr>
 	      {{/contents}}
 	</table>
+    </main>
 </body>
 </html>

@@ -6,7 +6,7 @@
     {{> header}}
 
     {{^pagination.previous}}
-    <main class="home-narrative" id="main-content" aria-labelledby="homepage-title">
+    <main class="home-narrative" id="main-content" aria-labelledby="homepage-title" tabindex="-1">
         <h1 class="visually-hidden" id="homepage-title">Essays, notes, and personal writing by Tom Scott</h1>
         <div class="narrative-intro">{{> /Pages/Home.md}}</div>
         <div class="narrative-prose">
@@ -44,6 +44,7 @@
     {{/pagination.previous}}
 
     {{#pagination.previous}}
+    <div class="paginated-content" id="main-content" role="main" tabindex="-1">
     <div class="home-intro">Page {{pagination.current}} of {{pagination.total}}</div>
     <div class="entries">
         {{#entries}}
@@ -63,6 +64,7 @@
         {{/entries}}
     </div>
     <div class="more-writing"><a href="/archives">Read more words&nbsp;&rarr;</a></div>
+    </div>
     {{/pagination.previous}}
 
     {{> footer}}

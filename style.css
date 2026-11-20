@@ -109,6 +109,12 @@ main {
 	padding: 0 0 3rem;
 }
 
+/* The file directory keeps its original full-width layout. */
+.public-content {
+	max-width: none;
+	padding: 0;
+}
+
 h2 {
 	font-family: var(--display-font);
 	font-weight: 400;
@@ -141,6 +147,39 @@ html:is(.home-cover, .colophon-cover) a:active {
 a:focus-visible {
 	outline: 2px solid var(--accent-colour);
 	outline-offset: 3px;
+}
+
+/* First in the keyboard order; outside the masthead's layout. */
+.skip-link {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1000;
+	max-width: calc(100vw - 2rem);
+	margin: 0;
+	padding: 0.5rem 0.75rem;
+	color: var(--text-colour);
+	background: var(--page-bg-colour);
+	font: 400 0.875rem / 1.5 var(--mono-font);
+	letter-spacing: 0;
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+	transform: translateY(calc(-100% - 2rem));
+	transition: none;
+}
+
+.skip-link:focus {
+	color: var(--text-colour);
+	background: var(--page-bg-colour);
+	transform: none;
+	outline: 2px solid var(--accent-colour);
+	outline-offset: 3px;
+}
+
+@media print {
+	.skip-link {
+		display: none;
+	}
 }
 
 /* Header */
@@ -1834,7 +1873,9 @@ iframe {
 
 	body > main,
 	body > .entries,
-	body > .home-intro {
+	body > .home-intro,
+	.paginated-content > .entries,
+	.paginated-content > .home-intro {
 		/* Preserve the existing listing measure inside the wider frame.
 		   Search and error pages retain their more specific reading-width caps. */
 		max-width: calc(var(--site-width) - 4rem);

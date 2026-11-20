@@ -215,6 +215,12 @@ The visually hidden homepage `h1` already provides the semantic page title. Keep
 
 Prefer semantic HTML.
 
+Every site HTML view declares `lang="en-GB"` and provides one main landmark with `id="main-content"` and `tabindex="-1"`. The negative tabindex allows the skip link to move focus there without adding a normal Tab stop. Keep the homepage main's accessible name.
+
+The shared `skip-link.html` partial is included before the masthead, and directly in the public directory view, which has no masthead. It is the first keyboard link, becomes visible on focus and uses a native fragment link to the main content. Keep it outside the masthead grid. This keyboard access feature is separate from the deferred visible jump-to-footer navigation link.
+
+The article template keeps its existing `.entry` div with `role="main"`, and older entry listings use a neutral `.paginated-content` wrapper with the same role. These avoid the layout rules attached to the `main` tag. Preserve the article's direct children and the older listings' reading widths when changing these landmarks. The public directory uses a native main with its original padding and width restored by `.public-content`.
+
 Use accessible patterns for navigation, search, forms, headings, links, and error pages.
 
 Keep client-side JavaScript optional. The site should remain usable when JavaScript is disabled.

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html{{#entry.metadata.colophon}} class="colophon-cover"{{/entry.metadata.colophon}}>
+<html lang="en-GB"{{#entry.metadata.colophon}} class="colophon-cover"{{/entry.metadata.colophon}}>
 {{> head}}
 <body>
     {{> header}}
 
     {{#entry}}
-	<div class="entry">
+	<div class="entry" id="main-content" role="main" tabindex="-1">
 	
 	      {{#tags.length}}
 		<div class="post-tags post-tags-header" aria-label="Post tags">{{#tags}}
