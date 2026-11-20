@@ -186,14 +186,15 @@ Known visual conventions include:
 - The site is intentionally restrained and typographic.
 - The masthead is styled as `TOMSCOTT.name`.
 - The shared masthead description is “Essays about culture, design, and technology”. It describes the whole site, appears beneath the name on all pages, and is supplied through the template configuration.
-- The masthead/logo links to the homepage, so the navigation does not need a separate Home item. The 20 November 2026 trial leaves only the name and site description in the masthead and moves the existing menu, supporting links and visible search form into a compact footer Index. There is no top Index jump link in this trial.
+- The masthead/logo links to the homepage, so the navigation does not need a separate Home item. The 20 November 2026 trial leaves only the name and site description in the masthead and moves the existing menu, supporting links and search into a compact footer. The subsequent refinement removes its visible heading while retaining an accessible navigation name. There is no top jump link.
+- Footer navigation and supporting links all appear in capitals; the author credit stays in sentence case. Retain the existing page backgrounds while assessing the simpler footer; a subtle tonal change may be revisited later.
 - Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
 - Nitti is used for captions or technical/supporting text where already established.
 - Orange is used as the site accent colour.
 - Tags and pill links should feel like part of the site’s visual system.
 - Tag/pill links should not gain unrelated underline treatments.
-- Search should feel integrated with the navigation and site typography.
+- Search should feel integrated with the navigation and site typography. The footer uses the quiet, borderless search field with SEARCH as its placeholder, a visually hidden accessible label and native GET submission through Enter. It has no visible label or submit button.
 
 Do not add decorative complexity unless it clearly improves the design.
 

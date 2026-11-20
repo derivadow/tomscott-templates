@@ -1,9 +1,8 @@
 <script src="{{#cdn}}/script.js{{/cdn}}" type="text/javascript"></script>
 
 <footer class="site-footer">
-	<h2 class="footer-heading" id="site-index-title">Index</h2>
 	<div class="footer-index">
-		<nav class="footer-navigation" aria-labelledby="site-index-title">
+		<nav class="footer-navigation" aria-label="Site navigation">
 			<ul class="site-menu" role="list">
 				{{#menu}}
 				<li><a href="{{{url}}}" title="{{label}}"><span class="narrative-link-text">{{label}}</span></a></li>
@@ -16,19 +15,16 @@
 			</ul>
 		</nav>
 		<form action="/search" method="get" class="footer-search" role="search" aria-label="Site search">
-			<label for="site-footer-search">Search this site</label>
-			<div class="footer-search-fields">
-				<input
-				  type="search"
-				  id="site-footer-search"
-				  name="q"
-				  placeholder="Type words here…"
-				  value="{{#query}}{{query}}{{/query}}"
-				  autocomplete="off"
-				  enterkeyhint="search"
-				>
-				<button type="submit">Search</button>
-			</div>
+			<label for="site-footer-search" class="visually-hidden">Search this site</label>
+			<input
+			  type="search"
+			  id="site-footer-search"
+			  name="q"
+			  placeholder="SEARCH"
+			  value="{{#query}}{{query}}{{/query}}"
+			  autocomplete="off"
+			  enterkeyhint="search"
+			>
 		</form>
 	</div>
 	
