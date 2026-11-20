@@ -125,7 +125,7 @@ Use the existing treatments for inline links, navigation, tags, dates, captions,
 
 If a new visual role is genuinely needed, define it once, name it according to its purpose and check it alongside related patterns.
 
-The homepage is intentionally a special cover treatment, but it remains part of the same system. Its yellow background, warm charcoal text and rust links are scoped to `html.home-cover`; the rest of the site retains the shared off-white palette. Shared typography, masthead, navigation and page measure provide continuity without requiring identical colours on every page.
+The homepage is intentionally a special cover treatment, but it remains part of the same system. The homepage and Colophon share a charcoal cover palette with light text and pale-yellow accents; interior pages retain the warm off-white palette. Shared typography, masthead, navigation and page measure provide continuity without requiring identical colours on every page.
 
 ## Typographic roles
 
@@ -170,11 +170,11 @@ On the homepage, the passage and its title share a single anchor to the article.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
-Navigation should remain short and stable. The 20 November 2026 trial moves the full global navigation and search from the masthead into a compact footer. The subsequent refinement removes the visible Index heading while retaining an accessible name for the navigation. Writing, Talking and About come from the existing menu; Colophon, RSS and Bluesky form a supporting group. Display both groups in capitals and keep the author credit in sentence case. Arrange these elements in compact rows or columns that adapt to the available width, without adding recommendations or promotional sections. The masthead retains only the site name and description, with the name linking home, so a separate Home item is unnecessary.
+Navigation should remain short and stable. The footer has two groups: Writing, Talking and Search for exploring content; About, Colophon and RSS for information about the site. Navigation links are capitalised, the author credit stays in sentence case and Search remains a quiet, borderless field with an accessible hidden label and native Enter submission. Bluesky is linked from the About and Colophon pages rather than global navigation. There is no top jump link.
 
-Search returns to the quiet, borderless field with SEARCH as its placeholder, a visually hidden accessible label and no visible label or submit button. Preserve native GET submission through Enter without requiring JavaScript. Continue the trial without a top jump link or a new footer background. A subtle tonal background change may be revisited after assessing the simpler footer.
+The footer acts as a gently contrasting endpaper: deeper charcoal on the homepage and Colophon, warm-grey off-white on interior pages. Its background spans the viewport, while its contents retain the same shared frame. The decorative octopus appears once in the shared footer, beside the author credit, rather than after individual pages and lists.
 
-Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; the printer's mark already provides a recurring closing motif. The octopus does not need to be repeated in the masthead.
+Images should support the writing. Captions use the established Nitti treatment and orange rule. Decorative imagery should be rare; The octopus is the shared footer's recurring closing mark, not a motif repeated in the masthead or page bodies.
 
 ## Before changing the site
 

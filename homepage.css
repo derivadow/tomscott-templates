@@ -1,5 +1,5 @@
 /* Homepage-only layout and typography. The shared front/back-cover palette,
-   navigation treatment, and printer's ink live in cover.css. All enlarged
+   navigation treatment, and footer printer's ink live in cover.css. All enlarged
    prose, opening initials, and stepped spacing stay scoped to home-cover. */
 html.home-cover .home-narrative {
   --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
@@ -247,20 +247,6 @@ html.home-cover .home-narrative .homepage-notes a:focus-visible {
   }
 }
 
-/* The existing image keeps its transparency and follows the homepage ink.
-   Other pages retain their existing printer's mark and image loading. */
-html.home-cover .home-narrative .homepage-fleuron {
-  margin: clamp(2.75rem, 6vw, 4rem) 0 0;
-  color: var(--text-colour);
-  opacity: 0.85;
-  filter: none;
-}
-@media (forced-colors: active), print {
-  html.home-cover .home-narrative .homepage-fleuron {
-    color: CanvasText;
-    opacity: 1;
-  }
-}
 @media (max-width: 400px) {
   html.home-cover .home-narrative { --narrative-gap: 1.35em; }
 }

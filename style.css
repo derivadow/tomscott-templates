@@ -78,9 +78,11 @@
 	--citation-width: 14rem;
 	--page-frame-width: calc(var(--text-width) + var(--citation-gap) + var(--citation-width));
 	--page-bg-colour: #faf9f5;
+	--footer-bg-colour: #f0efe9;
 }
 
 html {
+	overflow-x: clip;
 	box-sizing: border-box;
 	background-color: var(--page-bg-colour);
 }
@@ -93,7 +95,7 @@ html {
 
 body {
 	margin: 0 auto;
-	padding: 1.5em clamp(1.25rem, 4vw, 2rem) 6em;
+	padding: 1.5em clamp(1.25rem, 4vw, 2rem) 0;
 	max-width: var(--site-width);
 	color: var(--text-colour);
 	font: 1.125rem / 1.55 var(--body-font);
@@ -278,32 +280,6 @@ a.menu:hover {
 
 
 /* Display typography */
-
-.fleuron {
-	display: flex;
-	justify-content: center;
-	margin: 2.5rem 0 1rem;
-}
-
-.fleuron img {
-	display: block;
-	width: 2.25rem;
-	height: auto;
-}
-
-.mark {
-	display: flex;
-	align-items: center;
-	gap: 1.5rem;
-	margin: 2rem 0 2.5rem;
-}
-
-.mark img {
-	display: block;
-	flex: 0 0 auto;
-	width: 8rem;
-	height: auto;
-}
 
 /* Large display typography */
 
@@ -1461,11 +1437,26 @@ iframe {
 /* Footer */
 
 .site-footer {
+	position: relative;
+	isolation: isolate;
 	margin-top: 4rem;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--border-colour);
+	padding: 2.25rem 0 clamp(2rem, 6vw, 5rem);
 	font-size: 0.9rem;
 	color: var(--muted-text-colour);
+}
+
+/* A full-bleed, quiet endpaper; links stay aligned within the shared frame. */
+.site-footer::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 100vw;
+	transform: translateX(-50%);
+	background: var(--footer-bg-colour);
+	pointer-events: none;
 }
 
 .site-footer p {
@@ -1490,23 +1481,47 @@ iframe {
 
 .footer-index {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	gap: 1.75rem var(--citation-gap);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem var(--citation-gap);
 	align-items: start;
 }
 
-.footer-navigation {
+.footer-content-group {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1.5rem;
+	gap: 0.5rem;
+	align-content: start;
 }
 
-.footer-links {
-	color: inherit;
+.footer-closing {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 2.25rem;
 }
 
 .site-footer .footer-note {
-	margin-top: 2rem;
+	margin: 0;
+}
+
+.footer-printers-mark {
+	flex: 0 0 auto;
+}
+
+.footer-printers-mark img {
+	display: block;
+	width: 2.5rem;
+	height: auto;
+	opacity: 0.85;
+}
+
+/* The SVG colour is used by the inline filter on the shared mark. */
+.site-footer .cover-ink-filter {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	color: var(--accent-colour);
 }
 
 .footer-search {
@@ -1585,12 +1600,6 @@ iframe {
 @media (prefers-reduced-motion: reduce) {
 	.footer-search input[name='q'] {
 		transition: none;
-	}
-}
-
-@media (min-width: 48rem) {
-	.footer-index {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
@@ -1698,7 +1707,7 @@ iframe {
 @media screen and (max-width: 730px) {
 	body {
 		max-width: none;
-		padding: 1rem;
+		padding: 1rem 1rem 0;
 		font-size: 1rem;
 	}
 
@@ -1786,7 +1795,7 @@ iframe {
 
 @media screen and (max-width: 400px) {
 	body {
-		padding: 0.75rem;
+		padding: 0.75rem 0.75rem 0;
 	}
 }
 

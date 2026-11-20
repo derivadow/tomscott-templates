@@ -1,32 +1,34 @@
 <script src="{{#cdn}}/script.js{{/cdn}}" type="text/javascript"></script>
 
 <footer class="site-footer">
-	<div class="footer-index">
-		<nav class="footer-navigation" aria-label="Site navigation">
-			<ul class="site-menu" role="list">
-				{{#menu}}
-				<li><a href="{{{url}}}" title="{{label}}"><span class="narrative-link-text">{{label}}</span></a></li>
-				{{/menu}}
-			</ul>
-			<ul class="site-menu footer-links" role="list">
-				<li><a href="/colophon"><span class="narrative-link-text">Colophon</span></a></li>
-				<li><a href="/feed.rss"><span class="narrative-link-text">RSS</span></a></li>
-				<li><a href="https://bsky.app/profile/tomscott.name"><span class="narrative-link-text">Bluesky</span></a></li>
-			</ul>
-		</nav>
-		<form action="/search" method="get" class="footer-search" role="search" aria-label="Site search">
-			<label for="site-footer-search" class="visually-hidden">Search this site</label>
-			<input
-			  type="search"
-			  id="site-footer-search"
-			  name="q"
-			  placeholder="SEARCH"
-			  value="{{#query}}{{query}}{{/query}}"
-			  autocomplete="off"
-			  enterkeyhint="search"
-			>
-		</form>
-	</div>
-	
-	<p class="footer-note">Written and maintained by <a href="/about"><span class="narrative-link-text">Tom Scott</span></a>.</p>
+  <div class="footer-index">
+    <div class="footer-content-group">
+      <nav aria-label="Writing and talks">
+        <ul class="site-menu" role="list">
+          <li><a href="/archives"><span class="narrative-link-text">Writing</span></a></li>
+          <li><a href="/talking"><span class="narrative-link-text">Talking</span></a></li>
+        </ul>
+      </nav>
+      <form action="/search" method="get" class="footer-search" role="search" aria-label="Site search">
+        <label for="site-footer-search" class="visually-hidden">Search this site</label>
+        <input type="search" id="site-footer-search" name="q"
+               placeholder="SEARCH" value="{{#query}}{{query}}{{/query}}"
+               autocomplete="off" enterkeyhint="search">
+      </form>
+    </div>
+    <nav class="footer-information-group" aria-label="About this site">
+      <ul class="site-menu" role="list">
+        <li><a href="/about"><span class="narrative-link-text">About</span></a></li>
+        <li><a href="/colophon"><span class="narrative-link-text">Colophon</span></a></li>
+        <li><a href="/feed.rss"><span class="narrative-link-text">RSS</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-closing">
+    <p class="footer-note">Written and maintained by <a href="/about"><span class="narrative-link-text">Tom Scott</span></a>.</p>
+    <div class="footer-printers-mark" aria-hidden="true">
+      {{> cover-ink-filter}}
+      <img src="/images/site/octopus-ink-64.png" alt="" style="filter: url('#cover-printers-ink');">
+    </div>
+  </div>
 </footer>

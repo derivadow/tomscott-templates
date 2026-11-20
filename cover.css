@@ -10,6 +10,7 @@ html:is(.home-cover, .colophon-cover) {
   --accent-wash-colour: rgba(255, 247, 214, 0.08);
   --muted-text-colour: rgba(255, 233, 126, 0.72);
   --pale-text-colour: rgba(255, 233, 126, 0.72);
+  --footer-bg-colour: #343b38;
   color-scheme: dark;
 }
 
@@ -115,36 +116,24 @@ html:is(.home-cover, .colophon-cover) :is(.site-menu, .site-footer) a:focus-visi
   outline-color: var(--accent-dark-colour);
 }
 
-/* Keep masthead and footer quieter than the narrative. The footer rule
-   uses the same neutral ink and opacity as the short Notes rule. */
+/* Keep masthead and footer quieter than the narrative. */
 html:is(.home-cover, .colophon-cover) .site-header,
 html:is(.home-cover, .colophon-cover) .site-footer {
   color: var(--masthead-text-colour);
 }
 html:is(.home-cover, .colophon-cover) .site-footer {
   --home-link-ink: var(--masthead-text-colour);
-  border-top-color: color-mix(in srgb, var(--text-colour) 30%, transparent);
 }
-
-html:is(.home-cover, .colophon-cover) .cover-ink-filter {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-/* Match the existing colophon marks to the cover ink without resizing them.
-   Filter references remain inline in the page HTML, not in CDN-hosted CSS. */
-html.colophon-cover .entry :is(.mark, .fleuron) img {
-  opacity: 0.85;
+/* The footer's shared mark takes its ink from the cover palette. */
+html:is(.home-cover, .colophon-cover) .site-footer .cover-ink-filter {
+  color: var(--masthead-text-colour);
 }
 html.colophon-cover .caption::before {
   background: rgba(255, 233, 126, 0.30);
 }
 @media (forced-colors: active), print {
-  html.colophon-cover .cover-ink-filter,
-  html.colophon-cover .entry :is(.mark, .fleuron) img {
-    color: CanvasText;
+  .site-footer .footer-printers-mark img {
+    filter: none !important;
     opacity: 1;
   }
 }

@@ -186,8 +186,9 @@ Known visual conventions include:
 - The site is intentionally restrained and typographic.
 - The masthead is styled as `TOMSCOTT.name`.
 - The shared masthead description is “Essays about culture, design, and technology”. It describes the whole site, appears beneath the name on all pages, and is supplied through the template configuration.
-- The masthead/logo links to the homepage, so the navigation does not need a separate Home item. The 20 November 2026 trial leaves only the name and site description in the masthead and moves the existing menu, supporting links and search into a compact footer. The subsequent refinement removes its visible heading while retaining an accessible navigation name. There is no top jump link.
-- Footer navigation and supporting links all appear in capitals; the author credit stays in sentence case. Retain the existing page backgrounds while assessing the simpler footer; a subtle tonal change may be revisited later.
+- The masthead/logo links home; global navigation and search live in the footer, without a top jump link.
+- Footer groups are Writing, Talking and Search; About, Colophon and RSS. Bluesky is available on informational pages, not in global navigation. Navigation uses capitals; the credit stays in sentence case.
+- The full-width footer uses deeper charcoal on the homepage and Colophon and warm off-white on interior pages, with contents aligned to the page frame. The sole decorative octopus printer's mark is beside the footer credit, not in page bodies.
 - Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
 - Nitti is used for captions or technical/supporting text where already established.
