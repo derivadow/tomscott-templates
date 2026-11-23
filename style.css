@@ -318,7 +318,9 @@ a.menu:hover {
 
 /* Authored archive connections stay in the reading column at every width. */
 .entry .archive-connection {
-	margin-block: 2rem;
+	margin-block: 2.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--border-colour);
 	color: var(--muted-text-colour);
 	font-size: 1rem;
 	line-height: 1.55;
@@ -328,8 +330,12 @@ a.menu:hover {
 	margin: 0;
 }
 
+.entry .archive-connection .archive-connection-title {
+	margin-bottom: 0.35rem;
+}
+
 .entry .archive-connection .archive-connection-label {
-	margin-bottom: 0.4rem;
+	margin-bottom: 0.75rem;
 	font-family: var(--mono-font);
 	font-size: 0.8rem;
 	font-weight: 400;
