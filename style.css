@@ -316,6 +316,27 @@ a.menu:hover {
 	color: #111;
 }
 
+/* Authored archive connections stay in the reading column at every width. */
+.entry .archive-connection {
+	margin-block: 2rem;
+	color: var(--muted-text-colour);
+	font-size: 1rem;
+	line-height: 1.55;
+}
+
+.entry .archive-connection p {
+	margin: 0;
+}
+
+.entry .archive-connection .archive-connection-label {
+	margin-bottom: 0.4rem;
+	font-family: var(--mono-font);
+	font-size: 0.8rem;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
 /* The larger mark illustrates the Colophon's explanation. */
 html.colophon-cover .entry .mark {
 	display: flex;
