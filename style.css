@@ -1985,3 +1985,59 @@ iframe {
 	text-transform: uppercase;
 	/* Use the existing three-line uppercase drop-cap geometry. */
 }
+
+/* Published papers: bibliographic information precedes the reading text. */
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-header {
+	margin: 0 0 var(--space-intro-to-content);
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid var(--border-colour);
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-authors {
+	margin: 0 0 0.75rem;
+	font-family: var(--body-font);
+	font-size: 1rem;
+	font-weight: 450;
+	line-height: 1.5;
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) :is(.paper-publication, .paper-award) {
+	margin: 0 0 0.4rem;
+	color: var(--muted-text-colour);
+	font-family: var(--mono-font);
+	font-size: 0.85rem;
+	line-height: 1.5;
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-access {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.45rem 1.25rem;
+	margin: 0.85rem 0 0;
+	font-family: var(--mono-font);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-access a {
+	margin: 0;
+	padding: 0;
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-citation {
+	margin-top: 2.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--border-colour);
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-citation p {
+	margin: 0;
+	color: var(--muted-text-colour);
+	font-family: var(--mono-font);
+	font-size: 0.875rem;
+	line-height: 1.55;
+	overflow-wrap: anywhere;
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) h3 {
+	margin: 1.5em 0 0.5em;
+	font-family: var(--body-font);
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 0;
+}

@@ -188,7 +188,7 @@ The table below records the effective result of the current selectors and their 
 | Functional page title | A direct-child `h1` matched by `main > h1`, `body > h1` or `.entry > h1:first-child` | Nitti regular, small, uppercase and pale | Titles such as Writing, tagged views, Search results, About, Talking and Colophon. The small appearance does not reduce their semantic status. |
 | Error message title | `.error-page h1.page-title` | Tungsten regular, large display scale | The principal error message on the error page. This is the only current use of `.page-title`. |
 | Section or item heading | `h2`; talk titles also match `.talk h2` | Tungsten regular at the medium display scale | A major division within an article or substantial page, or the title of an individual talk within the Talking page. |
-| Subsection heading | `h3` | No explicit site-wide typographic rule; it would inherit Inter and retain the browser's default heading size and weight | Use beneath an `h2` only when the document genuinely needs another level. Published content does not currently use this level, although a legacy draft uses it extensively; review that material before establishing a shared treatment. |
+| Subsection heading | `h3` | Inter 600 at 1.125rem within papers; elsewhere no explicit site-wide typographic rule | Use beneath an `h2` only when the document genuinely needs another level. Used extensively in the Wellcome paper; other content retains its existing treatment. |
 | Contextual kicker | `.page-kicker`; currently a `p` above the error title | Nitti regular, small, uppercase and pale | Supplementary context above a true title. The Search results `h1` reuses this class but remains the page's functional title. |
 | Section label | `.section-label`, for example `Latest words` and the labels above individual talks | Small Nitti with a restrained orange wash | Short context for a section or item. It is not itself a heading level and should not replace one where structure requires a heading. |
 | Taxonomy chip | `a.section-label.post-tag`; archive tags also use `.archive-entry-tag` | Small Nitti with a restrained orange wash; archive tags are smaller | Linked article types and tags. Do not use this treatment as a generic badge. |
@@ -203,6 +203,27 @@ The table below records the effective result of the current selectors and their 
 The exact sizes, line heights, colours and responsive ranges live in `style.css` and, for the narrative homepage, `homepage.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
 
 The base `.page-title` rule declares Tungsten semibold, but every current use is inside `.error-page`, whose more specific rule changes the weight to regular. Semibold `.page-title` is therefore dormant CSS, not a current typographic role. The human-readable RSS view is also separate: `pretty-feed.xsl` embeds its own CSS and uses semibold Tungsten for its `h1` and `h2`; that does not establish a role for the site's HTML templates.
+
+## Published papers
+
+Papers are records of published work, rather than essays with a different tag. Preserve their original authorship and author order, publication history and text. Use the shared article title, reading measure, image and caption styles, but not the editorial drop initial or small-cap lead-in.
+
+A compact bibliographic header immediately after the title groups the information needed to understand and access the work:
+
+| Role | Class | Treatment |
+| --- | --- | --- |
+| Header | `paper-header` | Reading-column width, quiet bottom rule and space before the text |
+| Authors | `paper-authors` | Inter, 1rem, weight 450, sentence case, wrapping naturally |
+| Venue and publication date | `paper-publication` | Muted Nitti, 0.85rem, normal case |
+| Award or distinction | `paper-award` | Same contextual treatment as publication information |
+| Access links | `paper-access` | Nitti, 0.875rem, standard accent links; wrap at narrow widths |
+| Formal citation | `paper-citation` | Separate closing section when a citation is available; muted Nitti, 0.875rem, with a heading and linked DOI where known |
+
+Use a semantic header with paragraphs and ordinary anchors; omit unavailable information rather than creating empty rows. Put PDF, slides and original publication links near the title even when the complete paper is reproduced on the site. Keep the formal citation separate from the shorter publication information, and preserve all original bibliographic facts. Do not manufacture a citation or infer missing authors from the site byline. Do not introduce buttons, cards, a citation generator or another template merely for this small collection.
+
+Paper subsection headings (`h3`) use Inter 600 at 1.125rem with a 1.4 line height. They are subordinate to the existing Tungsten `h2`, without changing heading semantics. This is initially scoped to papers; other uses of h3 remain to be reviewed.
+
+The first trial covers the two BBC publications (2009 and 2010) and the longer Wellcome keynote paper (2017). Verify author wrapping, publication links, access links, citation and long-form headings at wide and narrow viewports before extending the pattern to the remaining papers. The tagged listing is unchanged.
 
 ## Interaction and component guidance
 
@@ -247,4 +268,4 @@ Before accepting a change to shared styles, compare the cover and Colophon, a ma
 
 Change this document when a principle is settled, a visual role is deliberately introduced, or repeated work reveals a genuine pattern. Do not expand it for every isolated exception.
 
-Unresolved questions should remain explicit. At present, published content does not use `h3` and the site has no settled typographic treatment for it; the generic semibold `.page-title` declaration is unused after the error-page override; and the semantic structure of titles inside row-based article listings deserves review before it is standardised further.
+Unresolved questions should remain explicit. At present, a shared `h3` treatment outside papers remains unresolved; the generic semibold `.page-title` declaration is unused after the error-page override; and the semantic structure of titles inside row-based article listings deserves review before it is standardised further.
