@@ -212,18 +212,18 @@ A compact bibliographic header immediately after the title groups the informatio
 
 | Role | Class | Treatment |
 | --- | --- | --- |
-| Header | `paper-header` | Reading-column width, quiet bottom rule and space before the text |
+| Header | `paper-header` | Reading-column width, quiet bottom rule and 75% of the shared intro-to-content spacing before the text |
 | Authors | `paper-authors` | Inter, 1rem, weight 450, sentence case, wrapping naturally |
 | Venue and publication date | `paper-publication` | Muted Nitti, 0.85rem, normal case |
 | Award or distinction | `paper-award` | Same contextual treatment as publication information |
 | Access links | `paper-access` | Nitti, 0.875rem, standard accent links; wrap at narrow widths |
-| Formal citation | `paper-citation` | Separate closing section when a citation is available; muted Nitti, 0.875rem, with a heading and linked DOI where known |
+| Formal citation | `paper-citation` | Separate closing section when a citation is available; muted Nitti, 0.875rem, with a compact Nitti 0.875rem heading (semantic h2) and linked DOI where known |
 
 Use a semantic header with paragraphs and ordinary anchors; omit unavailable information rather than creating empty rows. Put PDF, slides and original publication links near the title even when the complete paper is reproduced on the site. Keep the formal citation separate from the shorter publication information, and preserve all original bibliographic facts. Do not manufacture a citation or infer missing authors from the site byline. Do not introduce buttons, cards, a citation generator or another template merely for this small collection.
 
 Paper subsection headings (`h3`) use Inter 600 at 1.125rem with a 1.4 line height. They are subordinate to the existing Tungsten `h2`, without changing heading semantics. This is initially scoped to papers; other uses of h3 remain to be reviewed.
 
-The first trial covers the two BBC publications (2009 and 2010) and the longer Wellcome keynote paper (2017). Verify author wrapping, publication links, access links, citation and long-form headings at wide and narrow viewports before extending the pattern to the remaining papers. The tagged listing is unchanged.
+The bibliographic treatment is the established convention for all papers. Abstracts use normal reading weight; the Abstract heading already establishes their role. Verify author wrapping, publication links, access links, citation and long-form headings at wide and narrow viewports. The tagged listing retains its existing presentation.
 
 ## Interaction and component guidance
 

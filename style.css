@@ -1988,7 +1988,7 @@ iframe {
 
 /* Published papers: bibliographic information precedes the reading text. */
 .entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-header {
-	margin: 0 0 var(--space-intro-to-content);
+	margin: 0 0 calc(var(--space-intro-to-content) * 0.75);
 	padding-bottom: 1.25rem;
 	border-bottom: 1px solid var(--border-colour);
 }
@@ -2024,6 +2024,14 @@ iframe {
 	margin-top: 2.5rem;
 	padding-top: 1rem;
 	border-top: 1px solid var(--border-colour);
+}
+.entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-citation h2 {
+	margin: 0 0 0.75rem;
+	font-family: var(--mono-font);
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.4;
+	color: var(--muted-text-colour);
 }
 .entry:has(.post-tags-header a[href="/tagged/paper"]) .paper-citation p {
 	margin: 0;
