@@ -1981,12 +1981,6 @@ iframe {
 .entry:has(.post-tags-header a[href="/tagged/essay"]) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote)::first-letter {
 	color: var(--accent-colour);
 	font-variant-caps: normal;
-	text-transform: lowercase;
-	/* Shared float geometry for every marked opening, regardless of glyph. */
-	-webkit-initial-letter: normal;
-	initial-letter: normal;
-	float: left;
-	font-size: 5em;
-	line-height: 0.85;
-	margin: -0.09em 0.08em 0 0;
+	text-transform: uppercase;
+	/* Use the existing three-line uppercase drop-cap geometry. */
 }
