@@ -1,6 +1,6 @@
 # Design principles for tomscott.name
 
-This document describes the architectural, editorial and visual principles behind tomscott.name. It is intended to guide changes to the site rather than catalogue every declaration in the stylesheet.
+This document describes the architectural, editorial and visual principles behind tomscott.name. It is intended to guide changes to the site rather than catalogue every declaration in the stylesheet. Together with the role and component guidance below, it serves as the design-system reference for the publication.
 
 The site should feel like a small, considered publication. The writing is the main event. Design gives it structure, rhythm and identity without turning the site into a product interface or a stream of interchangeable content.
 
@@ -103,6 +103,46 @@ These are roles rather than universal rules. For example, search-result dates cu
 
 Do not choose a face only for novelty or contrast. Each use should reinforce an established role. Optical harmony with surrounding text takes precedence over matching a nominal numerical size.
 
+### Open essays with an editorial lead-in
+
+The essay opening is a single typographic gesture: an uppercase Tungsten SemiBold (600) drop cap in the interior accent ink, approximately three lines deep, followed by an Inter semibold (600) all-small-caps phrase in ordinary reading ink. The phrase uses 0.035em tracking. The rest of the paragraph returns to normal reading typography without a line break. Keep the original capitalisation and wording in the source.
+
+Mark a natural opening phrase explicitly with Pandoc span syntax, for example `[The article was once a useful fiction]{.lead-in}.` The class is presentational, not semantic emphasis. Usually three to seven words are sufficient; a short complete sentence or a date phrase can also work. Keep links and emphasis intact and do not force a lead-in onto a short opening quotation or an opening where the phrase cannot be marked naturally without complicating existing inline markup. Unmarked essay and life-post openings retain their established treatment; the homepage has its own opening initial. Notes and papers are unchanged.
+
+The uppercase initial uses the original shared drop-cap geometry: native `initial-letter: 3.1` with the existing float fallback. The lowercase experiment was rejected because the variable visible height of ascenders, descenders and x-height glyphs produced inconsistent optical depth. Do not introduce letter-specific or article-specific alignment rules. A typographic convention must work as a system. If a browser or font cannot support the preferred small caps, preserve legible source text rather than changing the content or adding scripts. Genuine small-cap glyph support in the deployed Inter file has not been established.
+
+### Colour and material
+
+The two palettes distinguish the covers from the interior without changing the page frame. The following values describe the current CSS; use the named properties rather than duplicating hex values in component rules.
+
+| Role / property | Interior | Homepage and Colophon |
+| --- | --- | --- |
+| Paper / `--page-bg-colour` | `#faf9f5` | `#3d4340` |
+| Reading ink / `--text-colour` | `#333333` | `#f7f7f8` |
+| Identity ink / `--masthead-text-colour` | `#332f2b` | `#f7f7f8` |
+| Accent / `--accent-colour` | `#a7471b` | `#fff7d6` |
+| Strong accent / `--accent-dark-colour` | `#9c4016` | `#ffe97e` |
+| Muted ink / `--muted-text-colour` | `#666666` | `rgba(255, 233, 126, 0.72)` |
+| Pale ink / `--pale-text-colour` | `#6f6f6f` | `rgba(255, 233, 126, 0.72)` |
+| Endpaper / `--footer-bg-colour` | `#f0efe9` | `#343b38` |
+
+Use the accent sparingly for links, the essay initial and existing contextual treatments. Colour alone must not be the only indication of a link or focus state. The source of truth for the interior tokens is `Templates/index/style.css`; cover overrides live in `cover.css`. Check contrast and focus in both palettes when changing a token.
+
+### Reading rhythm and responsive geometry
+
+| Role | Current value |
+| --- | --- |
+| Default reading type | Inter, 1.125rem, weight 350, line-height 1.55, tracking -0.005em |
+| Reading measure | 38em |
+| Base site width | 800px |
+| Horizontal page padding | clamp(1.25rem, 4vw, 2rem) |
+| Wide layout breakpoint | 76rem |
+| Marginal reference measure | 14rem |
+| Gap to marginal references | 2.25rem |
+| Intro-to-content spacing | clamp(2.25rem, 5vw, 3.75rem) |
+
+These are shared reading and layout values, not a prescribed universal spacing scale. Preserve the responsive measure, normal paragraph rhythm and margins rather than introducing arbitrary local overrides. At narrower widths marginal references return to the reading flow; verify the actual article and its citations at both sides of the breakpoint.
+
 ### Share a stable page frame
 
 At wide desktop sizes, the masthead and footer share one centred frame across every page, including the homepage and Colophon. Their width and horizontal position should remain stable when navigating between cover and interior pages. The masthead contains the site name and description; global navigation and search sit in the shared footer. The cover palette can change without changing that geometry.
@@ -156,6 +196,8 @@ The table below records the effective result of the current selectors and their 
 | Article or archive date | `.post-date` and `.archive-entry-date` | Small Nitti in a pale colour | Publication dates on individual entries and in archive or tagged listings. |
 | Search-result or legacy list date | `.row-date` | Small inherited Inter in a pale colour | Compact dates attached to row-based listing links. This no longer describes the selected homepage, whose date has its own Nitti role. |
 | Caption | `.caption`; `.about-portrait > figcaption` for the authored portrait caption | Small pale Nitti with a restrained orange rule | Supporting text associated with an image. |
+| Essay opening initial | First letter of a marked opening paragraph | Uppercase Tungsten 600, accent ink, approximately three lines deep | Marks the beginning of an essay without changing its source text. |
+| Essay lead-in | `.lead-in` on an explicitly marked opening phrase | Inter 600, all-small-caps, 0.035em tracking, reading ink | A short editorial phrase integrated into the first paragraph, not a heading or standfirst. |
 | Body and summary text | `body`, `.row-summary`, `.archive-entry-summary` and `.talk-description` | Inter, with summaries smaller and muted | Reading text and supporting descriptions. |
 
 The exact sizes, line heights, colours and responsive ranges live in `style.css` and, for the narrative homepage, `homepage.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
@@ -196,6 +238,10 @@ Ask the following questions before implementation:
 When these questions reveal a tension, preserve the architectural and editorial principles before optimising convenience or visual novelty.
 
 For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, with small supporting titles and publication dates beneath it. The 19 November orientation trial should be judged by whether it helps new readers while preserving that flow. Keep the single column, curated selection, one article link per passage, and absence of marginal notes or an introductory biography.
+
+## Design-system verification
+
+Before accepting a change to shared styles, compare the cover and Colophon, a marked essay, an unmarked or quotation-led essay, a note, an archive or tagged listing and search. Check narrow and wide layouts, links and keyboard focus, captions, marginal citations and the shared footer. For the essay opening, compare uppercase glyphs with different widths, including A, O, P and T; check the first line, three-line wrap and short paragraphs at mobile widths. Do not infer visual success solely from valid CSS. The stylesheet owns the implementation; this guide owns the intended roles, constraints and decisions.
 
 ## Maintaining this guide
 
