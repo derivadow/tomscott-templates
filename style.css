@@ -1974,7 +1974,7 @@ iframe {
 
 /* Opt-in essay lead-in experiment. Keep the original source capitalisation. */
 .entry:has(.post-tags-header a[href="/tagged/essay"]) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote) > .lead-in {
-	font-variant-caps: small-caps;
+	font-variant-caps: all-small-caps;
 	letter-spacing: 0.035em;
 }
 
@@ -1991,7 +1991,7 @@ iframe {
 	-webkit-initial-letter: normal;
 	initial-letter: normal;
 	float: left;
-	font-size: 3.65em;
+	font-size: 5em;
 	line-height: 0.85;
 	margin: -0.09em 0.08em 0 0;
 }
