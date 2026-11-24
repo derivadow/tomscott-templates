@@ -103,9 +103,9 @@ These are roles rather than universal rules. For example, search-result dates cu
 
 Do not choose a face only for novelty or contrast. Each use should reinforce an established role. Optical harmony with surrounding text takes precedence over matching a nominal numerical size.
 
-### Open essays with an editorial lead-in
+### Open essays and personal writing with an editorial lead-in
 
-The essay opening is a single typographic gesture: an uppercase Tungsten SemiBold (600) drop cap in the interior accent ink, approximately three lines deep, followed by an Inter semibold (600) all-small-caps phrase in ordinary reading ink. The phrase uses 0.035em tracking. The rest of the paragraph returns to normal reading typography without a line break. Keep the original capitalisation and wording in the source.
+The essay and personal opening is a single typographic gesture: an uppercase Tungsten SemiBold (600) drop cap in the interior accent ink, approximately three lines deep, followed by an Inter semibold (600) all-small-caps phrase in ordinary reading ink. The phrase uses 0.035em tracking. The rest of the paragraph returns to normal reading typography without a line break. Keep the original capitalisation and wording in the source.
 
 Mark a natural opening phrase explicitly with Pandoc span syntax, for example `[The article was once a useful fiction]{.lead-in}.` The class is presentational, not semantic emphasis. Usually three to seven words are sufficient; a short complete sentence or a date phrase can also work. Keep links and emphasis intact and do not force a lead-in onto a short opening quotation or an opening where the phrase cannot be marked naturally without complicating existing inline markup. Unmarked essay and life-post openings retain their established treatment; the homepage has its own opening initial. Notes and papers are unchanged.
 
@@ -196,8 +196,8 @@ The table below records the effective result of the current selectors and their 
 | Article or archive date | `.post-date` and `.archive-entry-date` | Small Nitti in a pale colour | Publication dates on individual entries and in archive or tagged listings. |
 | Search-result or legacy list date | `.row-date` | Small inherited Inter in a pale colour | Compact dates attached to row-based listing links. This no longer describes the selected homepage, whose date has its own Nitti role. |
 | Caption | `.caption`; `.about-portrait > figcaption` for the authored portrait caption | Small pale Nitti with a restrained orange rule | Supporting text associated with an image. |
-| Essay opening initial | First letter of a marked opening paragraph | Uppercase Tungsten 600, accent ink, approximately three lines deep | Marks the beginning of an essay without changing its source text. |
-| Essay lead-in | `.lead-in` on an explicitly marked opening phrase | Inter 600, all-small-caps, 0.035em tracking, reading ink | A short editorial phrase integrated into the first paragraph, not a heading or standfirst. |
+| Editorial opening initial | First letter of a marked opening paragraph | Uppercase Tungsten 600, accent ink, approximately three lines deep | Marks the beginning of an essay or personal article without changing its source text. |
+| Editorial lead-in | `.lead-in` on an explicitly marked opening phrase | Inter 600, all-small-caps, 0.035em tracking, reading ink | A short editorial phrase integrated into the first paragraph, not a heading or standfirst. |
 | Body and summary text | `body`, `.row-summary`, `.archive-entry-summary` and `.talk-description` | Inter, with summaries smaller and muted | Reading text and supporting descriptions. |
 
 The exact sizes, line heights, colours and responsive ranges live in `style.css` and, for the narrative homepage, `homepage.css`. When those values change, judge them in the rendered page and in relation to neighbouring text. Update this guide when the meaning or responsibility of a role changes.
@@ -241,7 +241,7 @@ For homepage changes, also ask whether the change preserves the intended reading
 
 ## Design-system verification
 
-Before accepting a change to shared styles, compare the cover and Colophon, a marked essay, an unmarked or quotation-led essay, a note, an archive or tagged listing and search. Check narrow and wide layouts, links and keyboard focus, captions, marginal citations and the shared footer. For the essay opening, compare uppercase glyphs with different widths, including A, O, P and T; check the first line, three-line wrap and short paragraphs at mobile widths. Do not infer visual success solely from valid CSS. The stylesheet owns the implementation; this guide owns the intended roles, constraints and decisions.
+Before accepting a change to shared styles, compare the cover and Colophon, a marked essay, an unmarked or quotation-led essay, a note, an archive or tagged listing and search. Check narrow and wide layouts, links and keyboard focus, captions, marginal citations and the shared footer. For the editorial opening, compare uppercase glyphs with different widths, including A, O, P and T, and check numeral-led openings; check the first line, three-line wrap and short paragraphs at mobile widths. Do not infer visual success solely from valid CSS. The stylesheet owns the implementation; this guide owns the intended roles, constraints and decisions.
 
 ## Maintaining this guide
 

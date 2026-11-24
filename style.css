@@ -1972,14 +1972,14 @@ iframe {
 	}
 }
 
-/* Editorial essay lead-in. Keep the original source capitalisation. */
-.entry:has(.post-tags-header a[href="/tagged/essay"]) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote) > .lead-in {
+/* Editorial essay and personal lead-in. Keep the original source capitalisation. */
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"])) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote) > .lead-in {
 	font-variant-caps: all-small-caps;
 	font-weight: 600;
 	letter-spacing: 0.035em;
 }
 
-.entry:has(.post-tags-header a[href="/tagged/essay"]) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote)::first-letter {
+.entry:has(.post-tags-header a:is([href="/tagged/essay"], [href="/tagged/life"])) :is(h1+p:has(img)+p, h1+p:has(img)+.caption+p, h1+p:not(:has(img))):has(> .lead-in:first-child):not(.opening-quote)::first-letter {
 	color: var(--accent-colour);
 	font-variant-caps: normal;
 	text-transform: uppercase;
