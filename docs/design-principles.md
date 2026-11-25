@@ -111,6 +111,12 @@ Mark a natural opening phrase explicitly with Pandoc span syntax, for example `[
 
 The uppercase initial uses the original shared drop-cap geometry: native `initial-letter: 3.1` with the existing float fallback. The lowercase experiment was rejected because the variable visible height of ascenders, descenders and x-height glyphs produced inconsistent optical depth. Do not introduce letter-specific or article-specific alignment rules. A typographic convention must work as a system. If a browser or font cannot support the preferred small caps, preserve legible source text rather than changing the content or adding scripts. Genuine small-cap glyph support in the deployed Inter file has not been established.
 
+### Block quotations
+
+Article block quotations keep the ordinary reading face, size, weight and colour. A rust-accent opening quotation mark sits in a modest left inset, with additional space above and below the block. The mark identifies quoted speech without turning it into a display pull quote or repeating the vertical-rule treatment used by archive connections and captions.
+
+Apply this treatment to direct-child blockquotes in the article body. Preserve semantic `blockquote` markup, authored punctuation, internal emphasis and attribution. Use one decorative opening mark per block, including passages with several paragraphs; nested quotations retain their existing indentation. The CSS supplies an empty alternative for the decorative mark in supporting browsers. Reading and quotation semantics must remain intact without CSS or JavaScript.
+
 ### Colour and material
 
 The two palettes distinguish the covers from the interior without changing the page frame. The following values describe the current CSS; use the named properties rather than duplicating hex values in component rules.
