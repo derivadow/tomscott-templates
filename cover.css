@@ -35,12 +35,12 @@ html:is(.home-cover, .colophon-cover) .narrative-link-text {
 }
 /* Solid yellow is the fallback where clipped text is not supported. */
 @media (hover: hover) {
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):hover .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):hover .narrative-link-text {
     color: var(--accent-dark-colour);
   }
 }
-html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):focus-visible .narrative-link-text,
-html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):active .narrative-link-text {
+html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):focus-visible .narrative-link-text,
+html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):active .narrative-link-text {
   color: var(--accent-dark-colour);
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -55,16 +55,16 @@ html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-not
   /* Keep the gradient painted at rest. Only the solid ink crossfades.
      Pause on exit so its angle does not snap back during the return fade. */
   @media (hover: hover) {
-    html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):hover .narrative-link-text {
+    html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):hover .narrative-link-text {
       color: transparent;
       animation-play-state: running;
     }
   }
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):focus-visible .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):focus-visible .narrative-link-text {
     color: transparent;
     animation-play-state: running;
   }
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):active .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):active .narrative-link-text {
     color: transparent;
   }
 }
@@ -73,7 +73,7 @@ html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-not
   to { --tom-home-reveal-angle: 220deg; }
 }
 /* A tap receives immediate feedback without depending on touch hover. */
-html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):active .narrative-link-text {
+html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):active .narrative-link-text {
   transition: none;
 }
 /* Selection must remain legible while the normal glyph fill is transparent. */
@@ -84,13 +84,13 @@ html:is(.home-cover, .colophon-cover) .narrative-link-text::selection {
 /* Restore solid text when backgrounds are suppressed or the page is printed. */
 @media (forced-colors: active), print {
   html:is(.home-cover, .colophon-cover) .narrative-link-text,
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
     color: LinkText;
     background: none;
     animation: none;
     transition: none;
   }
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
     text-decoration: underline;
     text-decoration-thickness: 0.06em;
     text-underline-offset: 0.18em;
@@ -98,7 +98,7 @@ html:is(.home-cover, .colophon-cover) .narrative-link-text::selection {
 }
 @media (prefers-reduced-motion: reduce) {
   html:is(.home-cover, .colophon-cover) .narrative-link-text { transition: none; animation: none; }
-  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-notes a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
+  html:is(.home-cover, .colophon-cover) :is(.narrative-summary-link, .homepage-latest a, .site-menu a, .site-footer a):is(:hover, :focus-visible, :active) .narrative-link-text {
     animation: none;
   }
 }

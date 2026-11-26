@@ -73,7 +73,7 @@ Essays should read as self-contained works with deliberate endings. Avoid generi
 
 The homepage is a curated introduction to the writing. It should not simply expose the newest posts, repeat the archive, or behave like a dashboard of content cards.
 
-Its selected passages should let readers encounter ideas before metadata. Each passage and its supporting title share one article link. Selection should favour a coherent range of strong long-form pieces rather than optimise mechanically for recency or completeness. The archive, tagged views and feed remain the places for comprehensive and chronological discovery.
+Its selected passages should let readers encounter ideas before metadata. Each passage and its supporting title share one article link. Selection can mix long-form essays, notes, quotations and personal writing, arranged associatively across years rather than mechanically by recency. The separate Latest list is chronological across all published post types; the archive, tagged views and feed remain the places for comprehensive discovery.
 
 The orientation trial requested on 19 November 2026 adds a small amount of context for first-time readers. “Essays about culture, design, and technology” sits beneath the name on all pages; “A few things I’ve been thinking about” introduces the homepage selection; and small article titles appear after the passages. This deliberately revisits the previous hidden-title and no-introduction decisions. Preserve the prose-led composition and the single column, without adding a biography, marginal notes, a title column, category labels, or cards.
 
@@ -155,7 +155,7 @@ At wide desktop sizes, the masthead and footer share one centred frame across ev
 
 The frame contains the article reading column, the gap and the marginal references: 944 pixels at the default text size, with a 684-pixel reading column. Large landscape images can span that frame. Smaller originals retain their intrinsic size, and an 800-pixel maximum image height keeps portraits proportionate without cropping. Captions retain their established reading measure. This wider arrangement starts at the same 76rem breakpoint as marginal references; narrower layouts retain their existing measures.
 
-Content does not have to fill the frame. The homepage keeps its existing 736-pixel measure, aligned to the frame's left edge with the masthead and other pages' main content. The introduction, passages, Notes and footer copy share that edge. Supporting titles and dates remain right-aligned beneath their passages, and the closing mark stays centred within the homepage's own measure. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
+Content does not have to fill the frame. The homepage keeps its existing 736-pixel measure, aligned to the frame's left edge with the masthead and other pages' main content. The introduction, passages, Latest and footer copy share that edge. Supporting titles and dates remain right-aligned beneath their passages, and the closing mark stays centred within the homepage's own measure. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
 
 ### Use hierarchy without noise
 

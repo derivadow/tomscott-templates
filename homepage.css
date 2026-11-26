@@ -156,17 +156,16 @@ html.home-cover .home-narrative .narrative-date {
   text-align: right;
 }
 
-/* Notes are a chronological postscript, independent of essay selection.
-   Keep all links in the server-rendered HTML; CSS limits the visible list
-   to three without JavaScript or new per-post publishing metadata. */
-html.home-cover .home-narrative .homepage-notes {
+/* Latest is a chronological postscript, independent of the editorial sequence.
+   The template uses the ordinary paginated post list, so no CSS limit is needed. */
+html.home-cover .home-narrative .homepage-latest {
   margin: clamp(2.25rem, 5vw, 3rem) 0 0;
   color: var(--text-colour);
 }
-html.home-cover .home-narrative .homepage-notes:not(:has(.homepage-note)) {
+html.home-cover .home-narrative .homepage-latest:not(:has(.homepage-latest-item)) {
   display: none;
 }
-html.home-cover .home-narrative .homepage-notes::before {
+html.home-cover .home-narrative .homepage-latest::before {
   content: "";
   display: block;
   width: 4rem;
@@ -174,7 +173,7 @@ html.home-cover .home-narrative .homepage-notes::before {
   border-top: 1px solid currentColor;
   opacity: 0.3;
 }
-html.home-cover .home-narrative .homepage-notes > h2 {
+html.home-cover .home-narrative .homepage-latest > h2 {
   margin: 0 0 0.75rem;
   font-family: var(--mono-font);
   font-size: 0.875rem;
@@ -183,22 +182,19 @@ html.home-cover .home-narrative .homepage-notes > h2 {
   letter-spacing: 0.015em;
   text-transform: none;
 }
-html.home-cover .home-narrative .homepage-notes-list {
+html.home-cover .home-narrative .homepage-latest-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-html.home-cover .home-narrative .homepage-note {
+html.home-cover .home-narrative .homepage-latest-item {
   display: grid;
   grid-template-columns: 6rem minmax(0, 1fr);
   gap: 0.25rem 1rem;
   align-items: start;
   margin: 0 0 0.6rem;
 }
-html.home-cover .home-narrative .homepage-note:nth-child(n + 4) {
-  display: none;
-}
-html.home-cover .home-narrative .homepage-notes a {
+html.home-cover .home-narrative .homepage-latest a {
   margin: 0;
   padding: 0;
   border-radius: 0;
@@ -207,7 +203,7 @@ html.home-cover .home-narrative .homepage-notes a {
   text-decoration: none;
   transition: none;
 }
-html.home-cover .home-narrative .homepage-note-title {
+html.home-cover .home-narrative .homepage-latest-item-title {
   grid-column: 2; /* Keep titles aligned when a date is absent. */
   min-width: 0;
   font-family: var(--display-font);
@@ -217,7 +213,7 @@ html.home-cover .home-narrative .homepage-note-title {
   letter-spacing: 0.005em;
   overflow-wrap: anywhere;
 }
-html.home-cover .home-narrative .homepage-note-date {
+html.home-cover .home-narrative .homepage-latest-item-date {
   padding-top: 0.15rem; /* Match the archive metadata's optical top alignment. */
   color: var(--text-colour);
   color: color-mix(in srgb, var(--text-colour) 82%, var(--page-bg-colour));
@@ -229,18 +225,18 @@ html.home-cover .home-narrative .homepage-note-date {
   white-space: nowrap;
   text-align: right;
 }
-html.home-cover .home-narrative .homepage-notes a:focus-visible {
+html.home-cover .home-narrative .homepage-latest a:focus-visible {
   outline: 2px solid var(--accent-dark-colour);
   outline-offset: 0.22rem;
 }
 @media (max-width: 34rem) {
-  html.home-cover .home-narrative .homepage-note {
+  html.home-cover .home-narrative .homepage-latest-item {
     grid-template-columns: minmax(0, 1fr);
   }
-  html.home-cover .home-narrative .homepage-note-title {
+  html.home-cover .home-narrative .homepage-latest-item-title {
     grid-column: 1;
   }
-  html.home-cover .home-narrative .homepage-note-date {
+  html.home-cover .home-narrative .homepage-latest-item-date {
     padding-top: 0;
     display: block;
     text-align: left;
