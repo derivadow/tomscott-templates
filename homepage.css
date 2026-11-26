@@ -82,8 +82,8 @@ html.home-cover .home-narrative .narrative-summary-link:focus-visible {
   outline-color: var(--accent-dark-colour);
   outline-offset: 0.22rem;
 }
-/* The opening style always follows the first rendered entry. No per-post
-   lead class, hand-marked first sentence, or text-splitting script is needed. */
+/* The opening style always follows the first rendered entry. Optional
+   plain-text HomepageLead metadata marks its editorial opening phrase. */
 html.home-cover .home-narrative .narrative-passage:first-child:not(:last-child) {
   margin-bottom: calc(var(--lead-size) * 1);
 }
@@ -91,6 +91,11 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   font-size: var(--lead-size);
   line-height: 1.43;
   letter-spacing: -0.022em;
+}
+html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child .lead-in {
+  font-variant-caps: all-small-caps;
+  font-weight: 600;
+  letter-spacing: 0.035em;
 }
 /* Preserve the opening initial in the cover's yellow accent in every interaction
    state. Native initial-letter is preferred; float sizing is a fallback. */
@@ -101,6 +106,7 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child 
   font-family: var(--display-font);
   font-size: 3.1em;
   font-weight: 600;
+  font-variant-caps: normal;
   line-height: 0.78;
   letter-spacing: 0;
   -webkit-initial-letter: 3.1;
