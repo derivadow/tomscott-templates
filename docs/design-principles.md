@@ -73,13 +73,13 @@ Essays should read as self-contained works with deliberate endings. Avoid generi
 
 The homepage is a curated introduction to the writing. It should not simply expose the newest posts, repeat the archive, or behave like a dashboard of content cards.
 
-Its selected passages should let readers encounter ideas before metadata. Each passage and its supporting title share one article link. Selection can mix long-form essays, notes, quotations and personal writing, arranged associatively across years rather than mechanically by recency. The separate Latest list is chronological across all published post types; the archive, tagged views and feed remain the places for comprehensive discovery.
+Its selected passages should let readers encounter ideas before metadata. Each passage and its visually hidden article title share one article link; the visible publication date provides quiet context. Selection can mix long-form essays, notes, quotations and personal writing, arranged associatively across years rather than mechanically by recency. The separate Latest list is chronological across all published post types; the archive, tagged views and feed remain the places for comprehensive discovery.
 
-The orientation trial requested on 19 November 2026 adds a small amount of context for first-time readers. “Essays about culture, design, and technology” sits beneath the name on all pages; “A few things I’ve been thinking about” introduces the homepage selection; and small article titles appear after the passages. This deliberately revisits the previous hidden-title and no-introduction decisions. Preserve the prose-led composition and the single column, without adding a biography, marginal notes, a title column, category labels, or cards.
+The orientation trial requested on 19 November 2026 adds a small amount of context for first-time readers. “Essays about culture, design, and technology” sits beneath the name on all pages; “A few things I’ve been thinking about” introduces the homepage selection; and small article titles initially appeared after the passages. The 26 November fragmentary-composition refinement hides those titles visually again, retaining them in the accessible link names; dates alone punctuate the sequence. Latest retains its visible titles and dates. Preserve the prose-led composition and the single column, without adding a biography, marginal notes, a title column, category labels, or cards.
 
 ### Keep taxonomy in proportion
 
-Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep the homepage focused on the selected prose, with supporting article titles and publication dates.
+Article types and tags support organisation and browsing. They do not need to be repeated wherever an article appears. Use taxonomy on archive, tagged and other discovery pages when it helps readers make a choice; keep the homepage focused on the selected prose, with supporting publication dates and article titles retained in accessible link names.
 
 ### Earn every piece of interface
 
@@ -97,7 +97,7 @@ The design uses three type families with broadly distinct responsibilities:
 
 - Inter is the reading face for body copy and supporting prose, including the narrative passages on the homepage.
 - Tungsten is the display face for the masthead, article titles, and section headings.
-- Nitti supplies most of the compact contextual furniture: navigation, page labels, tag treatments, captions, article and archive dates, homepage titles and dates, and code.
+- Nitti supplies most of the compact contextual furniture: navigation, page labels, tag treatments, captions, article and archive dates, homepage dates, and code.
 
 These are roles rather than universal rules. For example, search-result dates currently inherit Inter, while the larger error message is set in Tungsten.
 
@@ -155,7 +155,7 @@ At wide desktop sizes, the masthead and footer share one centred frame across ev
 
 The frame contains the article reading column, the gap and the marginal references: 944 pixels at the default text size, with a 684-pixel reading column. Large landscape images can span that frame. Smaller originals retain their intrinsic size, and an 800-pixel maximum image height keeps portraits proportionate without cropping. Captions retain their established reading measure. This wider arrangement starts at the same 76rem breakpoint as marginal references; narrower layouts retain their existing measures.
 
-Content does not have to fill the frame. The homepage keeps its existing 736-pixel measure, aligned to the frame's left edge with the masthead and other pages' main content. The introduction, passages, Latest and footer copy share that edge. Supporting titles and dates remain right-aligned beneath their passages, and the closing mark stays centred within the homepage's own measure. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
+Content does not have to fill the frame. The homepage keeps its existing 736-pixel measure, aligned to the frame's left edge with the masthead and other pages' main content. The introduction, passages, Latest and footer copy share that edge. Dates remain right-aligned beneath their passages, and the closing mark stays centred within the homepage's own measure. Article and Colophon prose retain their normal reading measure. Archive and other listing content also keep their established widths. Widen the shared frame without stretching every paragraph to fit it.
 
 ### Use hierarchy without noise
 
@@ -163,7 +163,7 @@ Scale, weight, spacing and position should establish hierarchy before borders, b
 
 Whitespace should separate ideas and page regions. Avoid filling space merely to make a page feel designed.
 
-On the homepage, preserve the hierarchy in which the prose leads and the smaller Nitti title and date sit beneath it. The title follows the passage inside the same link, remaining part of its accessible text and providing a visible cue to the destination. Keep both within the prose measure. Marginal notes and a separate title column remain rejected.
+On the homepage, preserve the hierarchy in which the prose leads and the smaller Nitti date sits close beneath it. The visually hidden title follows the passage inside the same link, remaining part of its accessible text without interrupting the composition. Keep the date within the prose measure; Latest provides visible article titles for chronological navigation. Marginal notes and a separate title column remain rejected.
 
 ### Reuse patterns
 
@@ -188,7 +188,7 @@ The table below records the effective result of the current selectors and their 
 | Homepage semantic title | `h1.visually-hidden` inside `.home-narrative` | Visually hidden but available to assistive technology | Identifies the homepage without inserting a visible title ahead of the selected writing. |
 | Homepage introduction | `.narrative-intro` embedding `Pages/Home.md` | Short supporting prose above the selection | Eases readers into the writing without adding a biography or a second page heading. |
 | Homepage narrative passage | `.narrative-passage > p` containing `.narrative-summary-link` | Inter at an enlarged reading scale; the first passage is larger and receives the Tungsten drop cap | The primary homepage content and the single visible article link. |
-| Homepage article title | `.narrative-link-title` inside `.narrative-summary-link` | Small Nitti, right-aligned beneath the passage | Identifies the article visually and accessibly within the same link, without creating a second focusable destination. |
+| Homepage article title | `.visually-hidden` inside `.narrative-summary-link` | No visible layout footprint; title-only fallback remains visible | Identifies the article in the same accessible link name, without creating a second focusable destination. |
 | Homepage publication date | `.narrative-date` | Small Nitti in a restrained charcoal | Right-aligned publication metadata beneath the homepage passage. |
 | Article title | `.entry:has(.post-tags) > h1` | Tungsten regular, large display scale | The title of a tagged essay, note, paper or life entry. Notes use a slightly smaller maximum scale. |
 | Functional page title | A direct-child `h1` matched by `main > h1`, `body > h1` or `.entry > h1:first-child` | Nitti regular, small, uppercase and pale | Titles such as Writing, tagged views, Search results, About, Talking and Colophon. The small appearance does not reduce their semantic status. |
@@ -235,7 +235,7 @@ The bibliographic treatment is the established convention for all papers. Abstra
 
 Links should normally look and behave like links. Broad global rules may provide a baseline, but specialised treatments such as the masthead, menu, tags, listings and homepage narrative should remain visually coherent with their purpose.
 
-On the homepage, the passage and its title share a single anchor to the article. It responds through a colour change and visible keyboard focus rather than an underline or card treatment. The small visible title follows the prose inside that same anchor and remains part of the link's accessible name. Do not add a second hidden or visible title link, replace the anchor with a JavaScript click handler, or make the entire passage container an interactive component.
+On the homepage, the passage and its title share a single anchor to the article. It responds through a colour change and visible keyboard focus rather than an underline or card treatment. The visually hidden title follows the prose inside that same anchor and remains part of the link's accessible name. Do not add a second hidden or visible title link, replace the anchor with a JavaScript click handler, or make the entire passage container an interactive component.
 
 Buttons are for actions; links are for navigation. Do not style a link as a button simply to give it greater prominence. Do not introduce a button where selecting or following ordinary text would work.
 
@@ -264,7 +264,7 @@ Ask the following questions before implementation:
 
 When these questions reveal a tension, preserve the architectural and editorial principles before optimising convenience or visual novelty.
 
-For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, with small supporting titles and publication dates beneath it. The 19 November orientation trial should be judged by whether it helps new readers while preserving that flow. Keep the single column, curated selection, one article link per passage, and absence of marginal notes or an introductory biography.
+For homepage changes, also ask whether the change preserves the intended reading hierarchy: prose first, with a small publication date close beneath it. The date-only refinement should be judged by whether it sustains continuous reading while preserving provenance and accessible navigation. Keep the single column, curated selection, one article link per passage, and absence of marginal notes or an introductory biography.
 
 ## Design-system verification
 

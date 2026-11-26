@@ -5,7 +5,7 @@ html.home-cover .home-narrative {
   --narrative-size: clamp(1.1875rem, 1rem + 0.8vw, 1.5rem);
   --narrative-leading: 1.55;
   --narrative-weight: 400;
-  --narrative-gap: 1.4em;
+  --narrative-gap: 1.2em;
   --lead-size: clamp(1.375rem, 1.08rem + 1.25vw, 1.875rem);
   --second-size: clamp(1.28125rem, 1.04rem + 1.025vw, 1.6875rem);
   --intro-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
@@ -61,8 +61,8 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage > p {
   color: var(--text-colour);
   font: inherit;
 }
-/* Keep the passage and its title as one link and one rectangular focus target.
-   The prose carries the reveal; titles and dates stay quiet. */
+/* Keep the passage and its visually hidden title as one link and one
+   rectangular focus target. The prose carries the reveal. */
 html.home-cover .home-narrative .narrative-summary-link {
   display: block;
   margin: 0;
@@ -82,28 +82,10 @@ html.home-cover .home-narrative .narrative-summary-link:focus-visible {
   outline-color: var(--accent-dark-colour);
   outline-offset: 0.22rem;
 }
-/* A small title follows the prose within the same article link. It wraps
-   inside the reading measure and clears a short opening passage's initial. */
-html.home-cover .home-narrative .narrative-link-title {
-  display: block;
-  clear: both;
-  margin-top: 0.65rem;
-  color: var(--text-colour);
-  font-family: var(--mono-font);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-align: right;
-  overflow-wrap: anywhere;
-}
-html.home-cover .home-narrative .narrative-summary-link:is(:hover, :focus-visible, :active) .narrative-link-title {
-  color: var(--accent-dark-colour);
-}
 /* The opening style always follows the first rendered entry. No per-post
    lead class, hand-marked first sentence, or text-splitting script is needed. */
 html.home-cover .home-narrative .narrative-passage:first-child:not(:last-child) {
-  margin-bottom: calc(var(--lead-size) * 1.15);
+  margin-bottom: calc(var(--lead-size) * 1);
 }
 html.home-cover .home-narrative .narrative-prose .narrative-passage:first-child > p {
   font-size: var(--lead-size);
@@ -139,14 +121,14 @@ html.home-cover .home-narrative .narrative-prose .narrative-passage:nth-child(n 
 /* Open the gaps before the smaller passages without changing date spacing
    or adding trailing space after the final entry. */
 html.home-cover .home-narrative .narrative-passage:nth-child(n + 4):not(:last-child) {
-  margin-bottom: calc(var(--narrative-gap) + 0.35rem);
+  margin-bottom: calc(var(--narrative-gap) + 0.2rem);
 }
-/* Publication dates remain secondary beneath the linked title. */
+/* The date is quiet punctuation between fragments, not another link. */
 html.home-cover .home-narrative .narrative-date {
   display: block;
   width: max-content;
   max-width: 100%;
-  margin: 0.45rem 0 0 auto;
+  margin: 0.3rem 0 0 auto;
   color: color-mix(in srgb, var(--text-colour) 72%, var(--page-bg-colour));
   font-family: var(--mono-font);
   font-size: 0.72rem;
@@ -244,7 +226,7 @@ html.home-cover .home-narrative .homepage-latest a:focus-visible {
 }
 
 @media (max-width: 400px) {
-  html.home-cover .home-narrative { --narrative-gap: 1.35em; }
+  html.home-cover .home-narrative { --narrative-gap: 1.15em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.home-cover .home-narrative a { transition: none; animation: none; }
