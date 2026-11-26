@@ -37,7 +37,7 @@
                 {{#entries}}
                     {{^page}}{{^draft}}{{^deleted}}{{^scheduled}}
                         <li class="homepage-latest-item">
-                            {{#dateStamp}}<time class="homepage-latest-item-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>{{/dateStamp}}
+                            {{#dateStamp}}<time class="homepage-latest-item-date visually-hidden" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>{{/dateStamp}}
                             <a class="homepage-latest-item-title" href="{{{url}}}"><span class="narrative-link-text">{{title}}</span></a>
                         </li>
                     {{/scheduled}}{{/deleted}}{{/draft}}{{/page}}

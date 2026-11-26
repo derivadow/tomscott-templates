@@ -6,7 +6,7 @@
 <div class="narrative-passage">
     <p><a class="narrative-summary-link" href="{{url}}">{{#metadata.homepage}}<span class="narrative-link-text">{{.}}</span><span class="visually-hidden"> — {{title}}</span>{{/metadata.homepage}}{{^metadata.homepage}}{{#summary}}<span class="narrative-link-text">{{summary}}</span><span class="visually-hidden"> — {{title}}</span>{{/summary}}{{^summary}}<span class="narrative-link-text">{{title}}</span>{{/summary}}{{/metadata.homepage}}</a></p>
     {{#dateStamp}}
-    <time class="narrative-date" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
+    <time class="narrative-date visually-hidden" datetime="{{#formatDate}}YYYY-MM-DD{{/formatDate}}">{{#formatDate}}D MMM YYYY{{/formatDate}}</time>
     {{/dateStamp}}
 </div>
 {{/scheduled}}
