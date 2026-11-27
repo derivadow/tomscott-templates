@@ -58,6 +58,14 @@
 
 /* Base */
 
+/* Blot's Simple Analytics plugin inserts its fallback pixel directly into the
+   page. Keep it out of the layout and accessibility tree without disabling
+   analytics or the other plugins supplied by app_js. */
+img[src="https://queue.simpleanalyticscdn.com/noscript.gif"],
+img[src^="https://queue.simpleanalyticscdn.com/noscript.gif?"] {
+	display: none;
+}
+
 :root {
 	--body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 	--display-font: 'Tungsten', Impact, 'Arial Narrow', sans-serif;

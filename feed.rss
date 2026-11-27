@@ -14,7 +14,9 @@
 		    <guid>{{{absoluteURL}}}</guid>
 		    {{! RSS feeds need a RFC 822 date}}
 		    <pubDate>{{#formatDate}}ddd, DD MMM YYYY HH:mm:ss ZZ{{/formatDate}}</pubDate>
-		    <dc:creator><![CDATA[ Tom Scott ]]></dc:creator>
+		    {{#metadata.author}}<dc:creator>{{metadata.author}}</dc:creator>{{/metadata.author}}
+		    {{^metadata.author}}<dc:creator>Tom Scott</dc:creator>{{/metadata.author}}
+		    {{#metadata.coauthors}}<dc:creator>{{author}}</dc:creator>{{/metadata.coauthors}}
 		    <description><![CDATA[ {{#encode_xml}} {{{body}}} {{/encode_xml}} ]]></description>
 		</item>
 		{{/recent_entries}}

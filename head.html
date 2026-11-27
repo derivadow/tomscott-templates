@@ -65,7 +65,18 @@
 	{{^summary}}<meta name="twitter:description" content="{{title}}">{{/summary}}
 
 	{{^page}}
+	{{#metadata.author}}
+	<meta name="author" content="{{metadata.author}}">
+	{{#metadata.authorurl}}<meta property="article:author" content="{{metadata.authorurl}}">{{/metadata.authorurl}}
+	{{/metadata.author}}
+	{{^metadata.author}}
+	<meta name="author" content="Tom Scott">
 	<meta property="article:author" content="https://tomscott.name/about">
+	{{/metadata.author}}
+	{{#metadata.coauthors}}
+	<meta name="author" content="{{author}}">
+	{{#authorurl}}<meta property="article:author" content="{{authorurl}}">{{/authorurl}}
+	{{/metadata.coauthors}}
 	<meta property="article:published_time" content="{{#formatDate}}YYYY-MM-DDTHH:mm:ssZ{{/formatDate}}">
 	<meta property="article:modified_time" content="{{#formatUpdated}}YYYY-MM-DDTHH:mm:ssZ{{/formatUpdated}}">
 	{{#tags}}
@@ -84,12 +95,24 @@
 	  "datePublished": "{{#formatDate}}YYYY-MM-DDTHH:mm:ssZ{{/formatDate}}",
 	  "dateModified": "{{#formatUpdated}}YYYY-MM-DDTHH:mm:ssZ{{/formatUpdated}}",{{/page}}
 	  {{#summary}}"description": "{{#encode_json}}{{{summary}}}{{/encode_json}}",{{/summary}}
-	  "author": {
-		"@type": "Person",
-		"@id": "https://tomscott.name/about#tom-scott",
-		"name": "Tom Scott",
-		"url": "https://tomscott.name/about"
-	  },{{#metadata.profile}}
+	  "author": [
+		{{#metadata.author}}{
+		  "@type": "Person",
+		  "name": "{{#encode_json}}{{{metadata.author}}}{{/encode_json}}"{{#metadata.authorurl}},
+		  "url": "{{#encode_json}}{{{metadata.authorurl}}}{{/encode_json}}"{{/metadata.authorurl}}
+		}{{/metadata.author}}
+		{{^metadata.author}}{
+		  "@type": "Person",
+		  "@id": "https://tomscott.name/about#tom-scott",
+		  "name": "Tom Scott",
+		  "url": "https://tomscott.name/about"
+		}{{/metadata.author}}
+		{{#metadata.coauthors}}, {
+		  "@type": "Person",
+		  "name": "{{#encode_json}}{{{author}}}{{/encode_json}}"{{#authorurl}},
+		  "url": "{{#encode_json}}{{{authorurl}}}{{/encode_json}}"{{/authorurl}}
+		}{{/metadata.coauthors}}
+	  ],{{#metadata.profile}}
 	  "mainEntity": {
 		"@type": "Person",
 		"@id": "https://tomscott.name/about#tom-scott",
