@@ -32,6 +32,7 @@ Important files commonly include:
 - `entries.html` — narrative homepage on the first page; the older entry-list view on subsequent pages.
 - `homepage-passage.html` — shared markup for each selected or featured homepage passage, its accessible article title, and publication date.
 - `homepage.css` — homepage-only styles, loaded after `style.css` and scoped to `html.home-cover`.
+- `cover.css` — shared front- and back-cover palette and link feedback.
 - `entry.html` — individual article/post view.
 - `archives.html` — archive listing view, commonly routed to `/archives`.
 - `tagged.html` — tag listing view, commonly used for `/tagged/:tag` routes.
@@ -103,7 +104,7 @@ Rendered site files can also be embedded. For example:
 {{> /Pages/Writing.md}}
 ```
 
-This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string. The `/Pages/Home.md` embed supplies the short conversational introduction requested for the 19 November 2026 orientation trial. Keep that copy in the page file rather than hard-coding it into the template.
+This embeds the rendered HTML output of the file, not the raw Markdown source. If the file does not exist, Blot inserts an empty string. The `/Pages/Home.md` embed supplies the homepage's short conversational introduction. Keep that copy in the page file rather than hard-coding it into the template.
 
 ## Blot-specific constraints
 
@@ -187,12 +188,12 @@ Known visual conventions include:
 - The masthead is styled as `TOMSCOTT.name`.
 - The shared masthead description is “Essays about culture, design, and technology”. It describes the whole site, appears beneath the name on all pages, and is supplied through the template configuration.
 - The masthead/logo links home; global navigation and search live in the footer, without a top jump link.
-- Footer groups are Writing, Talking and Search; About, Colophon and RSS. Bluesky is available on informational pages, not in global navigation. Navigation uses capitals; the credit stays in sentence case.
+- Footer columns are Writing, Talking and About; Search, Colophon and RSS. Bluesky is available on informational pages, not in global navigation. Navigation uses capitals; the credit stays in sentence case.
 - The full-width footer uses deeper charcoal on the homepage and Colophon and warm off-white on interior pages, with contents aligned to the page frame. The decorative octopus printer's mark sits beside the footer credit. The Colophon also includes a larger illustration within the section explaining the mark.
 - Tungsten is used for prominent headings and masthead treatments.
 - Inter is used for body text.
 - Nitti is used for captions or technical/supporting text where already established.
-- Orange is used as the site accent colour.
+- Rust orange is the interior accent; pale yellow is the cover accent.
 - Tags and pill links should feel like part of the site’s visual system.
 - Tag/pill links should not gain unrelated underline treatments.
 - Search should feel integrated with the navigation and site typography. The footer uses the quiet, borderless search field with SEARCH as its placeholder, a visually hidden accessible label and native GET submission through Enter. It has no visible label or submit button. The retained query is displayed in capitals to make it feel like personal navigation. Preserve that behaviour.
@@ -201,13 +202,13 @@ Do not add decorative complexity unless it clearly improves the design.
 
 ## Narrative homepage
 
-The homepage is a curated, prose-led composition mixing essays, notes, quotations and personal writing across the archive. The sequence is associative, not chronological. A separate Latest list uses the first five chronological posts across all content types, even if some are also curated. Each piece has one independent passage; its article title remains in the accessible link name and its original publication date in a visually hidden time element. The short introduction “A few things I’ve been thinking about” remains. The 26 November refinements hide both titles and dates visually because the fragments now sustain continuous reading without visible metadata. Latest retains its visible titles, in reverse chronological order, but hides dates visually too.
+The homepage is a curated, prose-led composition mixing essays, notes, quotations and personal writing across the archive. The sequence is associative, not chronological. A separate Latest list uses the first five chronological posts across all content types, even if some are also curated. Each piece has one independent passage; its article title remains in the accessible link name and its original publication date in a visually hidden time element. The short introduction is “A few things I’ve been thinking about”. Titles and dates are visually hidden in the curated sequence; Latest uses visible titles in reverse chronological order and visually hidden dates.
 
-Preserve the single-column layout at every viewport width. Passages use the available site measure and white space alone separates them visually. Inter carries the prose and Tungsten the opening drop cap, in the cover's yellow accent (`--accent-dark-colour`) rather than the interior burnt orange. Latest uses its existing Tungsten titles, aligned to the left edge of the prose with no reserved date column. Keep the spaces between fragments modest and preserve the existing size hierarchy. Marginal notes and the former title column remain rejected, not responsive modes to restore. Keep the existing cover palette and all homepage-specific styles scoped to `html.home-cover`.
+Preserve the single-column layout at every viewport width. Passages use the available site measure and white space alone separates them visually. Inter carries the prose and Tungsten the opening drop cap, in the cover's yellow accent (`--accent-dark-colour`) rather than the interior burnt orange. Latest uses its existing Tungsten titles, aligned to the left edge of the prose with no reserved date column. Keep the spaces between fragments modest and preserve the existing size hierarchy. The curated sequence has no marginal notes or separate title column. Keep shared cover palette and link feedback in `cover.css`, and homepage-only typography and layout scoped to `html.home-cover` in `homepage.css`.
 
-The passage and its visually hidden title share a single article link, using the existing `.visually-hidden` utility. A title-only fallback remains visible and is not duplicated. Keep the passage readable as prose at rest, with a colour-only hover response and visible keyboard focus. Do not add a second hidden or visible title anchor; the title stays within the passage link and contributes to its accessible name. Homepage footer links retain their quieter, colour-only treatment. Preserve one article focus target per passage. Do not add nested anchors, card click handlers, or a new client-side navigation dependency.
+The passage and its visually hidden title share a single article link, using the existing `.visually-hidden` utility. A title-only fallback remains visible and is not duplicated. Keep the passage readable as prose at rest, with the shared yellow text-colour reveal and visible keyboard focus. Do not add a second hidden or visible title anchor; the title stays within the passage link and contributes to its accessible name. Passage, Latest and shared footer links on both covers use the text-colour reveal in `cover.css`, with solid-yellow fallback, reduced-motion support, and legible forced-colour and print states. Preserve one article focus target per passage. Do not add nested anchors, card click handlers, or a new client-side navigation dependency.
 
-`Homepage:` is escaped plain-text copy, not an inclusion flag. Optional `HomepageLead:` holds a natural opening phrase, with the remainder in `Homepage:`; join with a single space, retain escaped text and one anchor, and style only the first rendered passage with the shared editorial small caps. `Homepage01: yes` through `Homepage16: yes` assign a post to an editorial position; use exactly one slot per post and one post per slot, remove the key to omit it, and leave slots empty when fewer are needed. Blot's documented Mustache context has no native custom sort, so the template explicitly renders the slots in order. `Selected:` and `Featured:` are superseded. Keep summary and title fallbacks, avoid duplicates, and preserve the exclusion of pages, drafts, deleted entries, and scheduled entries. Original titles, URLs and dates come from the posts; never change publication metadata to reorder the homepage.
+`Homepage:` is escaped plain-text copy, not an inclusion flag. Optional `HomepageLead:` holds a natural opening phrase, with the remainder in `Homepage:`; join with a single space, retain escaped text and one anchor, and style only the first rendered passage with the shared editorial small caps. `Homepage01: yes` through `Homepage16: yes` assign a post to an editorial position; use exactly one slot per post and one post per slot, remove the key to omit it, and leave slots empty when fewer are needed. Blot's documented Mustache context has no native custom sort, so the template explicitly renders the slots in order. Keep summary and title fallbacks, avoid duplicates, and preserve the exclusion of pages, drafts, deleted entries, and scheduled entries. Original titles, URLs and dates come from the posts; never change publication metadata to reorder the homepage.
 
 The visually hidden homepage `h1` already provides the semantic page title. Keep it and its connection to `main`. Test the passage links, keyboard focus, accessible link text including article titles, opening drop-cap alignment, visually hidden publication dates and their retained time markup, single-post and empty-selection states, and unaffected non-homepage views when changing templates or CSS. A documentation review alone is not a rendered accessibility or visual regression test.
 
@@ -217,7 +218,7 @@ Prefer semantic HTML.
 
 Every site HTML view declares `lang="en-GB"` and provides one main landmark with `id="main-content"` and `tabindex="-1"`. The negative tabindex allows the skip link to move focus there without adding a normal Tab stop. Keep the homepage main's accessible name.
 
-The shared `skip-link.html` partial is included before the masthead, and directly in the public directory view, which has no masthead. It is the first keyboard link, becomes visible on focus and uses a native fragment link to the main content. Keep it outside the masthead grid. This keyboard access feature is separate from the deferred visible jump-to-footer navigation link.
+The shared `skip-link.html` partial is included before the masthead, and directly in the public directory view, which has no masthead. It is the first keyboard link, becomes visible on focus and uses a native fragment link to the main content. Keep it outside the masthead grid. This keyboard access feature is independent of the footer navigation.
 
 The article template keeps its existing `.entry` div with `role="main"`, and older entry listings use a neutral `.paginated-content` wrapper with the same role. These avoid the layout rules attached to the `main` tag. Preserve the article's direct children and the older listings' reading widths when changing these landmarks. The public directory uses a native main with its original padding and width restored by `.public-content`.
 
