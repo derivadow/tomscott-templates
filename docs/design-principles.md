@@ -260,6 +260,8 @@ The About portrait's manually authored `figcaption` deliberately has no `caption
 
 Keep citations as ordinary titled source links at the end of a paragraph in the authored document. At wide widths, qualifying citations appear in the right margin in compact Nitti; at narrower widths or without JavaScript they remain inline. The source and its title provide context without breaking the reading rhythm. Links that belong to the sentence, and download actions, stay inline.
 
+Default to one-way archive connections; reciprocal links are not automatic. One `archive-connection` aside per essay is the default ceiling, not a target. Prefer an inline link when it belongs naturally in the prose. Any additional aside needs a specific editorial reason beyond topical relevance or reciprocity. Review the cumulative demands on the reader before adding or activating a connection; see [Connections within the archive](docs/writing-and-editorial-style.md#connections-within-the-archive).
+
 An editorial connection to another article can appear at the relevant point in the reading column. The `archive-connection` aside uses the label “Elsewhere in the archive”, a linked article title and a brief explanation of the connection. A quiet accent rule and smaller text distinguish it from the argument. These are authored relationships between pieces of writing, not automatically generated recommendations or a compulsory end-of-article module.
 
 ## Changing the site
